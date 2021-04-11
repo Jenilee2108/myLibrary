@@ -1,0 +1,20 @@
+{
+    "name": "kercode/my-library",
+    "authors": [
+        {
+            "name": "Jenilee2108",
+            "email": "jenilee.mb@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Projet\\" : "./app"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\" :"tests/"
+        }
+    },
+    "require": {}
+}
