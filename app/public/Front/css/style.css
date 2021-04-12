@@ -1,0 +1,237 @@
+/* Mise en place des polices */
+@font-face {
+	font-family: antipasto;
+	src: url(./Antipasto.ttf);
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: caviar;
+	src: url(./CaviarDreamsItalic.ttf);
+	font-weight: normal;
+}
+
+/* Reset */
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+*, *:before, *:after { 
+    box-sizing: inherit;
+}
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+img { 
+    max-width: 100%; 
+    height: auto;
+}
+h1, h2, h3 {
+ text-align: center;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    display: flex;
+}
+li {
+    list-style: none;
+    padding:10px;
+}
+.flex {
+    display:flex;
+}
+.centrer {
+    justify-content: center;
+    margin: 0 auto;
+}
+.align_centrer
+/*Page Tempate la page accueil*/
+.card{
+    border: 1px solid;
+    width: auto;
+    text-align: justify;
+    padding: 15px;
+    box-shadow: 0px 5px 20px #999
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.row {
+    /* Ajouter box-sizing */
+    box-sizing : border-box;
+    border-radius:5px;
+    background-color:#f2f2f2;
+    padding:20px;
+    width: 100%;
+    /* redéfinition 400 + 2*20 */
+    margin:0 auto;
+  }
+
+.btnAdmin {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* .card{
+    border: 1px solid;
+    width: auto;
+    text-align: justify;
+    padding: 15px;
+    box-shadow: 0px 5px 20px #999
+} */
+
+.card_gestion{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
+.article{
+    width: 20%;
+    border: 1px solid;
+    min-height: 451px;
+    display: flex;
+    flex-direction: column;
+}
+
+.all-articles{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.article p{
+    padding: 10px;
+}
+
+.form_article{
+    display: flex;
+    flex-direction: column;
+}
+.content{
+    width: 50%;
+}
+
+.btn-secondary{
+    width: 10%;
+    padding: 10px;
+}
+
+.text_content{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.article_title{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    text-align: center;
+    margin: auto;
+}
+.subBtn{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.infos_admin{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.submit-btnValider{
+    margin-top: 25px;
+}
+
+.input_infos{
+    width: 20%;
+    margin: auto;
+}
+
+.btn_infos,
+.newNameAdmin h3{
+    text-align: center;
+}
+
+.createPresta{
+    margin-top: 55px;
+    text-align: center;
+}
+
+.createPresta a,
+.btn_edit,
+.btn_delet{
+    border: 1px solid;
+    padding: 10px;
+    text-decoration: none;
+    margin: auto;
+}
+.btn_edit:hover,
+.createPresta a:hover{
+    background: black;
+    color: #fff;
+    
+}
+
+.btn_delet:hover{
+    background: red;
+    color: #fff;
+}
+
+.btn_gestion{
+    text-align: center;
+    margin: auto;
+}
+
+.card_mail p{
+    margin-top: -31px;
+}
+
+.formImg{
+    text-align: center;
+}
+
+.newImg{
+    margin-top: 50px
+}
+
+
