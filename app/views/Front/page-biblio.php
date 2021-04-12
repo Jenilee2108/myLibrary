@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 
-<h1 class="h2"><span class="gold">Nos</span> livres en library</h1>
+<h1 class="h2"><span class="gold">Nos</span> livres en Library</h1>
 <!-- Mise en place de la zone de filtre -->
 <section id="filtre-biblio" class="filtre-biblio">
     <div class="container zone-filtre">
