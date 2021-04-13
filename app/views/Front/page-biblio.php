@@ -20,7 +20,7 @@
                         <input type="checkbox" name="category" id="filtre" value="Recettes">
                     <label for="category">Recettes</label>
                 </div>           
-                <h3>Catégorie 2</h3>
+                <h3>Auteur</h3>
                 <div>
                         <input type="checkbox" name="category" id="filtre" value="Recettes">
                     <label for="category">Recettes</label>
@@ -31,7 +31,7 @@
                         <input type="checkbox" name="category" id="filtre" value="Développement Personnel">
                     <label for="category">Développement Personnel</label>
                 </div>
-                <h3>Catégorie 3</h3>
+                <h3></h3>
                 <div>
                         <input type="checkbox" name="category" id="filtre" value="Développement Personnel">
                     <label for="category">Développement Personnel</label>
