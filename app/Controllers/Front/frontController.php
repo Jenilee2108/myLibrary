@@ -5,7 +5,7 @@
     class FrontController{
         /** afficher la page d'accueil **/
         function accueil(){
-            require "app/views/Front/accueil.php";
+            require "app/views/Front/page-accueil.php";
         }
         /** afficher la page des derniers livres ajouter et ceux mémoriser **/
         function about(){

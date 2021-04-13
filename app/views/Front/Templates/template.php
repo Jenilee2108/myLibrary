@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <title>My Library - Ma bibliothèque à portée de main</title>
-    <link rel="stylesheet" href="./app/public/Front/css/style.css"/>
+    <link rel="stylesheet" href="/app/public/Front/css/style.css"/>
 
 </head>
 <body>
@@ -32,7 +32,7 @@
         </nav>
     </div>
     </header>    
-    
+<!-- insertion du contenue de la page appelée -->
     <main class="container">        
         <?= $content; ?>
     </main>
@@ -41,7 +41,9 @@
         <div class="row flex">
             
         </div>
-           <script type="text/javascript" src="./dist/app.js"></script>
+        <!-- Appel des scripts -->
+           <script type="text/javascript" src="/app/public/Front/js/jquery-3.5.1.js"></script>
+           <script type="text/javascript" src="/app/public/Front/js/onglet.js"></script>
         
         
     </footer>
