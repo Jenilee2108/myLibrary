@@ -3,8 +3,8 @@ session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 
 try{
-    /* appel de mon controller front */
-    $frontController = new Projet\Controllers\Front\frontController();
+    /**  appel de mon controller front **/
+    $frontController = new Projet\Controllers\Front\FrontController;
 
     if(isset($_GET['action'])) {
         /** Les actions de la templates **/
@@ -37,7 +37,7 @@ try{
 		}
 
 		/** Les actions de la page library **/
-		else if($_GET['action'] == 'livre'){
+		else if($_GET['action'] == 'livre') {
 			$frontController->livre();
 		}
 
@@ -119,9 +119,8 @@ try{
         $frontController->accueil();
     }
 }
- /**On affiche l'erreur en cas de probleme **/
+ /** *On affiche l'erreur en cas de probleme **/
 catch(Exception $e) {
-    $php_errormsg = $e->getMessage();
-    require "app/views/Front/page-500";
+    die('Erreur :'. $e->getMessage());
 }
 
