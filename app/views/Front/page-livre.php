@@ -2,7 +2,7 @@
 <section id="livreSolo" class="container livreSolo">
      <!-- Boucle pour chaque livre -->
     <article class="container-livre center">
-        <div class="card-livre">        
+           
             <!-- Image d'illustration -->
                 <figure class="card-img" ><img class="img-livre " src="/app/public/Front/images/DefautPhoto1.jpg" alt="Titre du livre"></figure>
             <!-- Espace titre -->        
@@ -29,7 +29,7 @@
                     </p>
                 </div>
             </div> 
-        </div>
+        
     </article>  
         
 </section>

@@ -121,6 +121,7 @@ try{
 }
  /**On affiche l'erreur en cas de probleme **/
 catch(Exception $e) {
-    die('Erreur :'. $e->getMessage());
+    $php_errormsg = $e->getMessage();
+    require "app/views/Front/page-500";
 }
 

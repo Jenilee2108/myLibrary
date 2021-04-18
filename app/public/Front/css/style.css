@@ -82,6 +82,7 @@ li {
     justify-content : center;
     align-content : center;
     align-items : center;
+    width: 100%;
     margin : 0 auto;
 }
 .row {
@@ -174,17 +175,17 @@ p.page-cgu {
     height : auto;    
 }
 .card-corps {
-    display : flex;
-    flex-direction : column;
-    width : 100%;
-    align-items : center;
-    padding : 15px;
-    background-color : #1a472a;
-    border-radius : 3px;
-    -webkit-border-radius : 3px;
-    -moz-border-radius : 3px;
-    -ms-border-radius : 3px;
-    -o-border-radius : 3px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding: 15px;
+    background-color: #1a472a;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
 #quoi.card-title, #fonctionnement.card {
     display : flex;
@@ -242,8 +243,7 @@ h2.filtre {
 }
 .card-corps {
     grid-column : 1 / 3;
-    grid-row : 2 / 3;    
-    align-items : flex-end;
+    grid-row : 2 / 3;
 }
 .card-title {
     /* background-color : blue; */
@@ -301,6 +301,25 @@ h2.filtre {
     display : flex;
     width : auto;
 }
+
+/* Page d'inscription */
+#inscription.card {
+    display : grid;
+    grid-template-columns : repeat(3, 20fr);
+    grid-template-rows : repeat(3, auto);
+    grid-auto-columns : minmax(auto, auto);
+    grid-auto-rows : minmax(auto, auto);
+}
+#inscription>.card-title{
+    grid-column: 1 / 3;
+    grid-row: 1;
+
+}
+#inscription>.card-corps {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+}
+
 
 
 
