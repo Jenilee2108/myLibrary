@@ -7,7 +7,7 @@ class UserManager extends Manager {
         $bdd = $this->dbConnect();
 
         $user = $bdd->prepare("INSERT INTO `users`(`name_user`,`pseudo`,`mail`,`password`) VALUES (?,?,?,?)");
-            $user->execute([$name_user,$pseudo,$mail, $pass]);
+            $user->execute(array($name_user,$pseudo,$mail, $pass));
         return $user;
     }
     /** Pour vérifier si le pseudonyme est unique **/
@@ -35,25 +35,25 @@ class UserManager extends Manager {
     public function editInfo($id) { 
         $bdd = $this->dbConnect();
         $req = $bdd->prepare("SELECT `name_user`,`mail`,`password` FROM `users` WHERE id = ?");
-            $req->execute([$id]);
+            $req->execute(array($id));
         return $req;
     }
     public function updateInfo($id, $mail, $name_user) { 
         $bdd = $this->dbConnect();
 
         $req = $bdd->prepare("UPDATE `users` SET mail = :mail, name_user = :name_user WHERE id = :id");
-            $req->execute([
+            $req->execute(array(
                 $id=>'id',
                 $mail=>'mail',
                 $name_user=>'name_user'
-            ]); 
+            )); 
         return $req;       
     }
     /** Pour supprimer un utilisateur **/
     public function deleteInfo($id) { 
         $bdd = $this->dbConnect();
         $req = $bdd->prepare("DELETE FROM `users` WHERE id = ?");
-            $req->execute([$id]);
+            $req->execute(array($id));
          return $req;
     }
     

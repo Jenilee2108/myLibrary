@@ -7,10 +7,10 @@ class AuthorManager extends Manager{
         $bdd = $this->dbConnect();
 
         $author = $bdd->prepare("INSERT INTO `authors`(name_author, firstname_author) VALUES (?,?,?)");
-        $author->execute([
+        $author->execute(array(
             $name_author,     
             $firstname_author
-            ]);
+            ));
         return $author;
     }    
     /** Pour récupérer tous les authors **/
@@ -24,18 +24,18 @@ class AuthorManager extends Manager{
         $bdd = $this->dbConnect();
 
         $req = $bdd->prepare("SELECT name_author, firstname_author FROM `authors` WHERE id = ? ");
-        $req->execute([$id]);
+        $req->execute(array($id));
             return $req;
         }
     public function updateAuthor($id, $name_author, $firstname_author) {
         $bdd = $this->dbConnect();
 
         $req = $bdd->prepare("UPDATE `authors` SET name_author = :name_author, firstname_author = :firstname_author WHERE id = :id");
-            $req->execute([
+            $req->execute(array(
                 $id => 'id',
                 $name_author => 'name_author',
                 $firstname_author => 'firstname_author'
-                ]); 
+                )); 
         return $req;
     }
     /** il n'y a pas de suppression car les auteurs ne sont pas à supprimer de la base de données **/

@@ -10,22 +10,24 @@ try{
 
     if(isset($_GET['action'])){
 
-    //     /** Si j'appuie sur me connecter**/
-    //     if($_GET['action'] == 'meconnecter'){
-    //         $backController->meconnecter();
-    //     }
-    //     elseif($_GET['action'] == 'connecterAdmin'){
-    //     /** on récupère le mot de passe et le pseudo**/
-    //       $pseudo = htmlspecialchars($_POST['pseudo']);
-    //       $pass = htmlspecialchars($_POST['password']);
-    //     /** On vérifie si tous les champs sont remplis **/
-    //       if(!empty($pseudo) && !empty($pass)){
-    //           $backController->connectAdmin($pseudo,$pass);
-    //       }
-    //       else{
-    //           throw new Exception('Renseignez tous les champs');
-    //       }
-    //     }
+        /** Si j'appuie sur me connecter**/
+        if($_GET['action'] == 'tdb'){
+            $idAuthor = 4;
+            $backController->tdb($idAuthor);
+            $backController->inscription();
+        }
+        elseif($_GET['action'] == 'connecterAdmin'){
+        /** on récupère le mot de passe et le pseudo**/
+          $pseudo = htmlspecialchars($_POST['pseudo']);
+          $pass = htmlspecialchars($_POST['password']);
+        /** On vérifie si tous les champs sont remplis **/
+          if(!empty($pseudo) && !empty($pass)){
+              $backController->connectAdmin($pseudo,$pass);
+          }
+          else{
+              throw new Exception('Renseignez tous les champs');
+          }
+        }
     //     /** Pour la déconnexion **/
     //     elseif ($_GET['action'] == 'deconnexion'){
     //       session_unset();
@@ -82,6 +84,8 @@ try{
     //     $backController->deleteMemo($id);
     //     }
 
+            /** Pour la gestion des livres **/
+
     //     /** Page creer livre **/
     //     // elseif($_GET['action'] == 'newLivre'){
     //     //   $backController->newLivre();
@@ -120,7 +124,7 @@ try{
     //     }
     }
     else{
-          /** s'il n'y a pas d'acoction on reste sur la page de connexion Admin **/
+        /** s'il n'y a pas d'acoction on reste sur la page de connexion Admin **/
         $backController->inscription();
     }
    
