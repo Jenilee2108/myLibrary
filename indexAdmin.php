@@ -11,29 +11,57 @@ try{
     if(isset($_GET['action'])){
 
         /** Si j'appuie sur me connecter**/
-        if($_GET['action'] == 'tdb'){
-            $idAuthor = 4;
-            $backController->tdb($idAuthor);
+        if($_GET['action'] == 'connexion') {
+          $backController->connexion();
+        }
+
+        elseif($_GET['action'] == 'inscription') {
             $backController->inscription();
         }
-        elseif($_GET['action'] == 'connecterAdmin'){
-        /** on récupère le mot de passe et le pseudo**/
+        elseif($_GET['action'] == 'tdb'){
+           
+            $backController->tdb($idLivre);
+         }
+
+        else if($_GET['action'] == 'creatAdmin') {
+            $adminManager = new \Projet\Models\AdminManager();
+           /** On vérifie si le pseudo est bien unique **/
+                  /* Je récupère mes données */
+          $name = htmlspecialchars($_POST['name']);
           $pseudo = htmlspecialchars($_POST['pseudo']);
-          $pass = htmlspecialchars($_POST['password']);
-        /** On vérifie si tous les champs sont remplis **/
-          if(!empty($pseudo) && !empty($pass)){
-              $backController->connectAdmin($pseudo,$pass);
+          $mail = htmlspecialchars($_POST['mail']);
+          $password = htmlspecialchars($_POST['password']);
+            /** on vérifie que l'adresse email est au bon format **/
+          $mail = filter_var($mail, FILTER_VALIDATE_EMAIL);
+
+            /* On cripte le mdp */
+          $pass = password_hash($password, PASSWORD_DEFAULT);
+
+          if(!empty($pseudo) && !empty($pass) && !empty($firstname)){
+            $backController->creatAdmin($pseudo,$name,$mail,$pass);
           }
           else{
               throw new Exception('Renseignez tous les champs');
           }
         }
-    //     /** Pour la déconnexion **/
-    //     elseif ($_GET['action'] == 'deconnexion'){
-    //       session_unset();
-    //       session_destroy();
-    //       header("Location: indexAdmin.php?action=meconnecter");
-    //   }
+        elseif($_GET['action'] == 'meconnecter'){
+        /** on récupère le mot de passe et le pseudo**/
+          $pseudo = htmlspecialchars($_POST['pseudo']);
+          $pass = htmlspecialchars($_POST['password']);
+        /** On vérifie si tous les champs sont remplis **/
+          if(!empty($pseudo) && !empty($pass)){
+              $backController->meconnecter($pseudo,$pass);
+          }
+          else{
+              throw new Exception('Renseignez tous les champs');
+          }
+        }
+        /** Pour la déconnexion **/
+        elseif ($_GET['action'] == 'deconnexion'){
+          session_unset();
+          session_destroy();
+          header("Location: indexAdmin.php?action=meconnecter");
+      }
     //     /** Pour l'espace de gestion **/
     //     elseif ($_GET['action'] == 'gestionAdmin'){
     //         $backController->tbdAdmin();
@@ -125,7 +153,11 @@ try{
     }
     else{
         /** s'il n'y a pas d'acoction on reste sur la page de connexion Admin **/
-        $backController->inscription();
+        // $backController->meconnecter();
+        // $backController->inscription();
+        $idLivre = 1;
+        $idAuthor = 2;
+        $backController->test($idLivre, $idAuthor);
     }
    
 }

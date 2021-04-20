@@ -16,14 +16,14 @@ class AuthorManager extends Manager{
     /** Pour récupérer tous les authors **/
     public function getAuthors() {
         $bdd = $this->dbConnect();
-        $req = $bdd->query("SELECT name_author, firstname_author FROM `authors` ORDER BY id DESC");
+        $req = $bdd->query("SELECT  CONCAT(authors.`firstname_author`,' ' ,authors.`name_author`) AS name_author FROM `authors` ORDER BY id DESC");
             return $req;
         }
     /** Pour récupérer un seul author par id **/
     public function getAuthor($id) {
         $bdd = $this->dbConnect();
 
-        $req = $bdd->prepare("SELECT name_author, firstname_author FROM `authors` WHERE id = ? ");
+        $req = $bdd->prepare("SELECT CONCAT(authors.`firstname_author`,' ' ,authors.`name_author`) AS name_author FROM `authors` WHERE id = ? ");
         $req->execute(array($id));
             return $req;
         }

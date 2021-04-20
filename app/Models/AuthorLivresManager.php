@@ -12,13 +12,14 @@ class AuthorLivresManager extends Manager {
             $idLivre => 'idLivre',
             $tome => 'tome'
         ));
-        return $req;
+    return $req;
     }
 
     /** Pour avoir l'association livre nom de l'auteur/auteur **/
     public function getEcritpar() {
         $bdd = $this->dbConnect();
-        $infos = $bdd->query("SELECT title, name_author 
+
+        $infos = $bdd->query("SELECT `livres`.`title`, `livres`.`content`, CONCAT(authors.`firstname_author`,' ' ,authors.`name_author`) AS name_author
         FROM authorLivres , livres, authors 
         WHERE authorLivres.idLivre = livres.id
         AND authorLivres.idAuthor = authors.id");
@@ -28,7 +29,8 @@ class AuthorLivresManager extends Manager {
     /** Pour avoir tous les livres écris par un auteur **/
     public function allEcritpar($idAuthor) {
         $bdd = $this->dbConnect();
-        $infos = $bdd->prepare("SELECT  livres.`title`
+
+        $infos = $bdd->prepare("SELECT  livres.`title`, livres.`content`, livres.`category`, CONCAT(`firstname_author`,' ' ,`name_author`) AS name_author
         FROM livres, authorLivres, authors
         WHERE authorLivres.idLivre = livres.id
             AND authorLivres.idAuthor = authors.id
@@ -42,7 +44,9 @@ class AuthorLivresManager extends Manager {
     public function updateEcritPar($id, $idAuthor, $idLivre, $tome) {
         $bdd = $this->dbConnect();
 
-        $req = $bdd->prepare("UPDATE `authorLivres` SET idLivre = :idLivre, idAuthor = :idAuthor, tome = :tome WHERE id = :id");
+        $req = $bdd->prepare("UPDATE `authorLivres` 
+            SET idLivre = :idLivre, idAuthor = :idAuthor, tome = :tome 
+            WHERE id = :id");
         $req->execute(array(
             $id => 'id',
             $idAuthor => 'idAuthor',

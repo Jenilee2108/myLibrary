@@ -14,23 +14,28 @@
         </div>        
        <a href="indexAdmin.php?action=infos">Gérer mes infos</a> 
     </div>
-    <?php var_dump($allMemos)?>
     <div class="container ">            
-        <section class="article_about">
-            <div class="all_articles"><h2>Tous les livres associé a un auteur</h2>           <div class="article">
-  
-           <?php foreach($allMemos as $memo){ 
-           ?>
-                        <h4><?= htmlspecialchars($memo['title']); ?> qui a été écrir par cet auteur:  <?= htmlspecialchars($memo['name_author']); ?> </h4>
-                           
-                    <?php }; ?>
-                </div>
-            </div>
-        
+    <section class="container ">
+    <h2>Tous les livres de votre bibliothèque que vous avez commentés</h2>
+    <section class="article_about">
+        <?php var_dump($allComms)?>
+            <?php foreach($allComms as $comm){ ?>
+            <article class="article">            
+                <h4><?= htmlspecialchars($comm['title']); ?>  de <?= htmlspecialchars($comm['name_author']); ?> </h4>
+                <h6 class="center">ajouté par: <?= htmlspecialchars($comm['pseudo']); ?> le</h6>
+                    <?= '<p>  avecune note de '. htmlspecialchars($comm['note']);  '</p>'?>
+                    <?= '<p> dont le commentaire est'. htmlspecialchars($comm['content']); '</p>' ?>
+            </article>
+            <?php }; ?> 
+    </section> 
+        <h3><a href="indexAdmin.php?action=mesComms&pseudo=<?= $_SESSION['pseudo'];?>">Les comms de <?= $_SESSION['pseudo'];?></a></h3>
+       
+        <!-- <a href="indexAdmin.php?action=modifLivres">Gérer mes livres</a> -->          
+</section>
         <section class="article_about">
             <div class="all_articles"><h2>Tous les livres écris par un auteur</h2>           <div class="article">
-            <?php var_dump($sesLivres); ?>
-           <?php foreach($sesLivres as $sonLivre){ ?>
+            <?php var_dump($allLivres); ?>
+           <?php foreach($allLivres as $sonLivre){ ?>
                 <h4><?= htmlspecialchars($sonLivre['title']); ?> qui a été écrir par cet auteur:  </h4>
             <?php }; ?>    
                 </div>
@@ -52,6 +57,14 @@
                         <h4><?= htmlspecialchars($livre['title']); ?> de <?= htmlspecialchars($livre['category']); ?> </h4>
                             <p>                    
                                 <?= htmlspecialchars($livre['content']); ?>                                
+                            </p>
+                    <?php }; ?>
+                </div>
+                <div class="article">
+                <?php foreach($allMemos as $memo){ ?>
+                        <h4><?= htmlspecialchars($memo['title']); ?> de <?= htmlspecialchars($memo['name_author']); ?> </h4>
+                            <p>                    
+                                <?= htmlspecialchars($memo['content']); ?>                                
                             </p>
                     <?php }; ?>
                 </div>
