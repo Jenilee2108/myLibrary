@@ -1,6 +1,10 @@
-<?php ob_start();
+<?php
+@session_start();
+ ob_start();
  
- $livres= $editLivre->fetch(); ?>
+ $livres= $editLivre->fetch(); 
+ $titre = "Modifier mes commentaires";
+ ?>
 
 <section class="article center">
     <article class="article center">

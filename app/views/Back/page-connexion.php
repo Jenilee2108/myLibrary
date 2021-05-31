@@ -1,7 +1,18 @@
-<?php ob_start(); ?>
+<?php 
+@session_start();
+ob_start();
+//si on a un user connecté on va dans la page profil
+var_dump($_SESSION['user']);
+if (!is_null($_SESSION["user"]['psuedo'])) {
+    header("Location: indexAdmin.php?action=tdb");
+    exit;
+}
+$titre = "connexion";
+?>
 
 <section id="connexion">       
 <h1 class='center'>Connexion à l'espace de gestion </h1>
+
         <form action="indexAdmin.php?action=meconnecter" method="POST">
             <table class="center formulaire">
                 <tr class="formulaire center">

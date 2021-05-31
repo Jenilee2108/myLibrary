@@ -7,7 +7,7 @@
     <meta name="description" content="une application pour avoir en poche les livres dont on dispose à la maison">
     <meta name="keywords" content="Livres application">
     <title>My Library - Ma bibliothèque à portée de main</title>
-    <link rel="stylesheet" href="/app/public/Front/css/style.css"/>
+    <link rel="stylesheet" href="app/Public/Front/css/style.css"/>
 
 </head>
 <body>
@@ -17,7 +17,7 @@
         <div class="menuheader center container">
             <!-- Mise en place du logo -->
                 <div class="logo">
-                    <a href="index.php"><img src="/app/public/Front/images/Logo.png" alt=" My library- Mes livres a portée de Main"></a>
+                    <a href="index.php"><img src="app/Public/Front/images/Logo.png" alt=" My library- Mes livres a portée de Main"></a>
                 </div>
             <!-- Mise en place de la Searchbar -->
                 <form action="" class="recherche center">
@@ -50,8 +50,8 @@
             </nav>
         </div>
         <!-- Appel des scripts -->
-           <script type="text/javascript" src="/app/public/Front/js/jquery-3.5.1.js"></script>
-           <script type="text/javascript" src="/app/public/Front/js/onglet.js"></script>
+           <script type="text/javascript" src="app/Public/Front/js/jquery-3.5.1.js"></script>
+           <script type="text/javascript" src="app/Public/Front/js/onglet.js"></script>
         
         
     </footer>

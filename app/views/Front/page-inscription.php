@@ -7,7 +7,7 @@
     <!-- Espace titre -->        
         <h2 class="card-title green"><span class="gold bold">Mon</span> Compte</h2>
             <!-- Espace contenu texte -->
-        <div class="card-corps">        
+        <form action="indexAdmin.php?action=createUser" method="POST" class="card-corps">        
             <table class="card-content">
                 <tr class="bg-gold green">
                     <td class="label-formulaire green label-article" ><label for="pseudo">Pseudo : </label></td>
@@ -26,7 +26,7 @@
                     <td class="input-formulaire"><input type="password" name="password" id="password" plalecholder="Votre mot de passe"></td>
                 </tr>
             </table>                
-        </div>
+        </form>
     </article>        
 </section>
 

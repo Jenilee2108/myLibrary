@@ -1,8 +1,9 @@
-<?php ob_start(); ?>
+<?php ob_start(); 
+    var_dump($users);
+    die; ?>
 <!-- Fonction pour injecter le header -->
 
 <h1>Tableau de bord de <?=$_SESSION['pseudo']?></h1>
-    
 <section class="card_gestion">
    <div class="card"><h3>Mes infos</h3>            
         <div class="form_contact">        
