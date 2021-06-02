@@ -4,30 +4,44 @@
 use Projet\Models\UserManager;
 
 class BackController{
-    function test() {
-            // $livres = new \Projet\Models\LivreManager();
-            // $allLivres = $livres->getLivres();
-            
-            // $infos = new \Projet\Models\CommManager();
-            // $allComms = $infos->getComms($idLivre);
-            // /** Pour avoir tous les livres écris par un auteur donné **/
-            // $infos = new \Projet\Models\AuthorLivresManager();
-            // $allMemos = $infos->allEcritpar($idAuthor);
-            
-            // $userManager = new \Projet\Models\UserManager;
-            // $users = $userManager->findAll();
-            
-        require "app/Views/Back/page-test.php";
-     }
-    
-    /**Fonction du menu **/
 
+    /**Fonction du menu **/
     public function inscription() {
         require "app/Views/Back/page-inscription.php";
     } 
     public function connexion() {
         require "app/Views/Back/page-connexion.php";
     }
+    public function deconnexion() {
+        session_unset();
+       header("Location: indexAdmin.php?action=connexion");
+    }
+    public function tdb($pseudo) {
+        $userManager = new \Projet\Models\UserManager();
+        $name = $userManager->recupMdp($pseudo);
+        $result = $name->fetch();
+        var_dump($result);
+            $pseudo = $result['pseudo'];
+            $name_user = $result['name_user'];
+            $mail = $result['mail'];
+            $pass = $result['password'];
+            /** On crée une session utilisateur **/
+            $_SESSION['user'] = [
+                'pseudo' => $pseudo,
+                'name_user' => $name_user,
+                'mail' => $mail,
+                'pass' => $pass
+            ];
+        /** Pour afficher les livres **/
+        $livres = new \Projet\Models\AuthorLivresManager();
+            $allLivres = $livres->getEcritpar();
+            /** Pour afficher les commentaires **/
+        $infos = new \Projet\Models\CommManager();
+            $allComms = $infos->getMyComm($pseudo);            
+        require "app/Views/Back/page-tdb.php";
+        }
+
+
         /** Page d'inscription **/
     /** Pour créer un utilisateur au pseudo unique **/
     public function createUser($pseudo, $name_user, $mail, $pass) {
@@ -60,8 +74,9 @@ class BackController{
                 ] ;
             $livres = new \Projet\Models\AuthorLivresManager();
                 $allLivres = $livres->getEcritpar();
-            $infos = new \Projet\Models\CommManager();
-                $allComms = $infos->getMyComm($pseudo);
+            // $infos = new \Projet\Models\CommManager();
+            /** Pas encore de commentaires car 1ère connexion **/
+                $allComms = [];
         require 'app/Views/Back/page-tdb.php';
         }
     }
@@ -75,55 +90,42 @@ class BackController{
         /** Récupération des données associées au pseudo **/        
         $user = $userManager->recupMdp($pseudo);
         $result = $user->fetch();
-        // var_dump($result);
-        $pseudo = $result['pseudo'];
-        // var_dump($pseudo);
         /**Vérification de la présence de l'utilisateur **/
         if (!$result) {
             $_SESSION["error"][] = "l'utilisateur et le mot de passe est incorrecte";
         };
-        // var_dump($pass);
-        // var_dump($result['password']);
         /** Vérification de son mot de passe **/
         if (!password_verify($pass, $result['password'])) {
             $_SESSION["error"][] = "l'utilisateur (et/)ou le mot de passe est incorrecte";
         };
+     
         /** Connexion l'utilisateur, et stokage des informations de la session **/
         if ($_SESSION["error"] === []) {
+            $pseudo = $result['pseudo'];
+            $name_user = $result['name_user'];
+            $mail = $result['mail'];
+            /** On crée une session utilisateur **/
             $_SESSION['user'] = [
                 'pseudo' => $pseudo,
-                'name_user' => $result['name_user'],
-                'mail' => $result['mail'],
+                'name_user' => $name_user,
+                'mail' => $mail,
                 'pass' => $pass
-            ];         
-            // die;
-            // var_dump($_SESSION['user']);
+            ];
+            var_dump($_SESSION['user']);
+            /** Appel des livres et des commentaires en BDD  **/
             $livres = new \Projet\Models\AuthorLivresManager();
             $allLivres = $livres->getEcritpar();
             
             $infos = new \Projet\Models\CommManager();            
             $allComms = $infos->getMyComm($pseudo);
-            // var_dump($_SESSION);
+         
             // var_dump($allComms);
             // var_dump($allLivres);
            
             require 'app/Views/Back/page-tdb.php';
         }
-       var_dump($_SESSION['error']);
     }
-    /* Page TDB*/
-    public function tdb($pseudo) {
-        /**Pour afficher l'utilisateur **/
-
-        /** Pour afficher les livres **/
-        $livres = new \Projet\Models\AuthorLivresManager();
-            $allLivres = $livres->getEcritpar();
-            /** Pour afficher les commentaires **/
-        $infos = new \Projet\Models\CommManager();
-            $allComms = $infos->getMyComm($pseudo);            
-        require "app/Views/Back/page-tdb.php";
-        }
-    
+    /* Page TDB*/    
         /** Page Infos **/
     public function getInfos($pseudo) {
         $userManager = new \Projet\Models\UserManager();        
@@ -131,10 +133,6 @@ class BackController{
             $mesInfos = $mesInfos->fetch();
             var_dump($mesInfos);
             $pseudo = $mesInfos['pseudo'];
-            $_SESSION['user'] = [
-                'pseudo' => $pseudo,
-                'mail' => $mesInfos['mail']
-            ]; 
         require "app/views/back/page-infos.php";
     }
     public function updateInfo($pseudo, $mail, $pass) {
@@ -143,61 +141,42 @@ class BackController{
         var_dump($pseudo);
         var_dump($pass);
         $user = $userManager->updateInfo($pseudo, $mail, $pass);
-        $mail = $user['mail'];
-        $user2 = $userManager->recupMdp($pseudo);
-        $result = $user2->fetch();
-        $_SESSION['user'] = [
-            'pseudo' => $pseudo,
-            'name_user' => $result['name_user'],
-            'mail' => $mail,
-            'pass' => $pass
-        ];         
-        // // die;
-        // var_dump($_SESSION['user']);
-        // $livres = new \Projet\Models\AuthorLivresManager();
-        // $allLivres = $livres->getEcritpar();
-        
-        // $infos = new \Projet\Models\CommManager();
-        
-        // $allComms = $infos->getMyComm($pseudo);
-        // // var_dump($_SESSION);
-        // // var_dump($allComms);
-        // // var_dump($allLivres);
-       
-        // require 'app/Views/Back/page-tdb.php';
-        // var_dump($result);
-        // $pseudo = $result['pseudo'];
-        // $_SESSION['user'] = [
-        //     'pseudo' => $pseudo,
-        //     'mail' => $mail,
-        //     'pass' => $pass
-        // ];
-        // $pseudo;
-        // require "app/views/back/page-infos.php";
-        header("Location: indexAdmin.php?action=tdb");
+        $pseudo;
+
+        header("Location: indexAdmin.php?action=tdb&pseudo=$pseudo");
     }
     function deleteUser($pseudo) {
         $userManager = new \Projet\Models\UserManager(); 
         $deleteUser = $userManager->deleteUser($pseudo);
         header("Location: indexAdmin.php?action=inscription");
-    }
-
-    
+    } 
 
 
-    /** Pour les livres associés à un auteur **/
-    function deleteEcritPar($id) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /** Pour l'association livre auteur **/
+    function deleteEcritPar($idLivre) {
         $livres = new \Projet\Models\AuthorLivresManager();
 
-        $deleteLivre =$livres->deleteEcritPar($id);
+        $deleteLivre =$livres->deleteEcritPar($idLivre);
         header("Location: indexAdmin.php?action=tdb");
     }
+    /** Pour créer des livres dans la table de livres **/
     function newLivre() {
         require "app/views/Back/page-livreCreer.php";
     }
-
-
-    /** Pour créer des livres dans la table de livres **/
     function creatLivre($title,$category,$content) {
             $Livre = new \Projet\Models\LivreManager();
             $newlivre = $Livre->creatLivre($title,$category,$content);

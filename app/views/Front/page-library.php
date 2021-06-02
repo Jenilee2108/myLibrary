@@ -21,7 +21,7 @@
                             <input type="checkbox" name="recettes" id="filtre" value="Recettes">
                         <label for="recettes">Recettes</label>
                     </div>           
-                    <h3>Auteur</h3>
+                    <h3>Auteurs</h3>
                     <div>
                             <input type="checkbox" name="category" id="filtre" value="Recettes">
                         <label for="category">Recettes</label>
@@ -32,17 +32,7 @@
                             <input type="checkbox" name="category" id="filtre" value="Développement Personnel">
                         <label for="category">Développement Personnel</label>
                     </div>
-                    <h3></h3>
-                    <div>
-                            <input type="checkbox" name="category" id="filtre" value="Développement Personnel">
-                        <label for="category">Développement Personnel</label>
-                            <input type="checkbox" name="category" id="filtre" value="SF">
-                        <label for="category">Sciences Fiction</label>
-                            <input type="checkbox" name="category" id="filtre" value="polar">
-                        <label for="category">Polar</label>
-                            <input type="checkbox" name="category" id="filtre" value="Recettes">
-                        <label for="category">Recettes</label>
-                    </div>
+                   
             </section>
         </fieldset>
        </form>

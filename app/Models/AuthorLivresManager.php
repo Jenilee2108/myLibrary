@@ -71,11 +71,11 @@ class AuthorLivresManager extends Manager {
     }
     
     /** Pour supprimer une connexion livre/auteur **/
-    public function deleteEcritPar($id) {
-        $sql = "DELETE FROM ". $this->table." WHERE id = '$id'";
+    public function deleteEcritPar($idLivre) {
+        $sql = "DELETE FROM ". $this->table." WHERE id = '$idLivre'";
         /** On prépare la requête **/
         $delete =$this->bdd->prepare($sql);
         /** On exécute la requête */
-        $delete->execute(array($id));
+        $delete->execute(array($idLivre));
     }
 }

@@ -1,13 +1,13 @@
 <?php
-@session_start();
+session_start();
 var_dump($pseudo);
-var_dump($_SESSION['user']);
+var_dump($_SESSION);
 if (!isset($_SESSION["user"])) {
     header("Location: indexAdmin.php?action=tdb");
     exit;
 }
 ob_start();
-@session_start();
+
 $titre = "Mes informations";
 ?> <!-- Fonction pour injecter le header -->
     <?php 
@@ -23,11 +23,11 @@ $titre = "Mes informations";
    <form action="indexAdmin.php?action=updateInfo&pseudo=<?= htmlspecialchars($pseudo); ?>" method="POST">       
         <div>
             <label for="mail">E-mail : </label>
-                <input type="email" name="mail">
+                <input type="email" name="mail" value="<?= htmlspecialchars($mesInfos['mail']) ?>">
         </div>
         <div>
             <label for="password">Password : </label>
-                <input type="password" name="password">
+                <input type="password" name="password" value="">
         </div>
         <div>
             <button type="submit">Mettre a jour</button>

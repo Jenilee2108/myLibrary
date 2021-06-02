@@ -6,7 +6,12 @@ use PDO;
 class UserManager extends Manager
 {
         //table de la base de données
-        protected $table;
+        /**
+         * nom de la table utilisé
+         *
+         * @var string
+         */
+        protected string $table;
         //instance de la bdd
         private $bdd;
     function __construct()

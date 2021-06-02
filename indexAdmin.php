@@ -5,34 +5,39 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 
 try{
-     /** Appel de mon backcontroller **/
+     /** Appel du backcontroller **/
     $backController = new \Projet\Controllers\Back\BackController();
 
     if(isset($_GET['action'])) {
       /** Actions du Menu **/
-        
+        /** Pour la connexion **/
         if($_GET['action'] == 'connexion') {
           $backController->connexion();
         }
-        else if($_GET['action'] == 'test') {
-          $idLivre =2;
-          $idAuthor =2;
-          $backController->test();
-        }
-
+        // else if($_GET['action'] == 'test') {
+        //   $idLivre =2;
+        //   $idAuthor =2;
+        //   $backController->test();
+        // }
+        /** Pour l'inscription **/
         else if($_GET['action'] == 'inscription') {
             $backController->inscription();
         }
+        /** Pour le retour au tdb **/
+        else if($_GET['action'] == 'tdb') {
+          /** On récupère le pseudo  **/
+             $pseudo = htmlspecialchars($_GET['pseudo']);
+             var_dump($pseudo);
+             $backController->tdb($pseudo);
+           }
         /** Pour la déconnexion **/
         else if ($_GET['action'] == 'deconnexion') {
-          session_unset();
-          session_destroy();
-          header("Location: indexAdmin.php?action=connexion");
+         $backController->deconnexion();
         }
 
-        /** Action page-inscription **/
+      /** Action page-inscription **/
         else if ($_GET['action'] == 'createUser') {
-          /* Je récupère mes données */
+          /* On récupère les données */
           $name_user = htmlspecialchars($_POST['name_user']);
           $pseudo = htmlspecialchars($_POST['pseudo']);
           $mail = htmlspecialchars($_POST['mail']);
@@ -47,14 +52,14 @@ try{
               throw new Exception('Renseignez tous les champs');
           }      
         }
-        /** Acition Page-connexion **/
+
+      /** Action Page-connexion **/
         else if($_GET['action'] == 'meconnecter') {
         /** on récupère le mot de passe et le pseudo**/
           $pseudo = htmlspecialchars($_POST['pseudo']);
           $pass = htmlspecialchars($_POST['password']);
-          var_dump($pseudo);
-          var_dump($pass);
-          
+          // var_dump($pseudo);
+          // var_dump($pass);
         /** On vérifie si tous les champs sont remplis **/
           if(!empty($pseudo) || !empty($pass)) {
               $backController->meconnecter($pseudo,$pass);
@@ -63,23 +68,18 @@ try{
               throw new Exception('Renseignez tous les champs');
           }
         }
-        /** Actions Page-tdb **/
-        else if($_GET['action'] == 'tdb') {
-          // $pseudo = $_SESSION['user']['pseudo'];
-          $backController->tdb($pseudo);
-        }
-        
-        /** Page-infos **/
+      /** Actions Page-tdb **/ 
+      /** Pour gérer l'utilisateur **/
+        /** Appel Page-infos **/
         else if($_GET['action'] == 'mesInfos') {
-          $pseudo = $_GET['pseudo'];
-          var_dump($pseudo);
+          $pseudo = htmlspecialchars($_GET['pseudo']);
+          // var_dump($pseudo);    
           $backController->getInfos($pseudo);
         }
-          /**Pour mettre à jour les informations utilisateurs */
+        /**Pour mettre à jour les informations utilisateurs */
         else if($_GET['action'] == 'updateInfo') {
-          $pseudo = $_GET['pseudo'];
+          $pseudo = htmlspecialchars($_GET['pseudo']);
           // var_dump($pseudo);
-          // $backController->getInfos($pseudo);
           $mail = htmlspecialchars($_POST['mail']);
           $password = htmlspecialchars($_POST['password']);
           /** on vérifie que l'adresse email est au bon format **/
@@ -90,16 +90,46 @@ try{
           // var_dump($pseudo);
           $backController->updateInfo($pseudo, $mail, $pass);
         }
-
+        /** Pour la suppression utilisateur **/
         else if($_GET['action'] == 'deleteUser') {
           $pseudo = htmlspecialchars($_GET['pseudo']);
         $backController->deleteUser($pseudo);
         }
+    /** Pour la gestion des commentaires **/
 
+ // else if($_GET['action'] == 'mesMemos') {
+        //   $pseudo = $_SESSION['user']['pseudo'];
+        // $backController->mesMemos($pseudo);
+        // }
+        // /** page blogMemoAdmin.php **/
+        // else if($_GET['action'] == 'modifMemo') {
+        //   $id = htmlspecialchars($_GET['id']);
+        // $backController->modifMemo($id);
+        // }
+        // /** page memo.php **/
+        // else if($_GET['action'] == 'updateMemo') {
+        //   $id = htmlspecialchars($_GET['id']);
+        //   $sujet = htmlspecialchars($_POST['sujet']);
+        //   $content = htmlspecialchars($_POST['content']);
+        //   $backController->updateMemo($id,$sujet,$content);
+        // }
+        // else if($_GET['action'] == 'deleteMemo') {
+        //   $id = htmlspecialchars($_GET['id']);
+        // $backController->deleteMemo($id);
+        // }
+
+
+
+
+
+
+
+
+    /** Pour la gestion de la partie livre **/
         /** Pour les livres associés à un auteur **/
         else if($_GET['action'] == 'deleteLivre') {
-          $id = htmlspecialchars($_GET['id']);
-          $backController->deleteEcritPar($id);
+          $idLivre = htmlspecialchars($_GET['id']);
+          $backController->deleteEcritPar($idLivre);
         }
 
         /** Pour les livres de la tables livres **/
@@ -113,8 +143,8 @@ try{
           $backController->creatLivre($title,$category,$content);
 
         }
-
-        
+       
+       
        
         
 
@@ -159,9 +189,9 @@ try{
         
 
       //   else if($_GET['action'] == 'creatAdmin') {
-      //     $adminManager = new \Projet\Models\AdminManager();
+      //     $adminManager = new \ProOnt\Models\AdminManager();
       //    /** On vérifie si le pseudo est bien unique **/
-      //           /* Je récupère mes données */
+      //           /* On récupère les données */
       //   $name = htmlspecialchars($_POST['name']);
       //   $pseudo = htmlspecialchars($_POST['pseudo']);
       //   $mail = htmlspecialchars($_POST['mail']);
@@ -179,32 +209,14 @@ try{
       //       throw new Exception('Renseignez tous les champs');
       //   }
       // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //     /** Pour l'espace de gestion **/
     //     else if ($_GET['action'] == 'gestionAdmin') {
     //         $backController->tbdAdmin();
-    //     }    
-
-
+    //     } 
     //         /**Page connexionAdmin **/
     //     /** quand j'envoi le formulaire */
     //     else if ($_GET['action'] == 'creatAdmin') {
-    //       /* Je récupère mes données */
+    //       /* On récupère les données */
     //       $firstname = htmlspecialchars($_POST['firstname']);
     //       $pseudo = htmlspecialchars($_POST['pseudo']);
     //       $mail = htmlspecialchars($_POST['mail']);
@@ -225,27 +237,6 @@ try{
     //     }
 
       
-    //     /** Page gestionAdmin.php en ce qui concerne les memos **/
-    //     else if($_GET['action'] == 'mesMemos') {
-    //       $pseudo = $_SESSION['user']['pseudo'];
-    //     $backController->mesMemos($pseudo);
-    //     }
-    //     /** page blogMemoAdmin.php **/
-    //     else if($_GET['action'] == 'modifMemo') {
-    //       $id = htmlspecialchars($_GET['id']);
-    //     $backController->modifMemo($id);
-    //     }
-    //     /** page memo.php **/
-    //     else if($_GET['action'] == 'updateMemo') {
-    //       $id = htmlspecialchars($_GET['id']);
-    //       $sujet = htmlspecialchars($_POST['sujet']);
-    //       $content = htmlspecialchars($_POST['content']);
-    //       $backController->updateMemo($id,$sujet,$content);
-    //     }
-    //     else if($_GET['action'] == 'deleteMemo') {
-    //       $id = htmlspecialchars($_GET['id']);
-    //     $backController->deleteMemo($id);
-    //     }
 
             /** Pour la gestion des livres **/
 
@@ -287,7 +278,7 @@ try{
     //     }
     }
     else{
-        /** s'il n'y a pas d'acoction on reste sur la page de connexion Admin **/
+        /** s'il n'y a pas d'action on reste sur la page de connexion**/
         $backController->connexion();
         // $backController->inscription();
     }

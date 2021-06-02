@@ -23,7 +23,8 @@
             </div>
             <nav class="btnAdmin">
                 <ul>
-                    <?php if ($_SESSION["user"]['pseudo'] == null) : ?>
+                    <?php                    
+                    if (!isset($_SESSION["user"])) : ?>
                         <div class="deconTemp">
                             <li><a href="indexAdmin.php?action=inscription">M'inscrire</a></li>
                         </div>
@@ -31,8 +32,9 @@
                             <li><a href="indexAdmin.php?action=connexion">Me connecter</a></li>
                         </div>
                     <?php else : ?>
+
                         <div class="deconTemp">
-                            <li><a href="indexAdmin.php?action=tdb">Retour au tableau de bord</a></li>
+                            <li><a href="indexAdmin.php?action=tdb&pseudo=<?= $pseudo ??  $_SESSION['user']['pseudo']; ?>">Retour au tableau de bord</a></li>
                         </div>
                         <div class="deconTemp">
                             <li><a href="indexAdmin.php?action=deconnexion">Déconnexion</a></li>

@@ -28,7 +28,10 @@ a {
 fieldset {
     border : none;
 }
-
+/*Variables css */
+:root {
+    --gold : #ccac00;
+}
 /* Généralités */
 html {
     font-family : Caviar, Antipasto, 'Times', sans-serif;
@@ -90,7 +93,7 @@ li {
 }
 /*  Mes couleurs */
 .gold {
-    color : #ccac00;
+    color : var(--gold);
 }
 .green {
     color : #1a472a;
@@ -319,17 +322,6 @@ h2.filtre {
     grid-column: 1 / 3;
     grid-row: 2 / 3;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
