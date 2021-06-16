@@ -1,4 +1,5 @@
-<?php ob_start(); ?>
+<?php ob_start(); 
+$titre = "Conditions générales de vente"; ?>
 <h2 class="gold">Conditions Générales d'Utilisation</h2>
     <p class="page-cgu">
     Ce modèle a été crée par le cabinet ISACC Avocats (3 quai Vauban, 25000 Besançon). Il s’agit 

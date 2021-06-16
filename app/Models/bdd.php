@@ -2,19 +2,13 @@
 namespace Projet\Models;
 
 /** Pour la connection a la BDD **/
-
-
 use PDOException;
 use PDO;
 
 class Bdd extends PDO {
-    //On instance unique de la class
+    // instance unique de la classe
         private static $instance;
-    //constante d'environnement
-        private const DBHOST = "localhost";
-        private const DBUSER = "root";
-        private const DBPASS = "";
-        private const DBNAME = "mylibrary";
+
     // Le constructeur
     private function __construct() {
         //DSN de connexion

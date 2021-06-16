@@ -2,3 +2,4 @@
 /node_modules/*
 .htaccess
 bdd.sql
+.env

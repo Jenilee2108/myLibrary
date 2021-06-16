@@ -1,0 +1,455 @@
+/* Mise en place des polices */
+/* @font-face {
+	font-family : Antipasto;
+	src : url(../../Fonts/Antipasto-Pro-Regular-trial.ttf);
+	font-weight : normal;
+}
+
+@font-face {
+	font-family : Caviar;
+	src : url(../../Fonts/CaviarDreams_Italic.ttf);
+	font-weight : normal;
+} */
+
+/* Reset */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+*,
+* :before,
+* :after {
+    box-sizing: inherit;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*Variables css */
+:root {
+    --gold: #ccac00;
+    --green: #1a472a;
+}
+
+/* Généralités */
+html {
+    font-family: Caviar, Antipasto, 'Times', sans-serif;
+
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+body {
+    height: 100%;
+    max-width: 1280px;
+    min-height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1,
+h2,
+h3 {
+    margin: 20px auto;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    padding: 10px;
+}
+
+.pagewidth {
+    width: 100%;
+    min-width: 350px;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 5px 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 30px auto;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: flex-start;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.row {
+    flex-direction: row;
+}
+
+/*  Mes couleurs */
+.gold {
+    color: var(--gold);
+}
+
+.green {
+    color: var(--green);
+}
+
+.lightGray {
+    color: #dbdbdb;
+}
+
+.bg-green {
+    background-color: var(--green);
+}
+
+.bg-gold {
+    background-color: var(--gold);
+    font-weight: bolder;
+}
+
+/* Mise en place de la template */
+.menuheader {
+    justify-content: space-around;
+}
+
+.rowMenu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Pour le logo */
+.logo,
+.navheader {
+    width: 75%;
+    margin: 10px;
+}
+
+/* Pour le menu Accueil */
+.navheader>ul li {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+}
+
+/* Page tableau de bord */
+.card-corps {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--green);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.gestion_info {
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+}
+
+.container.livreCommente {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.article_commente {
+    flex-direction: column;
+    background-color: var(--gold);
+    margin-top: 0;
+}
+
+.subBtn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+    height: 50px;
+}
+
+.btn {
+    width: 100px;
+}
+
+.card-corps {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+}
+
+.card-title {
+    grid-column: 2 / 3;
+    grid-row: 1;
+    justify-content: flex-end;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--green);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+    align-self: center;
+}
+.derniers-livres {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: auto;
+}
+
+.derniers-livres>.card-livre {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-auto-columns: minmax(auto, auto);
+    grid-auto-rows: minmax(auto, auto);
+    margin-top: 20px;
+    justify-content: center;
+}
+.synopsis-text {
+    display: none;
+    color: #dbdbdb;
+}
+
+.contenu-card-livre {
+    display: flex;
+    flex-direction: column;
+    color: #dbdbdb;
+    margin: 0.3rem;
+}
+
+.label-article,
+.contenu-card-livre>h6 {
+    text-transform: capitalize;
+    font-size: medium;
+    font-weight: bold;
+    text-align: end;
+}
+
+/** Page Livre **/
+.livreSolo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#livreSolo.content-livre {
+    display: flex;
+    width: auto;
+}
+
+/** Page ajouter mon commentaire **/
+#newLivre.livre {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#newLivre>.livre {
+    display: flex;
+    align-content: space-between;
+    margin-top: 20px;
+}
+
+
+/* Page d'inscription */
+#inscription.card,
+#connexion.card {
+    display: grid;
+    grid-template-columns: repeat(3, 20fr);
+    grid-template-rows: repeat(3, auto);
+    grid-auto-columns: minmax(auto, auto);
+    grid-auto-rows: minmax(auto, auto);
+}
+
+#inscription>.card-title,
+#connexion>.card-title {
+    grid-column: 1 / 3;
+    grid-row: 1;
+
+}
+
+#inscription>.card-corps,
+#connexion>.card-corps {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+}
+
+
+
+
+/* pour le format tablette  */
+
+@media screen and (min-width : 768px) {
+
+    /*Mise en place de la template  */
+    .menuheader {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .navheader,
+    .logo {
+        width: 33%;
+    }
+
+    .navheader {
+        justify-content: flex-end;
+    }
+
+    /* Page Library */
+    .allLibrary {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    .synopsis-text {
+        display: none;
+    }
+
+
+}
+
+/*   pour le format tablette paysage ou ordinateur   */
+@media screen and (min-width : 1024px) {
+    .menuheader {
+        margin: 0;
+    }
+
+    .pagewidth {
+        max-width: 975px;
+    }
+
+    .bloc-accueil {
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    /* Page d'accueil */
+    #quoi.card {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        grid-auto-columns: minmax(auto, auto);
+        grid-auto-rows: minmax(auto, auto);
+    }
+
+    #quoi>.card-img {
+        grid-column: 1;
+        grid-row: 2;
+        width: auto;
+    }
+
+    #quoi>.card-title {
+        grid-column: 1 / 3;
+        grid-row: 1;
+
+    }
+
+    #quoi>.card-corps {
+        grid-column: 2 / 3;
+        grid-row: 2;
+    }
+
+    /* Page Library */
+    .allLibrary {
+        grid-template-columns: repeat(3, auto);
+    }
+
+    .synopsis-text {
+        display: flex;
+    }
+
+    /* Page inscription */
+    #pageInscription.container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width : 1200px) {
+    .pagewidth {
+        max-width: 1170px;
+    }
+}
+
+
+
+/* Pour les impressions */
+
+@media print and (min-width : 300px) {
+    header {
+        display: none;
+    }
+
+    #footpage {
+        display: none;
+    }
+
+    body {
+        font-size: 120%;
+        color: black;
+        background-color: none;
+    }
+
+    img a {
+        display: none;
+    }
+
+    nav {
+        display: none;
+    }
+
+}

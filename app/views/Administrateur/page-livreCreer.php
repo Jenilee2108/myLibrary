@@ -17,7 +17,7 @@
 
 
             <div class="subBtn">
-                <button type="submit" class="btn bt-secondary" data-dismiss="modal">Ajouter</button>
+                <button type="submit" class="btn" data-dismiss="modal">Ajouter</button>
             </div>
         </form>      
 </section>

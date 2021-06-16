@@ -2,54 +2,43 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
+    <meta content="text/html" charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="une application pour avoir en poche les livres dont on dispose à la maison">
-    <meta name="keywords" content="Livres application">
+    <meta name="description" content="une application pour avoir en poche les livres dont on dispose à la maison et en garder un commentaire">
+    <meta name="keywords" content="application livre commentaire auteur memo">
     <title>My Library - <?= $titre ?? "Mon tableau de bord" ?></title>
-    <link rel="stylesheet" href="/app/public/Front/css/style.css" />
-
+    <link rel="stylesheet" href="app/Public/Back/css/styleBack.css" />
 </head>
 
 <body>
-    <header class="container-fluid">
-        <div class="row">
+    <div class="pagewidth container">
+        <header class="rowMenu">
             <div class="logo">
-                <a href="index.php"><img src="/app/public/Front/images/Logo.png" alt=" My library- Mes livres a portée de Main"></a>
+                <a href="index.php"><img src="app/Public/Front/images/Logo.png" alt=" My library- Mes livres a portée de Main"></a>
             </div>
-            <div id="searchBar" class="searchBar">
-
-            </div>
-            <nav class="btnAdmin">
+            <!-- Fin Mise en palce du menu de navigation -->
+            <nav class="navheader">
                 <ul>
-                    <?php                    
-                    if (!isset($_SESSION["user"])) : ?>
-                        <div class="deconTemp">
-                            <li><a href="indexAdmin.php?action=inscription">M'inscrire</a></li>
-                        </div>
-                        <div class="deconTemp">
-                            <li><a href="indexAdmin.php?action=connexion">Me connecter</a></li>
-                        </div>
+                    <!-- Vérification qu'il y a un utilisateur connecté -->
+                    <?php if (@is_null($_SESSION["user"]) || $pseudo == null) : ?>
+                        <!-- s'il n'y a pas d'utilisateur on s'inscrit ou se connecte -->
+                        <li><a href="indexAdmin.php?action=inscription">M'inscrire</a></li>
+                        <li><a href="indexAdmin.php?action=connexion">Me connecter</a></li>
                     <?php else : ?>
-
-                        <div class="deconTemp">
-                            <li><a href="indexAdmin.php?action=tdb&pseudo=<?= $pseudo ??  $_SESSION['user']['pseudo']; ?>">Retour au tableau de bord</a></li>
-                        </div>
-                        <div class="deconTemp">
-                            <li><a href="indexAdmin.php?action=deconnexion">Déconnexion</a></li>
-                        </div>
+                        <!-- Si il y a un utilisateur il peut aller à son tdb ou se déconnecter -->
+                        <li><a href="indexAdmin.php?action=suggestion">Suggestion de livre</a></li>
+                        <li><a href="indexAdmin.php?action=tdb&pseudo=<?= $pseudo ??  $_SESSION['user']['pseudo']; ?>">Retour au tableau de bord</a></li>
+                        <li><a href="indexAdmin.php?action=deconnexion">Déconnexion</a></li>
                     <?php endif; ?>
                 </ul>
-            </nav>
-        </div>
-    </header>
-    <!-- Insertion de la page demandée -->
-    <?= $content ?>
-
-    <!-- Emplacement des scripts si besoin -->
-
-
+            </nav><!-- Fin de la nav -->
+        </header><!-- Fin du header -->
+        <!-- Insertion de la page demandée -->
+        <main>
+            <?= $content ?>
+        </main><!-- fin du main -->
+    </div><!-- fin du .pagewidth -->
 </body>
 
 </html>

@@ -40,7 +40,7 @@ class LivreManager extends Manager {
         $sql = "SELECT title, category, `content` FROM". $this->table."WHERE id=$id ";
         /**  On prépare la requête **/
         $livre = $this->bdd->prepare($sql);
-            $livre->execute(array($id));
+        $livre->execute(array($id));
         return $livre;
     }
     public function updateLivre($id, $title, $category, $content) {
@@ -48,13 +48,20 @@ class LivreManager extends Manager {
         /**  On prépare la requête **/
         $livre = $this->bdd->prepare($sql);
         /** On injecte les valeurs **/
-            $livre->bindValue(":title",$title, PDO::PARAM_STR);
-            $livre->bindValue(":category",$category, PDO::PARAM_STR);
-            $livre->bindValue(":content",$content, PDO::PARAM_STR);
+        $livre->bindValue(":title",$title, PDO::PARAM_STR);
+        $livre->bindValue(":category",$category, PDO::PARAM_STR);
+        $livre->bindValue(":content",$content, PDO::PARAM_STR);
         /** On execute la requête **/
         $livre->execute();
         
         return $livre;
+    }
+    /** Pour récupérer les catégories de livres **/
+    public function getCategory() {
+        $sql= "SELECT category FROM ". $this->table." GROUP BY category";
+        /**  On prépare la requête **/
+        $categories = $this->bdd->query($sql);
+        return $categories;
     }
     /** il n'y a pas de suppression car les livres ne sont pas à supprimer de la base de données **/
     

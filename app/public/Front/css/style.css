@@ -31,6 +31,7 @@ fieldset {
 /*Variables css */
 :root {
     --gold : #ccac00;
+    --green : #1a472a;
 }
 /* Généralités */
 html {
@@ -47,7 +48,7 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
 	font-weight : normal;
 }
 img { 
-    max-width : 100%; 
+    max-width : 100%;
     height : auto;
 }
 h1, h2, h3 {
@@ -62,7 +63,7 @@ li {
     padding : 10px;
 }
 .pagewidth {
-    /* background-color : rgba(255, 123, 12, 0.5); */
+    display: flex;
     width : 100%;
     min-width : 350px;
     max-width : 1170px;
@@ -70,15 +71,15 @@ li {
     padding : 5px 0;
 }
 .container {
-    display : flex;
-    flex-direction : column;
-    width : 100%;    
-    box-sizing : border-box;
-    justify-content : center;
-    align-content : center;
-    align-items : center;   
-    padding : 10px;
-    margin : 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;   
+    padding: 10px;
+    margin: 30px auto;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: center;
 }
 .center {
     display : flex;
@@ -96,16 +97,16 @@ li {
     color : var(--gold);
 }
 .green {
-    color : #1a472a;
+    color : var(--green);
 }
 .lightGray {
     color : #dbdbdb;
 }
 .bg-green {
-    background-color : #1a472a;
+    background-color : var(--green);
 }
 .bg-gold {
-    background-color : #ccac00;
+    background-color : var(--gold);
     font-weight : bolder;
 }
 /* Mise en place de la template */
@@ -123,14 +124,14 @@ li {
 }
 .labelSearch {
     display : flex;
-    /* width : max-content; */
+    /* width : max-content;*/
     justify-content : center;
     padding : 0.2em 1em;
     margin : 0 auto;
     cursor : pointer;
-    border-radius : 3px 3px 0px 0px;
     color : #fff;
-    background : #1a472a;
+    background : var(--green);
+    border-radius : 3px 3px 0px 0px;
     -webkit-border-radius : 3px 3px 0px 0px;
     -moz-border-radius : 3px 3px 0px 0px;
     -ms-border-radius : 3px 3px 0px 0px;
@@ -140,7 +141,7 @@ input.searchBar {
     width : 100%;
     background-color : #e5d57f;
     box-shadow : inset 0 0 0.5em #1a1a1a;
-    border : 2px solid #1a472a;
+    border : 2px solid var(--green);
     border-radius : 25px;
     -webkit-border-radius : 25px;
     -moz-border-radius : 25px;
@@ -171,11 +172,11 @@ p.page-cgu {
 }
 #quoi.card {
     display : flex;
-    flex-wrap : wrap; 
+    flex-wrap : wrap;
 }
 .img-accueil {
     width : auto;
-    height : auto;    
+    height : auto;
 }
 .card-corps {
     display: flex;
@@ -183,7 +184,7 @@ p.page-cgu {
     width: 100%;
     align-items: center;
     padding: 15px;
-    background-color: #1a472a;
+    background-color: var(--green);
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -212,19 +213,35 @@ nav>ol.center {
     margin-top : 5px;
 }
 .filtre-library {
-    background-color : #ccac00;
-    color : #1a472a;
+    display: flex;
+    justify-content: center;
+    background-color : var(--gold);
+    color : var(--green);
     font-weight : bold;
 }
 .filtre {
-    background-color : #ccac00;
-    color : #1a472a;
-    border-top : 1px solid #1a472a;
+    background-color : var(--gold);
+    color : var(--green);
+    border-top : 1px solid var(--green);
     font-weight : bold;
     padding-left : 10px;
+    padding-right : 10px;
 }
 h2.filtre {
     border-top : none;
+}
+#onglets {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+#onglets>article.groupe {
+    border-bottom: 2px solid rgb(42, 98, 61);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
 }
 .allLibrary {
     display : grid;
@@ -232,24 +249,18 @@ h2.filtre {
     justify-content : initial;
     
 }
-.container-livre {    
-    flex : 2 1 auto;
-    align-items : initial;
-    padding : 3px;
-    margin-bottom : 20px;
-}
 .card-livre {
     display : grid;
     grid-template-columns : repeat(3, auto);
     grid-auto-columns : minmax(auto, auto);
     grid-auto-rows : minmax(auto, auto);
+    margin-top: 20px;
 }
 .card-corps {
     grid-column : 1 / 3;
     grid-row : 2 / 3;
 }
 .card-title {
-    /* background-color : blue; */
     grid-column : 2 / 3;
     grid-row : 1;
    justify-content : flex-end;
@@ -257,23 +268,22 @@ h2.filtre {
 .card-title {
     text-decoration : none;
     font-weight : bold;
-    color : #1a472a;
+    color : var(--green);
 }
-
 .card-img {
     z-index : 2;
     grid-column : 1;
     grid-row : 1 / 3;
     align-self : start;
-    padding : 0 10px 15px;
+    padding : 0 10px;
     filter : drop-shadow(0 0 0.75rem #ccac00);
     -webkit-filter : drop-shadow(0 0 0.75rem #ccac00);
 }
 .card-content {
     display : flex;
     flex-direction : column;
-    text-align : end;    
-    align-self : end;    
+    text-align : end;
+    align-self : end;
 }
 .synopsis-text {
     display : none;
@@ -306,23 +316,24 @@ h2.filtre {
 }
 
 /* Page d'inscription */
-#inscription.card {
+#inscription.card, #connexion.card {
     display : grid;
     grid-template-columns : repeat(3, 20fr);
     grid-template-rows : repeat(3, auto);
     grid-auto-columns : minmax(auto, auto);
     grid-auto-rows : minmax(auto, auto);
 }
-#inscription>.card-title{
+#inscription>.card-title,
+#connexion>.card-title {
     grid-column: 1 / 3;
     grid-row: 1;
 
 }
-#inscription>.card-corps {
+#inscription>.card-corps,
+#connexion>.card-corps {
     grid-column: 1 / 3;
     grid-row: 2 / 3;
 }
-
 
 
 
@@ -351,8 +362,9 @@ h2.filtre {
         display : none;
     }
 
+
 }
-/*   pour le format tablette paysage ou laptop   */
+/*   pour le format tablette paysage ou ordinateur   */
 @media screen  and (min-width : 1024px) {
     .menuheader {
         margin : 0;
@@ -393,7 +405,11 @@ h2.filtre {
     .synopsis-text {
         display : flex;
     }
-
+    /* Page inscription */
+    #pageInscription.container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
 @media screen and (min-width : 1200px) {
     .pagewidth {
@@ -418,7 +434,6 @@ h2.filtre {
     body {
         font-size : 120%;
         color : black;
-        background-color : none;
     }
     img a {
         display : none;

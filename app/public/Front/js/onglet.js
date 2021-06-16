@@ -26,7 +26,6 @@ $(document).ready(function(){
         //récupération de l'index courant pour afficher la div qui y correspond
         let i = $(this).index();
         $("#onglets div:eq("+i+")").show();
-
         //on retire la class du titre courant
         $titres.removeClass("onglet-choisi");
         $(this).addClass("onglet-choisi");

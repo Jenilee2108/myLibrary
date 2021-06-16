@@ -1,4 +1,6 @@
-<?php ob_start(); ?>
+<?php ob_start(); 
+$titre = "Erreurs"; ?>
+
 <h2 class="gold">Erreur</h2>
     <p>Désolée, vous ne pouvez acceder à cette page.
     Merci de retourner à la <a href="accueil">page d'accueil</a></p>
