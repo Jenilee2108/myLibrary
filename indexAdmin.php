@@ -112,6 +112,7 @@ try {
       $backController->updateComm($idComm, $content, $note, $pseudo);
     }
     /** Ajouter un commentaire
+     * 
      * Pour afficher la page de changement
     **/
     else if ($_GET['action'] == 'addComm') {
