@@ -19,7 +19,7 @@ $titre = "Ajouter mon commentaire";
         <input type="number" name="note" min="0" max="20" title="votre note sur 20"> /20
         <label for="content" class="gold"> Votre commentaire :</label>
         <textarea type="text" name="content" id="commentaire" cols="30" rows="10" title="Un commentaire pour se rappeler où vous en êtes"></textarea>
-        <button type="submit" class="btn">Commenter</button>
+        <button type="submit" class="subBtn btn">Commenter</button>
     </form>
 </section>
 

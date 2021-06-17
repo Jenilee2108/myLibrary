@@ -1,7 +1,9 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
+
 @session_start();
 @$pseudo = $_SESSION['user']['pseudo'];
+
 try {
   /** Appel du backcontroller **/
   $backController = new \Projet\Controllers\Back\BackController();
@@ -97,8 +99,7 @@ try {
     /** Pour la gestion des commentaires **/
     /** pour supprimer un commentaire **/
     else if ($_GET['action'] == 'deleteComm') {
-      $idComm = strip_tags($_GET['id']);      
-      // 
+      $idComm = strip_tags($_GET['id']);
       $backController->deleteComm($idComm, $pseudo);
     }
     
@@ -128,7 +129,6 @@ try {
   } else {
     /** s'il n'y a pas d'action on reste sur la page de connexion**/
     $backController->connexion();
-    // $backController->inscription();
   }
 }
 /**On affiche l'erreur en cas de probleme **/

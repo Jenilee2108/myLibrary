@@ -1,64 +1,54 @@
 <?php ob_start();
-$titre = "Suggérez un livre"; ?>
+$titre = "Contactez-nous"; ?>
 <section>
-    <form>
-        <div>
-            <label for="mail" class="gold label-article">e-mail :</label>
-            <input type="email" id="mail" name="user_mail">
-        </div>
-        <div>
-            <div>
-                <label for="title" class="gold label-article">Titre du livre: </label>
-                <input type="text" id="title" name="title" class="categorieLivre" placeholder="Titre du lirvre">
-            </div>
-            <div>
-                <label for="auteurLivre" class="gold label-article">Auteur: </label>
-                <input type="text" id="name_author" name="name_author" class="auteurLivre" placeholder="Nom Auteur">
-                <input type="text" id="firstname_author" name="firstname_author" class="auteurLivre" placeholder="Prénom Auteur">
-            </div>
-            <div>
-                <label for="category" class="gold label-article">Catégorie: </label>
-                <input type="text" id="category" name="category" class="categorieLivre" placeholder="Catégorie">
-            </div>
-        </div>
-        <div class="synopsis-livre card-corps">
-            <label for="content" class="gold label-article">Synopsis: </label>
-            <input type="text" id="synopsis" name="content" class="lightGray" placeholder="Résumé ">
+    <div class="center container">
 
-        </div>
+        <label for="mail" class="gold label-article">Votre e-mail :</label>
+        <input type="email" id="mail" name="user_mail" placeholder="Entrez votre adresse e-mail" nom="Entrez votre adresse e-mail">
 
-        <button type="submit" class="btn">Envoyer</button>
-    </form>
+        <label for="nom" class="gold label-article">Votre nom: </label>
+        <input type="text" id="nom" name="nom" class="categorieLivre" placeholder="Entrez votre nom" title="Entrez votre nom">
+
+        <label for="demande" class="gold label-article">Votre demande: </label>
+        <textarea type="text" id="demande" name="demande" class="demande" placeholder="Entrez votre message" title="Entrez votre message"></textarea>
+
+    </div>
+    <button class="btn center" id="suggerer">Envoyer</button>
 </section>
-<!-- pour l'envoi de la suggestion -->
-<script>
-    document.getElementById("envoi").addEventListener("click", () => {
+<!-- pour l'envoi du message en messagerie -->
+<script type="text/javascript">
+    document.getElementById("suggerer").addEventListener("click", () => {
+        // on récupère les données
         let email = document.getElementById("mail").value;
+
         let nom = document.getElementById("nom").value;
+        let demande = document.getElementById("demande").value;
 
-        let categorie = document.getElementById("category").value;
-        let nomAuteur = document.getElementById("name_author").value;
-        let prenomAuteur = document.getElementById("firstname_author").value;
-        let titre = document.getElementById("title").value;
-        let resume = document.getElementById("synopsis").value;
 
-        let suggestion = `:${nom} Propose le livre:\n  ${titre} écrit par: ${nomAuteur} ${prenomAuteur}\n qui est dans la catégorie: ${categorie}\n dont le résumé est :${resume} \n son adresse mail pour une éventuelle remarque est ${mail}`;
-        console.log(message);
-        console.log(texte);
-
+        // on crée le message envoyé par le bot
+        let message = `Nouveau Message de ${nom}\n pour dire: ${demande}\n son adresse mail pour une éventuelle remarque est ${email}`;
+        //On utilise l'API slack pour envoyer le message vers l'application
         fetch("https://slack.com/api/chat.postMessage", {
-            method: "POST",
-            headers: new Headers({
-                "Authorization": "Bearer xoxb-1652229429777-2184865386881-OC3vLwPld0ArosYowxxt4xym",
-                "Content-type": "application/json"
-            }),
-            body: JSON.stringify({
-                channel: "C025S0HC540",
-                text: suggestion
+                method: "POST",
+                headers: new Headers({
+                    "Authorization": "Bearer "+"xoxb-1652229429777-1685440012003-3PLmsXMgah9tRAnJWdNWsqpc",
+                    "Content-type": "application/json"
+                }),
+                body: JSON.stringify({
+                    channel: "C01L23QCM29",
+                    text: message
+                })
             })
-        });
-
-
+            .then(function(response) {
+                if (response.ok) {
+                    console.log("Message bien envoyé");
+                } else {
+                    console.log("Mauvaise réponse du réseau");
+                }
+            })
+            .catch(function(error) {
+                console.log("Probleme avec l'opération de fetch" + error.message);
+            });
     });
 </script>
 <?php $content = ob_get_clean(); ?>

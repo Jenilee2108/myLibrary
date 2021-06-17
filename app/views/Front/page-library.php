@@ -3,7 +3,7 @@ $titre = "Les Livres de MyLibrary"; ?>
 
 <!-- Mise en place de la zone de filtre -->
 <section id="filtre-library" class="container center pagewidth">
-    <h1 class="h2"><span class="gold">Nos</span> livres en Library</h1>
+    <h1 class="h2 green"><span class="gold">Nos</span> livres en Library</h1>
     <!-- Mise en place d'un formulaire pour choisir le type de livres que l'on souhaite -->
     <form class="filtre-library container" action="" method="post">
         <!-- Champs du filtre  -->
@@ -14,16 +14,16 @@ $titre = "Les Livres de MyLibrary"; ?>
             <!-- mise en place des onglets associés au type de filtre -->
             <section id="onglets">
                 <h3>Catégories</h3>
-                <div>
+                <div id="filtreCategory">
                     <?php foreach ($categories as $category) : ?>
-                        <input type="checkbox" name="category" id="filtreCategory" class="filtre" value="<?= $category['category']; ?>">
+                        <input type="checkbox" name="category"  class="filtre" value="<?= $category['category']; ?>">
                         <label for="category"><?= $category['category']; ?></label>
                     <?php endforeach; ?>
                 </div>
                 <h3>Auteurs</h3>
-                <div>
+                <div id="filtreAuthor">
                     <?php foreach ($authors as $auteur) : ?>
-                        <input type="checkbox" name="author" id="filtreAuthor" class="filtre" value="<?= $auteur['name_author']; ?>">
+                        <input type="checkbox" name="author"  class="filtre" value="<?= $auteur['name_author']; ?>">
                         <label for="author"><?= $auteur['name_author']; ?></label>
                     <?php endforeach; ?>
                 </div>
@@ -45,7 +45,7 @@ $titre = "Les Livres de MyLibrary"; ?>
             </figure>
             <!-- Espace titre et content -->
             <h2 class="card-title green">
-                <a href="livre&id=<?= $livre['id']; ?>"><?= strip_tags($livre["title"]); ?></a>
+                <a class="green" href="index.php?action=livre&id=<?= $livre['id']; ?>"><?= strip_tags($livre["title"]); ?></a>
                 <?php if (!is_null($livre['tome'])) :
                     echo "<span class='gold bold'>-TOME " . strip_tags($livre["tome"]) . "</span>"; ?>
                 <?php endif; ?>

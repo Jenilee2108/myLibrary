@@ -1,5 +1,6 @@
 <?php ob_start();
 $livre = $monLivre->fetch();
+($livre);
 $titre = $livre['title'] ?? "Livre"; ?>
 
 <section id="livreSolo" class="container livreSolo">

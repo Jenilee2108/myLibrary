@@ -31,6 +31,7 @@
                     <ul id="menuAccueil">
                         <li><a href="index.php?action=library" class="green">My library</a></li>
                         <li id="monCompte"><a href="index.php?action=moncompte" class="green">Mon Compte</a></li>
+                        <li id="meContacter"><a href="index.php?action=contact" class="green">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -50,10 +51,11 @@
                 </ul>
             </nav>
         </div>
-        <!-- Scripts de la barre de recherche -->
-        <script type="text/javascript" src="app/Public/Front/js/recherche.js" defer></script>        
         <!-- Script du filtre -->        
         <script type="text/javascript" src="app/Public/Front/js/onglet.js" defer></script>
+        <!-- Scripts de la barre de recherche -->
+        <script type="text/javascript" src="app/Public/Front/js/recherche.js" defer></script>
+        <script type="text/javascript" src="app/Public/Front/js/filtre.js" defer></script>
 
 
     </footer>

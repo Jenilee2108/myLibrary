@@ -21,7 +21,7 @@
     <h2 class="green"><span class='gold bold'>Mes</span> informations</h2>
     <p for="mail">Votre adresse mail de contact est <?= $_SESSION['user']['mail'] ?></p>
     <!-- on récupère le pseudo comme parametre -->
-    <h4><a href="indexAdmin.php?action=mesInfos&pseudo=<?= $pseudo ?>" class="btn-menu">Pour modifier mes informations</a></h4>
+    <h4><a href="indexAdmin.php?action=mesInfos&pseudo=<?= $pseudo ?>" class="subBtn btn-menu">Pour modifier mes informations</a></h4>
 </section>
 
 
@@ -55,8 +55,8 @@
                     <input type="number" min="0" max="20" step="1" name="note"> 
                     <!-- bouton d'action -->
                     <div class="subBtn">
-                        <button type="submit" class="btn">Modifier</button>
-                        <button class="btn"><a href="indexAdmin.php?action=deleteComm&id=<?= $comm['id']; ?> ">Supprimer</a></button>
+                        <button type="submit" class="subBtn btn">Modifier</button>
+                        <button class="subBtn btn"><a href="indexAdmin.php?action=deleteComm&id=<?= $comm['id']; ?> ">Supprimer</a></button>
                     </div>
                 </form><!-- fin du formulaire de commentaire -->
             </article><!-- Fin de la partie de commentaire -->
@@ -102,7 +102,7 @@
                                 <?= strip_tags($livre["content"]); ?>
                             </p>
                         </div>
-                        <button class="btn">
+                        <button class="subBtn btn">
                             <a href="indexAdmin.php?action=addComm&livre=<?= $livre['id']; ?>">Ajouter un commentaire</a>
                         </button>
                     </div>

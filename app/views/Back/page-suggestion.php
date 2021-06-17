@@ -23,11 +23,12 @@ $titre = "Suggérez un livre"; ?>
         <label for="content" class="gold label-article">Synopsis: </label>
         <textarea type="text" id="synopsis" name="content" class="lightGray" placeholder="Résumé"></textarea>
     </div>
-    <button class="btn center" id="suggerer">Envoyer</button>
+    <button class="subBtn btn center" id="suggerer">Envoyer</button>
 </section>
 <!-- pour l'envoi de la suggestion en messagerie -->
 <script type="text/javascript">
     document.getElementById("suggerer").addEventListener("click", () => {
+        // on récupère les données
         let email = document.getElementById("mail").value;
         let nom = document.getElementById("pseudo").value;
 
@@ -36,13 +37,15 @@ $titre = "Suggérez un livre"; ?>
         let prenomAuteur = document.getElementById("firstname_author").value;
         let titre = document.getElementById("title").value;
         let resume = document.getElementById("synopsis").value;
-
-        let suggestion = `${nom} Propose le livre: ${titre}\n écrit par: ${nomAuteur} ${prenomAuteur}\n qui est dans la catégorie: ${categorie}\n dont le résumé est :${resume} \n son adresse mail pour une éventuelle remarque est ${email}`;
-
+        
+        
+        // on crée la suggestion envoyé par le bot
+        let suggestion = `${nom} Propose le livre: ${titre}\n écrit par: ${nomAuteur} prénom: ${prenomAuteur}\n qui est dans la catégorie: ${categorie}\n dont le résumé est :${resume} \n son adresse mail pour une éventuelle remarque est ${email}`;
+        //On utilise l'API slack pour envoyer la suggestion vers l'application
         fetch("https://slack.com/api/chat.postMessage", {
             method: "POST",
             headers: new Headers({
-                "Authorization": "Bearer entrer ici votre TOKEN",
+                "Authorization": "Bearer "+"Entrer le Token ici",
                 "Content-type": "application/json"
             }),
             body: JSON.stringify({
@@ -52,7 +55,7 @@ $titre = "Suggérez un livre"; ?>
         })
         .then(function(response) {
             if (response.ok) {
-                console.log("Message bien envoyé");
+                console.log("Suggestion bien envoyée");
             } else {
                 console.log("Mauvaise réponse du réseau");
             }

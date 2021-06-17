@@ -19,7 +19,7 @@ $titre = "Résultat de votre recherche"; ?>
 
             <!-- Espace titre et content -->
             <h2 class="card-title green">
-                <a href="livre&id=idLivre"><?= strip_tags($search["title"]); ?></a>
+                <a class="green" href="livre&id=idLivre"><?= strip_tags($search["title"]); ?></a>
                 <?php if (!is_null($search['tome'])) :
                     echo "<span class='gold bold'>-TOME " . strip_tags($search["tome"]) . "</span>"; ?>
                 <?php endif; ?>

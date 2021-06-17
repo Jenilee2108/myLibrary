@@ -17,9 +17,13 @@ try {
         else if ($_GET['action'] == 'library') {
             $frontController->library();
         }
-        /** Pour aller à mon compte */
+        /** Pour aller à mon compte **/
         else if ($_GET['action'] == 'moncompte') {
             $frontController->moncompte();
+        }
+        /** Pour aller à contact **/
+        else if ($_GET['action'] == 'contact') {
+            $frontController->mecontacter();
         }
         /** Pour la barre de recherche **/
         else if ($_GET['action'] == 'search') {
@@ -34,6 +38,7 @@ try {
 
 
         /** Les actions de la page library **/
+        /** Pour afficher un livre **/
         else if ($_GET['action'] == 'livre') {
             $idLivre = htmlspecialchars($_GET['id']);
             $frontController->livre($idLivre);
