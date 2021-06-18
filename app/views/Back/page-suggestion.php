@@ -1,30 +1,36 @@
 <?php ob_start();
 $titre = "Suggérez un livre"; ?>
-<section>
-    <div class="center container">
+
+<h1>Suggérez <span class="gold"> un livre</span></h1>
+
+<section class="card-corps">
+    <div class="container">
+    <!-- on récupère le pseudo utilisateur -->
         <input type="hidden" id="pseudo" value="<?= $pseudo ?>">
 
-        <label for="mail" class="gold label-article">e-mail :</label>
+        <label for="mail" class="title-label label-article">e-mail :</label>
         <input type="email" id="mail" name="user_mail" value="<?= $_SESSION["user"]['mail'] ?>">
 
-        <label for="title" class="gold label-article">Titre du livre: </label>
+        <label for="title" class="title-label label-article">Titre du livre: </label>
         <input type="text" id="title" name="title" class="categorieLivre" placeholder="Titre du lirvre">
 
-        <label for="auteurLivre" class="gold label-article">Auteur: </label>
+        <label for="auteurLivre" class="title-label label-article">Auteur: </label>
         <div>
             <input type="text" id="name_author" name="name_author" class="auteurLivre" placeholder="Nom Auteur">
             <input type="text" id="firstname_author" name="firstname_author" class="auteurLivre" placeholder="Prénom Auteur">
         </div>
-        <label for="category" class="gold label-article">Catégorie: </label>
+        <label for="category" class="title-label label-article">Catégorie: </label>
         <input type="text" id="category" name="category" class="categorieLivre" placeholder="Catégorie">
 
-    </div>
-    <div class="synopsis-livre card-corps">
-        <label for="content" class="gold label-article">Synopsis: </label>
+        <label for="content" class="title-label label-article">Synopsis: </label>
         <textarea type="text" id="synopsis" name="content" class="lightGray" placeholder="Résumé"></textarea>
     </div>
-    <button class="subBtn btn center" id="suggerer">Envoyer</button>
+    <div class="subBtn">
+        <button class="btn" id="suggerer">Envoyer</button>
+    </div>
 </section>
+
+
 <!-- pour l'envoi de la suggestion en messagerie -->
 <script type="text/javascript">
     document.getElementById("suggerer").addEventListener("click", () => {

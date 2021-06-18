@@ -8,24 +8,23 @@ if (!isset($_SESSION["user"])) {
 $titre = "Mes informations";
 ?>
 
-<h1>Mes infos de <?= $pseudo; ?></h1>
+<h1>Les <span class="gold"> infos</span> de <?= $pseudo; ?></h1>
 
-<section class="container card-corps">
+<section class="card-corps">
     <!-- Formulaire de mise à jour des infos utilisateur -->
     <form action="indexAdmin.php?action=updateInfo" method="POST" class="article_commente container">
-        <label for="mail">E-mail : </label>
+        <label for="mail" class="title-label" >E-mail : </label>
         <input type="email" name="mail" value="<?= htmlspecialchars($mesInfos['mail']) ?>">
 
-        <label for="password">Password : </label>
+        <label for="password" class="title-label" >Password : </label>
         <input type="password" name="password" value="">
 
         <div class="subBtn">
-            <button type="submit" class="subBtn btn">Mettre a jour</button>
-            <button class="subBtn btn"><a class="btn_delet" href="indexAdmin.php?action=deleteUser&pseudo=<?= htmlspecialchars($pseudo); ?>">Supprimer mon compte</button>
-        </div><!-- Fin de la div.subBtn -->
+            <div type="submit" class="btn title-label">Mettre a jour</div>
+            <a class=" btn title-label" href="indexAdmin.php?action=deleteUser&pseudo=<?= htmlspecialchars($pseudo); ?>">Supprimer mon compte</a>
+        </div><!-- Fin de la div.subBtn avec les boutons-->
     </form><!-- Fin du formulaire -->
 </section>
-
 <?php $content = ob_get_clean() ?>
 <!-- Fontion php pour injecter le template -->
 <?php require 'templates/template.php' ?>

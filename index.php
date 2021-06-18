@@ -2,6 +2,7 @@
 session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 
+
 try {
     /**  appel de mon controller front **/
     $frontController = new Projet\Controllers\Front\FrontController;
@@ -53,6 +54,9 @@ try {
 
     } else {
         /** s'il n'y a pas d'action sur la page d'accueil **/
+        if(isset($_GET['accepte-cookie'])) {
+            setcookie('accepte-cookie', 'true', time()+365*24*3600);
+        }
         $frontController->accueil();
     }
 }

@@ -1,7 +1,7 @@
 /* Mise en place des polices */
 @font-face {
-	font-family : Antipasto;
-	src : url(../../Fonts/Antipasto-Pro-Regular-trial.ttf);
+	font-family : Roboto;
+	src : url(app/Public/Fonts/Roboto-Regular.ttf);
 	font-weight : normal;
 }
 
@@ -35,7 +35,7 @@ fieldset {
 }
 /* Généralités */
 html {
-    font-family : Caviar, Antipasto, 'Times', sans-serif;
+    font-family : Caviar, Roboto, 'Times', sans-serif;
 
 }
 body {
@@ -61,6 +61,13 @@ ul {
 }
 li {
     padding : 10px;
+}
+p {
+    font-family: 'Caviar';
+    font-weight: normal;
+    color: rgb(170, 170, 170) ;
+    word-wrap: break-word;
+
 }
 .pagewidth {
     display: flex;
@@ -157,14 +164,34 @@ input.searchBar {
 .navheader>ul li a:hover,
 .navheader>ul li a.on{
     color: var(--gold);
-    border-bottom: 3px solid var(--gold);    
-    
+    border-bottom: 3px solid var(--gold);
 }
     /* Footer */
 .footer {
     margin-bottom : 0;
 }
-
+.banniere {
+    border: solid 2px var(--gold);
+    background-color: rgba(42, 98, 61, 0.7);
+    position: fixed;
+    bottom: 0%;
+    left: 0%;
+    width: 100%;
+    z-index: 3;
+    color: #dbdbdb;
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+}
+.text-banniere p {
+    font-size: large;
+}
+.button-banniere a {
+    border: solid 1px var(--gold);
+    padding: 10px;
+    background-color: #ccac00;
+    color:rgb(42, 98, 61);
+}
 /* Page-CGU */
 p.page-cgu {
     margin : auto;
@@ -294,6 +321,7 @@ h2.filtre {
     text-align : end;
 }
 .synopsis-text {
+    font-family: Roboto;
     display : none;
     color : #dbdbdb;
 }
