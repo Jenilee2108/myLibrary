@@ -5,7 +5,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 try {
     /**  appel de mon controller front **/
-    $frontController = new Projet\Controllers\Front\FrontController;
+    $frontController = new Projet\Controllers\Front\frontController();
 
     if (isset($_GET['action'])) {
         /** Les actions du menu 
