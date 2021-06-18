@@ -31,7 +31,7 @@ $titre = "Contactez-nous"; ?>
         fetch("https://slack.com/api/chat.postMessage", {
                 method: "POST",
                 headers: new Headers({
-                    "Authorization": "Bearer "+"xoxb-1652229429777-1685440012003-3PLmsXMgah9tRAnJWdNWsqpc",
+                    "Authorization": "Bearer "+"<?= self::SLACK_TOKEN ?>",
                     "Content-type": "application/json"
                 }),
                 body: JSON.stringify({
