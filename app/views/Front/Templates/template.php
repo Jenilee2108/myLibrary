@@ -9,7 +9,7 @@
     <meta name="keywords" content="Livres application">
     <title>My Library - <?= $titre ?? "Ma bibliothèque à portée de main" ?></title>
     <link rel="stylesheet" href="app/public/Front/css/style.css"/>
-    <script type="text/javascript" src="app/public/Front/js/jquery-3.5.1.js" defer></script>
+    <script src="app/public/Front/js/jquery-3.5.1.js" defer></script>
 
 </head>
 
