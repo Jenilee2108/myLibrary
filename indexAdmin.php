@@ -24,6 +24,11 @@ try {
     }
     /** Pour le retour au tdb **/
     else if ($_GET['action'] == 'tdb') {
+      /*On vérifie si il y a un utilisateur*/
+      if (!isset($_SESSION["user"])) {
+        $backController->connexion();
+        exit;
+      }
       /** On utilise le pseudo de la session**/      
       $backController->tdb($pseudo);
     }
@@ -137,5 +142,5 @@ catch (Exception $e) {
   die('Erreur :' . $e->getMessage());
 }
 catch (\Error $e) {
-
+  die('Erreurs :' . $e->getMessage());
 }

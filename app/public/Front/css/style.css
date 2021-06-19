@@ -1,15 +1,21 @@
 /* Mise en place des polices */
 @font-face {
+    font-family : CaviarItallic;
+    src : url(../../Fonts/CaviarDreams_Italic.ttf);
+    font-weight : normal;
+    font-style: italic;
+}
+@font-face {
+    font-family : Caviar;
+    src : url(../../Fonts/CaviarDreams.ttf);
+    font-weight : normal;
+}
+@font-face {
 	font-family : Roboto;
 	src : url(../../Fonts/Roboto-Regular.ttf);
 	font-weight : normal;
 }
 
-@font-face {
-	font-family : Caviar;
-	src : url(../../Fonts/CaviarDreams_Italic.ttf);
-	font-weight : normal;
-}
 
 /* Reset */
 * {
@@ -35,7 +41,7 @@ fieldset {
 }
 /* Généralités */
 html {
-    font-family : Caviar, Roboto, 'Times', sans-serif;
+    font-family : 'CaviarItallic', 'Roboto', 'Times', sans-serif;
 
 }
 body {
@@ -63,7 +69,7 @@ li {
     padding : 10px;
 }
 p {
-    font-family: 'Caviar';
+    font-family: 'CaviarItallic';
     font-weight: normal;
     color: rgb(170, 170, 170) ;
     word-wrap: break-word;
@@ -165,6 +171,11 @@ input.searchBar {
 .navheader>ul li a.on{
     color: var(--gold);
     border-bottom: 3px solid var(--gold);
+}
+ol.center {
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    justify-content: space-evenly;
 }
     /* Footer */
 .footer {

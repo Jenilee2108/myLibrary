@@ -9,7 +9,7 @@
     <meta name="keywords" content="Livres application">
     <title>My Library - <?= $titre ?? "Ma bibliothèque à portée de main" ?></title>
     <link rel="stylesheet" href="app/public/Front/css/style.css"/>
-    <script type="text/javascript" src="app/public/Front/js/jquery-3.5.1.js" defer></script>
+    <script src="app/public/Front/js/jquery-3.5.1.js" defer></script>
 
 </head>
 
@@ -24,7 +24,7 @@
                 </div>
                 <!-- Mise en place de la Searchbar -->
                 <form role="search" action="index.php?action=search" class="recherche center" method="POST">
-                    <button type="submit" for="searchBar" class="labelSearch">Rechercher un livre</button>
+                    <label type="submit" for="searchBar" class="labelSearch">Rechercher un livre</label>
                     <input type="search" id="searchBar" name="q" class="searchBar" minlength="3" title="Votre recherche doit contenir au moins 3 caractères">
                 </form>
                 <!-- Mise en place du menu -->
@@ -55,7 +55,6 @@
         <!-- Script du filtre -->
         <script type="text/javascript" src="app/public/Front/js/onglet.js" defer></script>
         <!-- Scripts de la barre de recherche -->
-        <script type="text/javascript" src="app/public/Front/js/recherche.js" defer></script>
         <script type="text/javascript" src="app/public/Front/js/filtre.js" defer></script>
 
 

@@ -8,7 +8,7 @@
     <meta name="description" content="une application pour avoir en poche les livres dont on dispose à la maison et en garder un commentaire">
     <meta name="keywords" content="application livre commentaire auteur memo notes">
     <title>My Library - <?= $titre ?? "Mon tableau de bord" ?></title>
-    <link rel="stylesheet" href="app/Public/Back/css/styleBack.css" />
+    <link rel="stylesheet" href="app/public/Back/css/styleBack.css" />
 </head>
 
 <body class="pagewidth container">
@@ -16,7 +16,7 @@
     <header class="rowMenu">
         <!-- Partie logo -->
         <div class="logo">
-            <a href="index.php"><img src="app/Public/Front/images/Logo.png" alt="My library- Mes livres a portée de Main"></a>
+            <a href="index.php"><img src="app/public/Front/images/Logo.png" alt="My library- Mes livres a portée de Main"></a>
         </div> <!--Fin de .logo -->
         <!-- Menu de navigation -->
         <nav class="navheader">

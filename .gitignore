@@ -1,5 +1,6 @@
 /vendor/
 /node_modules/*
-.htaccess
 bdd.sql
+mylibrary.sql
 .env
+.htaccess
