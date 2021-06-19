@@ -8,17 +8,17 @@ class FrontController
     /** afficher la page d'accueil **/
     public  function accueil()
     {
-        require "app/Views/Front/page-accueil.php";
+        require "app/views/Front/page-accueil.php";
     }
     /** afficher la page de connexion/inscritpion **/
     public  function inscription()
     {
-        require "app/Views/Front/page-inscription.php";
+        require "app/views/Front/page-inscription.php";
     }
     /**afficher la page de CGU **/
     public  function cgu()
     {
-        require "app/Views/Front/page-CGU.php";
+        require "app/views/Front/page-CGU.php";
     }
 
     /** Actions du menu **/
@@ -36,17 +36,17 @@ class FrontController
         /** Fonction pour afficher les 6 derniers types de catégories de livres en BDD **/
         $categories = $livreManager->getCategory();
 
-        require "app/Views/Front/page-library.php";
+        require "app/views/Front/page-library.php";
     }
     /** afficher la page de connexion **/
     public  function moncompte()
     {
-        require "app/Views/Front/page-inscription.php";
+        require "app/views/Front/page-inscription.php";
     }
     /** afficher la page de contact **/
     public  function mecontacter()
     {
-        require "app/Views/Front/page-contact.php";
+        require "app/views/Front/page-contact.php";
     }
     /** utiliser la barre de recherche **/
     public  function recherche($recherche)
@@ -59,7 +59,7 @@ class FrontController
         /** Appel du model **/
         $livres = new \Projet\Models\AuthorLivresManager();
         $searches = $livres->recherche($recherche);
-        require "app/Views/Front/page-resultat.php";
+        require "app/views/Front/page-resultat.php";
     }
     /** afficher UN livre dont l'id est celui du livre selectionné **/
         public  function livre($idLivre)
@@ -69,6 +69,6 @@ class FrontController
         /** Fonction pour récupérer le livre via son id **/
         $monLivre = $livres->OneEcritpar($idLivre);
         
-        require "app/Views/Front/page-livre.php";
+        require "app/views/Front/page-livre.php";
     }
 }

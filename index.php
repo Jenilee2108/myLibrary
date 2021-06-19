@@ -1,9 +1,6 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-<<<<<<< HEAD
 session_start();
-=======
->>>>>>> 73d38e24ddb08231dc651b61d6ce7495336dd8a9
 
 try {
     /**  appel de mon controller front **/
@@ -70,10 +67,6 @@ catch (Exception $e) {
 }
 catch(Error $e) {
     $_SESSION['error']['msg'] = "Un problème est survenu veuillez réessaye plus tard";
-<<<<<<< HEAD
     echo "Un problème est survenu veuillez réessayer plus tard";
-=======
-    echo "Un problème est survenu veuillez réessaye plus tard ";
->>>>>>> 73d38e24ddb08231dc651b61d6ce7495336dd8a9
     die('Erreur :' . $e->getMessage());
 }

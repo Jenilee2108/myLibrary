@@ -9,12 +9,12 @@ class BackController
     /**Appel de la page d'inscription **/
     public function inscription()
     {
-        require "app/Views/Front/page-inscription.php";
+        require "app/views/Front/page-inscription.php";
     }
     /**Appel de la page de connexion **/
     public function connexion()
     {
-        require "app/Views/Front/page-inscription.php";
+        require "app/views/Front/page-inscription.php";
     }
     /** Pour la deconnexion **/
     public function deconnexion()
@@ -25,7 +25,7 @@ class BackController
     }
     /** Pour la suggestion de livre **/
     public function suggestion($pseudo) {
-        require "app/Views/Back/page-suggestion.php";
+        require "app/views/Back/page-suggestion.php";
     }
     /** Pour retourner au tableau de bord via le menu **/
     public function tdb($pseudo)
@@ -50,7 +50,7 @@ class BackController
         /** Pour afficher les commentaires **/
         $infos = new \Projet\Models\CommManager();
         $allComms = $infos->getMyComm($pseudo);
-        require "app/Views/Back/page-tdb.php";
+        require "app/views/Back/page-tdb.php";
         
     }
 
@@ -67,13 +67,13 @@ class BackController
         /** Création des erreurs à gérer **/
         if ($result['pseudo']) {
             $_SESSION["error"]["msg"] = "Le pseudonyme que vous avez choisi est déjà utilisé";
-            require "app/Views/Back/page-erreur.php";
+            require "app/views/Back/page-erreur.php";
             die("Le pseudonyme que vous avez choisi est déjà utilisé");
         }
         /** Vérification que l'adresse email est au bon format **/
         if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
             $_SESSION["error"]["msg"] = "Merci d'entrer une adresse mail valide";
-            require "app/Views/Back/page-erreur.php";
+            require "app/views/Back/page-erreur.php";
             die("Merci d'entrer une adresse mail valide");
         };
         if ($_SESSION["error"] == []) {
@@ -114,13 +114,13 @@ class BackController
         /**Vérification de la présence de l'utilisateur **/
         if (!$result) {
             $_SESSION["error"]["msg"] = "l'utilisateur et/ou le mot de passe sont incorrectes";
-            require_once "app/Views/Back/page-erreur.php";
+            require_once "app/views/Back/page-erreur.php";
             die;
         };
         /** Vérification de son mot de passe **/
         if (!password_verify($pass, $result['password'])) {
             $_SESSION["error"]["msg"] = "l'utilisateur et/ou le mot de passe sont incorrectes";
-            require_once "app/Views/Back/page-erreur.php";
+            require_once "app/views/Back/page-erreur.php";
         };
 
         /** Connexion l'utilisateur, et stokage des informations de la session **/
@@ -153,7 +153,7 @@ class BackController
         $mesInfos = $userManager->getInfos($pseudo);
         $mesInfos = $mesInfos->fetch();
         $pseudo = $mesInfos['pseudo'];
-        require "app/Views/back/page-infos.php";
+        require "app/views/back/page-infos.php";
     }
     /** Pour mettre à jour les informations utilisateur **/
     public function updateInfo($pseudo, $mail, $pass)
@@ -193,7 +193,7 @@ class BackController
         $livreManager = new \Projet\Models\AuthorLivresManager();
         $livre = $livreManager->OneEcritpar($idLivre);
         $livre = $livre->fetch();       
-        require "app/Views/Back/page-newComms.php";
+        require "app/views/Back/page-newComms.php";
     }
         /** ajout du commentaire en BDD **/
     public function creatComm($pseudo, $content, $note, $idLivre)
