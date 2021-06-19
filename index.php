@@ -1,11 +1,10 @@
 <?php
-session_start();
 require_once __DIR__ . '/vendor/autoload.php';
-
+session_start();
 
 try {
     /**  appel de mon controller front **/
-    $frontController = new Projet\Controllers\Front\FrontController;
+    $frontController = new Projet\Controllers\Front\frontController();
 
     if (isset($_GET['action'])) {
         /** Les actions du menu 
@@ -13,7 +12,6 @@ try {
         if ($_GET['action'] == 'accueil') {
             $frontController->accueil();
         }
-
         /** Pour aller a la bibliothèque**/
         else if ($_GET['action'] == 'library') {
             $frontController->library();
@@ -24,6 +22,7 @@ try {
         }
         /** Pour aller à contact **/
         else if ($_GET['action'] == 'contact') {
+            // $token = self::CHAT_TOKEN;
             $frontController->mecontacter();
         }
         /** Pour la barre de recherche **/
@@ -68,6 +67,6 @@ catch (Exception $e) {
 }
 catch(Error $e) {
     $_SESSION['error']['msg'] = "Un problème est survenu veuillez réessaye plus tard";
-    echo "Un problème est survenu veuillez réessaye plus tard";
+    echo "Un problème est survenu veuillez réessayer plus tard";
     die('Erreur :' . $e->getMessage());
 }

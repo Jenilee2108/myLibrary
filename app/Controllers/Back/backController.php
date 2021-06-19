@@ -153,7 +153,7 @@ class BackController
         $mesInfos = $userManager->getInfos($pseudo);
         $mesInfos = $mesInfos->fetch();
         $pseudo = $mesInfos['pseudo'];
-        require "app/views/back/page-infos.php";
+        require "app/Views/back/page-infos.php";
     }
     /** Pour mettre à jour les informations utilisateur **/
     public function updateInfo($pseudo, $mail, $pass)

@@ -16,15 +16,15 @@ $titre = "Les Livres de MyLibrary"; ?>
                 <h3>Catégories</h3>
                 <div id="filtreCategory">
                     <?php foreach ($categories as $category) : ?>
-                        <input type="checkbox" name="category"  class="filtre" value="<?= $category['category']; ?>">
-                        <label for="category"><?= $category['category']; ?></label>
+                        <input type="checkbox" id="searchCategory" name="category" class="filtre" value="<?= $category['category']; ?>">
+                        <label for="searchCategory"><?= $category['category']; ?></label>
                     <?php endforeach; ?>
                 </div>
                 <h3>Auteurs</h3>
                 <div id="filtreAuthor">
                     <?php foreach ($authors as $auteur) : ?>
-                        <input type="checkbox" name="author"  class="filtre" value="<?= $auteur['name_author']; ?>">
-                        <label for="author"><?= $auteur['name_author']; ?></label>
+                        <input type="checkbox" id="searchAuthor" name="author" class="filtre" value="<?= $auteur['name_author']; ?>">
+                        <label for="searchAuthor"><?= $auteur['name_author']; ?></label>
                     <?php endforeach; ?>
                 </div>
             </section>
@@ -36,7 +36,7 @@ $titre = "Les Livres de MyLibrary"; ?>
 <section id="library" class="container pagewidth allLibrary">
     <!-- Boucle pour chaque livre -->
     <?php
-        foreach ($allLivres as $livre) :
+    foreach ($allLivres as $livre) :
     ?>
         <article class="card-livre container">
             <!-- Image d'illustration -->
@@ -51,7 +51,7 @@ $titre = "Les Livres de MyLibrary"; ?>
                 <?php endif; ?>
             </h2>
             <div class="card-corps">
-                <div class="card-content">
+                <div id="mesLivres" class="card-content">
                     <div class="contenu-card-livre">
                         <h6 class="gold label-article">Auteur: </h6>
                         <p class="auteurLivre"><?= strip_tags($livre["name_author"]); ?></p>
@@ -78,7 +78,4 @@ $titre = "Les Livres de MyLibrary"; ?>
     <?php endforeach; ?>
 </section>
 <?php $content = ob_get_clean(); ?>
-<script>
-
-</script>
 <?php require 'Templates/template.php'; ?>

@@ -8,10 +8,11 @@
     <meta name="description" content="une application pour avoir en poche les livres dont on dispose à la maison">
     <meta name="keywords" content="Livres application">
     <title>My Library - <?= $titre ?? "Ma bibliothèque à portée de main" ?></title>
-    <link rel="stylesheet" href="app/Public/Front/css/style.css"/>
+    <link rel="stylesheet" href="app/Public/Front/css/style.css" />
     <script type="text/javascript" src="app/Public/Front/js/jquery-3.5.1.js" defer></script>
 
 </head>
+
 <body>
     <div class="pagewidth container">
         <header>
@@ -51,30 +52,31 @@
                 </ul>
             </nav>
         </div>
-        <!-- Script du filtre -->        
+        <!-- Script du filtre -->
         <script type="text/javascript" src="app/Public/Front/js/onglet.js" defer></script>
         <!-- Scripts de la barre de recherche -->
         <script type="text/javascript" src="app/Public/Front/js/recherche.js" defer></script>
         <script type="text/javascript" src="app/Public/Front/js/filtre.js" defer></script>
 
 
+
     </footer>
-   <!-- Pour la gestion des cookies -->
-        <!--  -->
+    <!-- Pour la gestion des cookies -->
+    <!--  -->
     <?php
-        if (!isset($_COOKIE['accepte-cookie'])) :
+    if (!isset($_COOKIE['accepte-cookie'])) :
     ?>
-            <div class="banniere">
-        <div class="text-banniere">
-            <p>Ce site utilise des cookies pour une meilleure expérience</p>
+        <div class="banniere">
+            <div class="text-banniere">
+                <p>Ce site utilise des cookies pour une meilleure expérience</p>
+            </div>
+            <div class="button-banniere">
+                <a href="?accepte-cookie">Ok, j'accpte</a>
+                <a href="?refuse-cookie">Je refuse</a>
+            </div>
         </div>
-        <div class="button-banniere">
-            <a href="?accepte-cookie">Ok, j'accpte</a>        
-            <a href="?refuse-cookie">Je refuse</a>
-        </div>
-    </div>
     <?php
-        endif;
+    endif;
     ?>
 
 </body>
