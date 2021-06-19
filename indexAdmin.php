@@ -6,7 +6,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 try {
   /** Appel du backcontroller **/
-  $backController = new \Projet\Controllers\Back\BackController();
+  $backController = new Projet\Controllers\Back\BackController();
 
   if (isset($_GET['action'])) {
     /** Actions du Menu **/
