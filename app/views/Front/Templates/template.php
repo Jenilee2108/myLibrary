@@ -8,8 +8,8 @@
     <meta name="description" content="une application pour avoir en poche les livres dont on dispose à la maison">
     <meta name="keywords" content="Livres application">
     <title>My Library - <?= $titre ?? "Ma bibliothèque à portée de main" ?></title>
-    <link rel="stylesheet" href="app/Public/Front/css/style.css" />
-    <script type="text/javascript" src="app/Public/Front/js/jquery-3.5.1.js" defer></script>
+    <link rel="stylesheet" href="app/public/Front/css/style.css"/>
+    <script type="text/javascript" src="app/public/Front/js/jquery-3.5.1.js" defer></script>
 
 </head>
 
@@ -20,7 +20,7 @@
             <div class="menuheader center container">
                 <!-- Mise en place du logo -->
                 <div class="logo">
-                    <a href="index.php"><img src="app/Public/Front/images/Logo.png" alt=" My library- Mes livres a portée de Main"></a>
+                    <a href="index.php"><img src="app/public/Front/images/Logo.png" alt=" My library- Mes livres a portée de Main"></a>
                 </div>
                 <!-- Mise en place de la Searchbar -->
                 <form role="search" action="index.php?action=search" class="recherche center" method="POST">
@@ -53,10 +53,10 @@
             </nav>
         </div>
         <!-- Script du filtre -->
-        <script type="text/javascript" src="app/Public/Front/js/onglet.js" defer></script>
+        <script type="text/javascript" src="app/public/Front/js/onglet.js" defer></script>
         <!-- Scripts de la barre de recherche -->
-        <script type="text/javascript" src="app/Public/Front/js/recherche.js" defer></script>
-        <script type="text/javascript" src="app/Public/Front/js/filtre.js" defer></script>
+        <script type="text/javascript" src="app/public/Front/js/recherche.js" defer></script>
+        <script type="text/javascript" src="app/public/Front/js/filtre.js" defer></script>
 
 
 

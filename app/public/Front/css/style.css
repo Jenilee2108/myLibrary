@@ -1,7 +1,7 @@
 /* Mise en place des polices */
 @font-face {
 	font-family : Roboto;
-	src : url(app/Public/Fonts/Roboto-Regular.ttf);
+	src : url(../../Fonts/Roboto-Regular.ttf);
 	font-weight : normal;
 }
 

@@ -85,6 +85,6 @@ $titre = "inscritpion";
     </section>
 </div>
 <!-- Fonction opur vérifier la longueur de ce qui est ecrit -->
-<script src="app/Public/Front/js/champsRemplis.js" type="text/javascript" defer></script>
+<script src="app/public/Front/js/champsRemplis.js" type="text/javascript" defer></script>
 <?php $content = ob_get_clean(); ?>
 <?php require 'Templates/template.php'; ?>

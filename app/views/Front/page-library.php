@@ -41,7 +41,7 @@ $titre = "Les Livres de MyLibrary"; ?>
         <article class="card-livre container">
             <!-- Image d'illustration -->
             <figure class="card-img">
-                <img class="img-livre" src="app/Public/Front/images/DefautPhoto1.jpg" alt="<?= strip_tags($livre["title"]) ?? "Livre présent dans My Library"; ?>">
+                <img class="img-livre" src="app/public/Front/images/DefautPhoto1.jpg" alt="<?= strip_tags($livre["title"]) ?? "Livre présent dans My Library"; ?>">
             </figure>
             <!-- Espace titre et content -->
             <h2 class="card-title green">
