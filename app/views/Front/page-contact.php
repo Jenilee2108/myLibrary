@@ -33,7 +33,11 @@ $titre = "Contactez-nous";
         fetch("https://slack.com/api/chat.postMessage", {
                 method: "POST",
                 headers: new Headers({
+<<<<<<< HEAD
                     "Authorization": "<?php $_ENV['CHAT'] ?>",
+=======
+                    "Authorization": "Bearer "+"<?= self::SLACK_TOKEN ?>",
+>>>>>>> 73d38e24ddb08231dc651b61d6ce7495336dd8a9
                     "Content-type": "application/json"
                 }),
                 body: JSON.stringify({
