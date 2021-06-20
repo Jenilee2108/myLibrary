@@ -1,6 +1,5 @@
 <?php ob_start();
-$titre = "Contactez-nous"; 
-
+$titre = "Contactez-nous";
 ?>
 <section>
     <div class="center container">
@@ -33,7 +32,7 @@ $titre = "Contactez-nous";
         fetch("https://slack.com/api/chat.postMessage", {
                 method: "POST",
                 headers: new Headers({
-                    "Authorization": "<?php $_ENV['CHAT'] ?>",
+                    "Authorization": <?php $_ENV['CHAT_TOKEN']; ?>,
                     "Content-type": "application/json"
                 }),
                 body: JSON.stringify({

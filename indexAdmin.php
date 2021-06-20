@@ -142,5 +142,6 @@ catch (Exception $e) {
   die('Erreur :' . $e->getMessage());
 }
 catch (\Error $e) {
-  die('Erreurs :' . $e->getMessage());
+  $erreur ='Erreurs :' . $e->getMessage();
+  require "app/views/Front/page-erreur";
 }

@@ -12,7 +12,7 @@ class Bdd extends PDO {
     // Le constructeur
     private function __construct() {
         //DSN de connexion
-        $_dsn = "mysql:dbname=" . self::DBNAME . ";host=" . self::DBHOST;
+        $_dsn = self::CLEARDB_DATABASE_URL;
 
         //On appelle le constructeur de la bdd
         try {
