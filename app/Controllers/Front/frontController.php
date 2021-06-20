@@ -11,8 +11,7 @@ class FrontController
         require "app/views/Front/page-accueil.php";
     }
     /** afficher la page de connexion/inscritpion **/
-    public  function inscription()
-    {
+    public  function inscription()    {
         require "app/views/Front/page-inscription.php";
     }
     /**afficher la page de CGU **/

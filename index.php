@@ -67,6 +67,7 @@ catch (Exception $e) {
 }
 catch(Error $e) {
     $_SESSION['error']['msg'] = "Un problème est survenu veuillez réessaye plus tard";
-    echo "Un problème est survenu veuillez réessayer plus tard";
-    die('Erreur :' . $e->getMessage());
+    // die('Erreur :' . $e->getMessage());
+    $erreur ='Un problème est survenu veuillez réessayer plus tard Erreurs :' . $e->getMessage();
+    require "app/views/Front/page-erreur";
 }
