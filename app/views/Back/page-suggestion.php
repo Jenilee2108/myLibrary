@@ -1,4 +1,5 @@
 <?php ob_start();
+use Dotenv\Repository\Adapter\EnvConstAdapter;
 $titre = "Suggérez un livre"; ?>
 
 <h1>Suggérez <span class="gold"> un livre</span></h1>
@@ -51,11 +52,7 @@ $titre = "Suggérez un livre"; ?>
         fetch("https://slack.com/api/chat.postMessage", {
             method: "POST",
             headers: new Headers({
-<<<<<<< HEAD
                 "Authorization": "<?= $_ENV['SUGGTOK']; ?>",
-=======
-                "Authorization": "Bearer <?= $_ENV['SUGG_TOKEN']; ?>",
->>>>>>> 21806b81a286dc9a79279a20f53c38a08085dffb
                 "Content-type": "application/json"
             }),
             body: JSON.stringify({

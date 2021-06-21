@@ -1,8 +1,7 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-
 @session_start();
-var_dump($_SESSION);
+
 try {
     /**  appel de mon controller front **/
     $frontController = new Projet\Controllers\Front\frontController();
@@ -23,12 +22,6 @@ try {
         }
         /** Pour aller à contact **/
         else if ($_GET['action'] == 'contact') {
-            
-            // $ary = $_ENV['CHATTOK'];
-            // $ary = self::CHATTOK;
-            // $data = json_encode($ary);
-            // var_dump($_SESSION);
-            // var_dump($ary);
             $frontController->mecontacter();
         }
         /** Pour la barre de recherche **/
