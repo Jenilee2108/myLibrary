@@ -7,15 +7,18 @@ use PDO;
 class Manager extends PDO {
     
     //constante d'environnement
-    private const DBHOST = "localhost";
-    private const DBUSER = "root";
-    private const DBPASS = "";
-    private const DBNAME = "mylibrary";    
-    private static $instance;
-    //fonction de connexion à la base de données
+   private const CLEARDB_DATABASE_URL = $_ENV['CLEARDB_DATABASE_URL'];
+    private const DBHOST = $_ENV['DBHOST'];
+    private const DBUSER = $_ENV['DBUSER'];
+    private const DBPASS = $_ENV['DBPASS'];
+    private const DBNAME = $_ENV['DBNAME'];
+    // instance unique de la classe
+        private static $instance;
+
+    // Le constructeur
     private function __construct() {
         //DSN de connexion
-        $_dsn = "mysql:dbname=" . self::DBNAME . ";host=" . self::DBHOST;
+        $_dsn = self::CLEARDB_DATABASE_URL;
         try {
             parent::__construct($_dsn, self::DBUSER, self::DBPASS);
             $this->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND, "SET NAMES utf8");
