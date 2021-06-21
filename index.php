@@ -1,7 +1,8 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-@session_start();
 
+@session_start();
+var_dump($_SESSION);
 try {
     /**  appel de mon controller front **/
     $frontController = new Projet\Controllers\Front\frontController();
@@ -22,7 +23,12 @@ try {
         }
         /** Pour aller à contact **/
         else if ($_GET['action'] == 'contact') {
-            // $token = self::CHAT_TOKEN;
+            
+            // $ary = $_ENV['CHATTOK'];
+            // $ary = self::CHATTOK;
+            // $data = json_encode($ary);
+            // var_dump($_SESSION);
+            // var_dump($ary);
             $frontController->mecontacter();
         }
         /** Pour la barre de recherche **/
@@ -66,7 +72,7 @@ catch (Exception $e) {
     die('Erreur :' . $e->getMessage());
 }
 catch(Error $e) {
-    $_SESSION['error']['msg'] = "Un problème est survenu veuillez réessaye plus tard";
+    $_SESSION['error']['msg'] = "Un problème est survenu". $e->getMessage()." veuillez réessaye plus tard";
     // die('Erreur :' . $e->getMessage());
     $erreur ='Un problème est survenu veuillez réessayer plus tard Erreurs :' . $e->getMessage();
     require "app/views/Front/page-erreur";

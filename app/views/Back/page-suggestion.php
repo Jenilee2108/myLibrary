@@ -51,7 +51,7 @@ $titre = "Suggérez un livre"; ?>
         fetch("https://slack.com/api/chat.postMessage", {
             method: "POST",
             headers: new Headers({
-                "Authorization": "<?= $_ENV['SUGG_TOKEN']; ?>",
+                "Authorization": "<?= $_ENV['SUGGTOK']; ?>",
                 "Content-type": "application/json"
             }),
             body: JSON.stringify({

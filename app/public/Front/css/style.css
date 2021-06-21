@@ -2,7 +2,6 @@
 @font-face {
     font-family : CaviarItallic;
     src : url(../../Fonts/CaviarDreams_Italic.ttf);
-    font-weight : normal;
     font-style: italic;
 }
 @font-face {
@@ -382,7 +381,10 @@ h2.filtre {
     grid-row: 2 / 3;
 }
 
-
+/* Page de contact */
+.input-formulaire input{
+    width : 100%;
+}
 
 
 /* pour le format tablette  */

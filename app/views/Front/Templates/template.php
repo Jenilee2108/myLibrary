@@ -8,7 +8,9 @@
     <meta name="description" content="une application pour avoir en poche les livres dont on dispose à la maison">
     <meta name="keywords" content="Livres application">
     <title>My Library - <?= $titre ?? "Ma bibliothèque à portée de main" ?></title>
+    <!-- Feuilles de style -->
     <link rel="stylesheet" href="app/public/Front/css/style.css"/>
+    <!-- Scripts -->
     <script src="app/public/Front/js/jquery-3.5.1.js" defer></script>
 
 </head>
