@@ -115,7 +115,6 @@ class BackController
         if (!$result) {
             $_SESSION["error"]["msg"] = "l'utilisateur et/ou le mot de passe sont incorrectes";
             require_once "app/views/Back/page-erreur.php";
-            die;
         };
         /** Vérification de son mot de passe **/
         if (!password_verify($pass, $result['password'])) {
