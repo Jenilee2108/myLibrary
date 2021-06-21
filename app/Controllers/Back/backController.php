@@ -68,13 +68,13 @@ class BackController
         if ($result['pseudo']) {
             $_SESSION["error"]["msg"] = "Le pseudonyme que vous avez choisi est déjà utilisé";
             require "app/views/Back/page-erreur.php";
-            die("Le pseudonyme que vous avez choisi est déjà utilisé");
+            // die("Le pseudonyme que vous avez choisi est déjà utilisé");
         }
         /** Vérification que l'adresse email est au bon format **/
         if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
             $_SESSION["error"]["msg"] = "Merci d'entrer une adresse mail valide";
             require "app/views/Back/page-erreur.php";
-            die("Merci d'entrer une adresse mail valide");
+            // die("Merci d'entrer une adresse mail valide");
         };
         if ($_SESSION["error"] == []) {
             /** Création de l'utilisateur en BDD **/

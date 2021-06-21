@@ -24,7 +24,8 @@ class Manager extends PDO {
                 
             }
         catch (PDOException $e) {
-            die($e->getMessage());
+            echo 'Erreur Connexion: ' .$e->getMessage();
+            // die($e->getMessage());
         }
     }
     
