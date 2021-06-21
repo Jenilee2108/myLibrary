@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
+use Dotenv\Repository\Adapter\EnvConstAdapter;
 @session_start();
 
 try {
@@ -14,6 +15,7 @@ try {
         }
         /** Pour aller a la bibliothèque**/
         else if ($_GET['action'] == 'library') {
+            var_dump($_ENV['DBNAME']);
             $frontController->library();
         }
         /** Pour aller à mon compte **/

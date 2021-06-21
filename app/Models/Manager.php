@@ -3,21 +3,19 @@ namespace Projet\Models;
 /** Pour la connection a la BDD **/
 use PDOException;
 use PDO;
+use Dotenv\Repository\Adapter\EnvConstAdapter;
 
 class Manager extends PDO {
-    
-    //constante d'environnement
-    private const DBHOST = "localhost";
-    private const DBUSER = "root";
-    private const DBPASS = "";
-    private const DBNAME = "mylibrary";    
-    private static $instance;
-    //fonction de connexion à la base de données
+    // instance unique de la classe
+        private static $instance;
+
+    // Le constructeur
     private function __construct() {
         //DSN de connexion
-        $_dsn = "mysql:dbname=" . self::DBNAME . ";host=" . self::DBHOST;
+        // $_dsn = self::CLEARDB_DATABASE_URL;
+        $_dsn = "mysql:dbname=".$_ENV['DBNAME'].";host=".$_ENV['DBHOST'];
         try {
-            parent::__construct($_dsn, self::DBUSER, self::DBPASS);
+            parent::__construct($_dsn, $_ENV['DBUSER'], $_ENV['DBPASS']);
             $this->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND, "SET NAMES utf8");
             //on défini le mode de fetch par défaut
             $this->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
