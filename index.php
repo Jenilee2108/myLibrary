@@ -62,7 +62,7 @@ try {
 /** *On affiche l'erreur en cas de probleme **/
 catch (Exception $e) {
     $_SESSION['error']['msg'] = "Oups page introuvable";
-    require "app/Views/Back/page-erreur";
+    require "app/views/Back/page-erreur";
     echo "Oups page introuvable";
     die('Erreur :' . $e->getMessage());
 }
