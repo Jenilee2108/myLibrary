@@ -6,28 +6,14 @@ use PDO;
 use Dotenv\Repository\Adapter\EnvConstAdapter;
 
 class Manager extends PDO {
-<<<<<<< HEAD
-=======
-    
-    //constante d'environnement
-   private const CLEARDB_DATABASE_URL = $_ENV['CLEARDB_DATABASE_URL'];
-    private const DBHOST = $_ENV['DBHOST'];
-    private const DBUSER = $_ENV['DBUSER'];
-    private const DBPASS = $_ENV['DBPASS'];
-    private const DBNAME = $_ENV['DBNAME'];
->>>>>>> 72555895e1300f89b27c5e3ca2c897332af37101
     // instance unique de la classe
         private static $instance;
 
     // Le constructeur
     private function __construct() {
         //DSN de connexion
-<<<<<<< HEAD
-        // $_dsn = self::CLEARDB_DATABASE_URL;
-        $_dsn = "mysql:dbname=".$_ENV['DBNAME'].";host=".$_ENV['DBHOST'];
-=======
-        $_dsn = self::CLEARDB_DATABASE_URL;
->>>>>>> 72555895e1300f89b27c5e3ca2c897332af37101
+
+        $_dsn = $_ENV['CLEARDB_DATABASE_URL'];
         try {
             parent::__construct($_dsn, $_ENV['DBUSER'], $_ENV['DBPASS']);
             $this->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND, "SET NAMES utf8");

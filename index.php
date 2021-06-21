@@ -15,7 +15,6 @@ try {
         }
         /** Pour aller a la bibliothèque**/
         else if ($_GET['action'] == 'library') {
-            var_dump($_ENV['DBNAME']);
             $frontController->library();
         }
         /** Pour aller à mon compte **/
