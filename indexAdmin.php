@@ -2,7 +2,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 @session_start();
-@$pseudo = $_SESSION['user']['pseudo'];
+$pseudo = $_SESSION['user']['pseudo'];
 var_dump($_SESSION);
 
 try {
