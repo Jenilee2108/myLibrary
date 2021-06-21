@@ -72,7 +72,7 @@ try {
       /** on récupère le mot de passe et le pseudo**/
       $pseudo = strip_tags($_POST['pseudo']);
       $pass = strip_tags($_POST['password']);
-      var_dump($pseudo);
+      var_dump($pseudo); die;
       /** On vérifie si tous les champs sont remplis **/
       if (!empty($pseudo) || !empty($pass)) {
         $backController->meconnecter($pseudo, $pass);
