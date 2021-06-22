@@ -44,14 +44,14 @@ class BackController
             'name_user' => $name_user,
             'mail' => $mail
         ];
+        $pseudo = $_SESSION['user']['pseudo'];
         /** Pour afficher les livres **/
         $livres = new \Projet\Models\AuthorLivresManager();
         $allLivres = $livres->getEcritpar();
         /** Pour afficher les commentaires **/
         $infos = new \Projet\Models\CommManager();
         $allComms = $infos->getMyComm($pseudo);
-        require "app/views/Back/page-tdb.php";
-        
+        require "app/views/Back/page-tdb.php";        
     }
 
     /** Page d'inscription **/
