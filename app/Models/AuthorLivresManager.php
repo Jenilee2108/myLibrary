@@ -74,8 +74,13 @@ class AuthorLivresManager extends Manager
         /** On injecte les valeurs **/
         $livre->bindValue(':id', $idLivre, PDO::PARAM_INT);
         /** On exécute la requête */
+<<<<<<< HEAD
         $livre->execute();
         
+=======
+        $livre->bindValue(':id', $idLivre, PDO::PARAM_STR);
+        $livre->execute();
+>>>>>>> 871da854de3485233276a2ce4eec772ea8b55ce2
         return $livre;
     }
 
