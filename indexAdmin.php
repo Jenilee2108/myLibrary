@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-
+use Dotenv\Repository\Adapter\EnvConstAdapter;
 @session_start();
 @$pseudo = $_SESSION['user']['pseudo'];
 var_dump($_SESSION);
