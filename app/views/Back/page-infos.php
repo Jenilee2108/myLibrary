@@ -20,7 +20,7 @@ $titre = "Mes informations";
         <input type="password" name="password" value="">
 
         <div class="subBtn">
-            <div type="submit" class="btn title-label">Mettre a jour</div>
+            <button type="submit" class="btn title-label">Mettre a jour</button>
             <a class=" btn title-label" href="indexAdmin.php?action=deleteUser&pseudo=<?= htmlspecialchars($pseudo); ?>">Supprimer mon compte</a>
         </div><!-- Fin de la div.subBtn avec les boutons-->
     </form><!-- Fin du formulaire -->

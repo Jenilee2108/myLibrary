@@ -65,7 +65,7 @@ $titre = "Mon tableau de bord";
                     <input type="number" min="0" max="20" step="1" name="note">
                     <!-- bouton d'action -->
                     <div class="subBtn">
-                        <div type="submit" class="btn title-label">Modifier</div>
+                        <button type="submit" class="btn title-label">Modifier</button>
                         <a href="indexAdmin.php?action=deleteComm&id=<?= $comm['id']; ?>" class=" btn title-label" title="Attention vous supprimez votre commentaire">Supprimer</a>
                     </div>
                 </form><!-- fin du formulaire de commentaire -->

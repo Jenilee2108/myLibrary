@@ -22,7 +22,7 @@ $titre = "Ajouter mon commentaire";
         <label for="content" class="title-label"> Votre commentaire :</label>
         <textarea type="text" name="content" id="content" cols="30" rows="10" title="Un commentaire pour se rappeler où vous en êtes"></textarea>
         <div class="subBtn">
-            <div type="submit" class="btn title-label">Commenter</div>
+            <button type="submit" class="btn title-label">Commenter</button>
         </div>
     </form>
 </section>
