@@ -105,7 +105,7 @@ $titre = "Les Livres de MyLibrary"; ?>
     function getChecked(name) {
         checked[name] = Array.from(document.querySelectorAll('input[name=' + name + ']:checked')).map(function(el) {
             // return el.value;
-            checked.forEach((el) => {            
+            checked[name].forEach((name, el) => {            
             if ( el.value != selectAuteurs || el.value != selectCategories) {
                 article.attr("hidden", "true")
             } 
