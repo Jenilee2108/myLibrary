@@ -299,17 +299,21 @@ li {
         width: 45%;
     }
     h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     p {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
     /** Généralités **/
     input {
-        height: 2.5rem;
+        height: 2rem;
+        font-family: 'caviar';
+    
     }
     textarea {
         height: 5rem;
+        font-family: 'caviar';
+    
     }
     h3.card-title,.title-label {
         font-size: 2.5rem;
@@ -322,6 +326,11 @@ li {
     }
     .livreCommente>.card-livre, .derniers-livres>.card-livre {
         width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-content: flex-end;
+        justify-content: center;
+        margin: auto;
 
     }
     .synopsis-text {
@@ -357,7 +366,6 @@ li {
     /**** Page Tableau de bord ****/ 
     .livreCommente>.card-livre, .derniers-livres>.card-livre {
         width: 33%;
-        
     }
     .synopsis-text {
         display: flex;
@@ -370,14 +378,14 @@ li {
         max-width: 1100px;
     }
     h2 {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
     }
     p {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     input {
-        height: 3.5rem;
+        height: 2.5rem;
     }
     textarea {
         height: 5.5rem;
