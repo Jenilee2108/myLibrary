@@ -56,6 +56,8 @@ class AuthorLivresManager extends Manager
     /** Pour un livre écris par un auteur **/
     public function OneEcritpar($idLivre)
     {
+        var_dump($idLivre);
+        die;
         $sql = "SELECT " . $this->table . ".`id` AS id,
         livres.`title` AS title, `livres`.`content` AS content,
         `livres`.`category` AS category,
