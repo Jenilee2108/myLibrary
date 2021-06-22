@@ -33,8 +33,8 @@ $titre = "Mon tableau de bord";
 <!-- on boucle sur chaque commentaire associé au pseudo -->
 <section class="container livreCommente">
     <!-- On affiche les données présentes en base de données -->
-    <div class="card-livre">
-            <?php foreach ($allComms as $comm) : ?>
+    <?php foreach ($allComms as $comm) : ?>
+        <div class="card-livre">
             <!-- titre du livre -->
             <h3 class='card-title'>
                 <span class="gold">
@@ -70,9 +70,9 @@ $titre = "Mon tableau de bord";
                     </div>
                 </form><!-- fin du formulaire de commentaire -->
             </article><!-- Fin de la partie de commentaire -->
-            <?php endforeach; ?>
         </div>
-    </section><!-- Fin de -->
+    <?php endforeach; ?>
+</section><!-- Fin de -->
 
 
 
@@ -81,8 +81,8 @@ $titre = "Mon tableau de bord";
 <!-- Liste des derniers livres ajoutés en bdd -->
 <section class="derniers-livres">
     <!-- On boucle pour récupérer les 6 derniers livres -->
-    <div class="card-livre container">
-            <?php foreach ($allLivres as $livre) : ?>
+    <?php foreach ($allLivres as $livre) : ?>
+        <div class="card-livre container">
             <!-- Titre du livre -->
             <h3 class="card-title green">
                 <?= strip_tags($livre["title"]); ?>
@@ -118,11 +118,11 @@ $titre = "Mon tableau de bord";
                     </div>
                 </div>
             </article>
-            <?php endforeach; ?>
         </div>
-    </section>
+    <?php endforeach; ?>
+</section>
 
 
-    <?php $content = ob_get_clean() ?>
-    <!-- Fontion php pour injecter le template -->
-    <?php @require 'Templates/template.php' ?>
+<?php $content = ob_get_clean() ?>
+<!-- Fontion php pour injecter le template -->
+<?php @require 'Templates/template.php' ?>
