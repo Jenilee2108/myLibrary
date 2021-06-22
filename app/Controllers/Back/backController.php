@@ -90,14 +90,9 @@ class BackController
                 "name_user" => $user['name_user'],
                 "pass" => $user['password']
             ];
-            $pseudo = $user['pseudo'];
-            $livres = new \Projet\Models\AuthorLivresManager();
-            $allLivres = $livres->getEcritpar();
-            // $infos = new \Projet\Models\CommManager();
-            /** Pas encore de commentaires car 1ère connexion **/
-            $allComms = [];
-            
+            $pseudo = $user['pseudo'];            
             header("Location: indexAdmin.php?action=tdb&pseudo=$pseudo");
+            exit;
         }
     }
 
@@ -133,13 +128,6 @@ class BackController
                 'name_user' => $name_user,
                 'mail' => $mail
             ];
-            /** Pour afficher des livres présents en BDD  **/
-            $livres = new \Projet\Models\AuthorLivresManager();
-            $allLivres = $livres->getEcritpar();
-            
-            /** Pour afficher des commentaires liés au pseudo présents en BDD  **/
-            $infos = new \Projet\Models\CommManager();
-            $allComms = $infos->getMyComm($pseudo);
 
             header("Location: indexAdmin.php?action=tdb&pseudo=$pseudo");
             exit;
@@ -163,6 +151,7 @@ class BackController
         $userManager = new \Projet\Models\UserManager();
         $user = $userManager->updateInfo($pseudo, $mail, $pass);
         header("Location: indexAdmin.php?action=tdb&pseudo=$pseudo");
+        exit;
     }
     /** Pour supprimer l'utilisateur **/
     public function deleteUser($pseudo)
@@ -170,6 +159,7 @@ class BackController
         $userManager = new \Projet\Models\UserManager();
         $user = $userManager->deleteUser($pseudo);
         header("Location: indexAdmin.php?action=inscription");
+        exit;
     }
 
 
