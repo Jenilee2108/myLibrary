@@ -47,7 +47,7 @@ class LivreManager extends Manager {
         return $livre;
     }
     public function updateLivre($id, $title, $category, $content) {
-        $sql = "UPDATE". $this->table."SET title = :title, category = :category, content = :content WHERE id = $is";
+        $sql = "UPDATE". $this->table."SET title = :title, category = :category, content = :content WHERE id = $id";
         /**  On prépare la requête **/
         $livre = $this->bdd->prepare($sql);
         /** On injecte les valeurs **/

@@ -30,11 +30,11 @@ $titre = "Mon tableau de bord";
 <!-- Gestion des commentaires utilisateurs -->
 <h2>Les <span class='gold bold'>livres</span> que vous avez commentez </h2>
 
-<div>
 <!-- on boucle sur chaque commentaire associé au pseudo -->
 <?php foreach ($allComms as $comm) : ?>
-        <section class="container livreCommente">
-            <!-- On affiche les données présentes en base de données -->
+    <section class="container livreCommente">
+        <!-- On affiche les données présentes en base de données -->
+        <div>
             <!-- titre du livre -->
             <h3 class='card-title'>
                 <span class="gold">
@@ -70,9 +70,9 @@ $titre = "Mon tableau de bord";
                     </div>
                 </form><!-- fin du formulaire de commentaire -->
             </article><!-- Fin de la partie de commentaire -->
-        </section><!-- Fin de -->
-    <?php endforeach; ?>
-</div>
+        </div>
+    </section><!-- Fin de -->
+<?php endforeach; ?>
 
 
 

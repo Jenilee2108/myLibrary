@@ -273,6 +273,8 @@ li {
     align-content: space-between;
     margin-top: 20px;
 }
+
+
 /* pour le format tablette  */
 
 @media screen and (min-width : 768px) {
@@ -302,7 +304,7 @@ li {
     p {
         font-size: 1.5rem;
     }
-
+    /** Généralités **/
     input {
         height: 2.5rem;
     }
@@ -312,7 +314,11 @@ li {
     h3.card-title,.title-label {
         font-size: 2.5rem;
     }
-
+    /** Page Téableau de bord - tdb **/
+    .livreCommente, .derniers-livres {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
     .synopsis-text {
         display: block;
     }
