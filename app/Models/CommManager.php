@@ -60,12 +60,16 @@ class CommManager extends Manager
     public function getMyComm($pseudo)
     {
         $sql = "SELECT " . $this->table . ".`id`, `" . $this->table . "`.`content` AS content, note, date_ajout, CONCAT(authors.`firstname_author`,' ' ,authors.`name_author`) AS name_author, `". $this->livres ."`.`title` AS title, `users`.`pseudo`
-            FROM  `" . $this->table . "`,  `" . $this->livreAssocie . "`, `". $this->livres ."`, `authors`, `users`
-                WHERE  `" . $this->table . "`.`idUser` = `users`.id
-                AND  `" . $this->table . "`.`idAuthorLivre` = `" . $this->livreAssocie . "`.id 
-                AND `" . $this->livreAssocie . "`.`idAuthor` = `authors`.id 
-                AND `" . $this->livreAssocie . "`.`idlivre` = `". $this->livres ."`.id 
-                AND `users`.`pseudo` = :pseudo 
+            FROM  `" . $this->table . "` 
+            INNER JOIN  `" . $this->livreAssocie . "`, 
+            ON  `" . $this->table . "`.`idAuthorLivre` = `" . $this->livreAssocie . "`.id 
+            INNER JOIN `". $this->livres ."`,
+            ON `" . $this->livreAssocie . "`.`idlivre` = `". $this->livres ."`.id 
+            INNER JOIN `authors`,
+            ON `" . $this->livreAssocie . "`.`idAuthor` = `authors`.id 
+            INNER JOIN `users`
+            ON  `" . $this->table . "`.`idUser` = `users`.id
+                WHERE `users`.`pseudo` = :pseudo 
             ORDER BY `" . $this->table . "`.`idAuthorLivre`";
         //On prépare la requête    
         $infos = $this->bdd->prepare($sql);
