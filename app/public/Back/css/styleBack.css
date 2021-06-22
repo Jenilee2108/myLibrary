@@ -172,7 +172,7 @@ li {
     border-bottom: 3px solid var(--gold);
 }
 .title-label {
-    font-size : 1.5rem;
+    font-size : 2.5rem;
     color: var(--titre);
     margin-bottom: 5px;
 }
@@ -221,11 +221,17 @@ li {
     font-size: 1.5rem;
     margin-bottom: 15px;
 }
+.subBtn {
+    justify-content: space-between;
+    align-content: center;
+    align-items: end;
+}
 
 .btn-tdb > a:hover,
 .btn-tdb > a.on {
     color: var(--gold);
     border-bottom: 3px solid var(--gold);
+    font-size: 2em;
 }
 
 #mesComm.card-corps {
@@ -310,7 +316,7 @@ li {
     /** Généralités **/
     input {
         height: 2rem;
-        font-size: smaller;
+        font-size: 1.5rem;
         font-family: 'caviar';
     
     }
@@ -401,7 +407,7 @@ li {
     textarea {
         height: 5.5rem;
     }
-    h3.card-title,.title-label {
+    h3.card-title {
         font-size: 2.9rem;
     }  
 }
