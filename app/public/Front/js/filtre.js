@@ -1,12 +1,17 @@
 $(document).ready(function(){
-// on récupère les éléments des checkboxes
-var allCheckboxes = document.querySelectorAll('input[type=checkbox]');
-// on récupère les éléments container
-var allLivres = Array.from(document.querySelectorAll('.card-livre'));
-var checked = {};
-getChecked('author');
-// getChecked('category');
 
+// on récupère les éléments des checkboxes
+let allCheckboxes = document.querySelectorAll('input[type=checkbox]');
+// on récupère les éléments container
+let checked = {};
+// On récupère les auteurs et catégories selectionnée
+let checkedAuthor = getChecked('author');
+let chekedCategory = getChecked('category');
+// On récupère la valeur des acatégories et auteur livres 
+let selectAuteurs = document.querySelectorAll('article[data-auteur]');
+let selectCategories = document.querySelectorAll('article[data-category]');
+// On récupère chaque article
+let article = document.querySelector('article[class=livreTrie]');
 Array.prototype.forEach.call(allCheckboxes, function (el) {
     el.addEventListener('change', toggleCheckbox);
 });
@@ -23,22 +28,14 @@ function getChecked(name) {
     });
     console.log(checked[name]);
 }
+document.getElementsByClassName('filters').addEventListener('click', function(event) {
 
-
-function setVisibility() {
-    allLivres.map(function (el) {
-        var author = checked.author.length ? intersection(Array.from(el.classList), checked.author).length : true;
-        var category = checked.category.length ? _.intersection(Array.from(el.classList), checked.category).length : true;
-        console.log(author);
-      
-      if (author && category) {
-          array.forEach(el => {
-              el.style.display = 'block';
-          });
-          
-        } else {
-            el.style.display = 'none';
-        }
-    });
+function filter() {
+  if(checkedAuthor !== selectAuteurs && chekedCategory !== selectCategories) {
+   article.attr("hidden","true")
+  } else {
+    article.attr("hidden","true")  
+  }
 }
+})
 });

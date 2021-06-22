@@ -16,14 +16,14 @@ $titre = "Les Livres de MyLibrary"; ?>
                 <h3>Catégories</h3>
                 <div id="filtreCategory">
                     <?php foreach ($categories as $category) : ?>
-                        <input type="checkbox" id="searchCategory" name="category" class="filtre" value="<?= $category['category']; ?>">
+                        <input type="checkbox" id="searchCategory" name="category" class="filtre filtres" data-category="<?= $category['category']; ?>" value="<?= $category['category']; ?>">
                         <label for="searchCategory"><?= $category['category']; ?></label>
                     <?php endforeach; ?>
                 </div>
                 <h3>Auteurs</h3>
                 <div id="filtreAuthor">
                     <?php foreach ($authors as $auteur) : ?>
-                        <input type="checkbox" id="searchAuthor" name="author" class="filtre" value="<?= $auteur['name_author']; ?>">
+                        <input type="checkbox" id="searchAuthor" name="author" class="filtre filtres" data-auteur="<?= $auteur['name_author']; ?>" value="<?= $auteur['name_author']; ?>">
                         <label for="searchAuthor"><?= $auteur['name_author']; ?></label>
                     <?php endforeach; ?>
                 </div>
@@ -38,7 +38,7 @@ $titre = "Les Livres de MyLibrary"; ?>
     <?php
     foreach ($allLivres as $livre) :
     ?>
-        <article class="card-livre container">
+        <article class="card-livre container livreTrie"  data-category="<?= $livre['category']; ?>" data-auteur="<?= $livre['name_author']; ?>" hidden="false">
             <!-- Image d'illustration -->
             <figure class="card-img">
                 <img class="img-livre" src="app/public/Front/images/DefautPhoto1.jpg" alt="<?= strip_tags($livre["title"]) ?? "Livre présent dans My Library"; ?>">
@@ -54,7 +54,7 @@ $titre = "Les Livres de MyLibrary"; ?>
                 <div id="mesLivres" class="card-content">
                     <div class="contenu-card-livre">
                         <h6 class="gold label-article">Auteur: </h6>
-                        <p class="auteurLivre"><?= strip_tags($livre["name_author"]); ?></p>
+                        <p class="auteurLivre" ><?= strip_tags($livre["name_author"]); ?></p>
                     </div>
                     <div class="contenu-card-livre">
                         <h6 class="gold label-article">Catégorie: </h6>
@@ -77,5 +77,46 @@ $titre = "Les Livres de MyLibrary"; ?>
         </article>
     <?php endforeach; ?>
 </section>
+<script>
+    
+// on récupère les éléments des checkboxes
+let allCheckboxes = document.querySelectorAll('input[type=checkbox]');
+// on récupère les éléments container
+let checked = {};
+// On récupère les auteurs et catégories selectionnée
+let checkedAuthor = getChecked('author');
+let chekedCategory = getChecked('category');
+// On récupère la valeur des acatégories et auteur livres 
+let selectAuteurs = document.querySelectorAll('article[data-auteur]');
+let selectCategories = document.querySelectorAll('article[data-category]');
+// On récupère chaque article
+let article = document.querySelector('article[class=livreTrie]');
+Array.prototype.forEach.call(allCheckboxes, function (el) {
+    el.addEventListener('change', toggleCheckbox);
+});
+
+function toggleCheckbox(e) {
+    getChecked(e.target.name);
+    console.log(e.target.name);
+    setVisibility();
+}
+
+function getChecked(name) {
+    checked[name] = Array.from(document.querySelectorAll('input[name=' + name + ']:checked')).map(function (el) {
+        return el.value;
+    });
+    console.log(checked[name]);
+}
+document.getElementsByClassName('filters').addEventListener('click', function(event) {
+
+function filter() {
+  if(checkedAuthor !== selectAuteurs && chekedCategory !== selectCategories) {
+   article.attr("hidden","true")
+  } else {
+    article.attr("hidden","true")  
+  }
+}
+})
+</script>
 <?php $content = ob_get_clean(); ?>
 <?php require 'Templates/template.php'; ?>
