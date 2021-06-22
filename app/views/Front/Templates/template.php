@@ -26,7 +26,7 @@
                 </div>
                 <!-- Mise en place de la Searchbar -->
                 <form role="search" action="index.php?action=search" class="recherche center" method="POST">
-                    <button type="submit" for="searchBar" class="labelSearch">Rechercher un livre</button>
+                    <button type="submit" class="labelSearch">Rechercher un livre</button>
                     <input type="search" id="searchBar" name="q" class="searchBar" minlength="3" title="Votre recherche doit contenir au moins 3 caractères">
                 </form>
                 <!-- Mise en place du menu -->
@@ -50,7 +50,7 @@
             <nav>
                 <ul>
                     <li><a href="CGU">Mentions Légales</a></li>
-                    <li>&#169Tout Droit Réservé 2021</li>
+                    <li>&#169;Tout Droit Réservé 2021</li>
                 </ul>
             </nav>
         </div>
