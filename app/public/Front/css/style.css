@@ -134,7 +134,7 @@ p {
 .recherche {
     flex-direction : column;
 }
-.labelSearch {
+.labelSearch button{
     display : flex;
     /* width : max-content;*/
     justify-content : center;

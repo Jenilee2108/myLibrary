@@ -26,7 +26,7 @@
                 </div>
                 <!-- Mise en place de la Searchbar -->
                 <form role="search" action="index.php?action=search" class="recherche center" method="POST">
-                    <label type="submit" for="searchBar" class="labelSearch">Rechercher un livre</label>
+                    <button type="submit" for="searchBar" class="labelSearch">Rechercher un livre</button>
                     <input type="search" id="searchBar" name="q" class="searchBar" minlength="3" title="Votre recherche doit contenir au moins 3 caractères">
                 </form>
                 <!-- Mise en place du menu -->
