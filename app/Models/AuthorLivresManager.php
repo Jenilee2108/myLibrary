@@ -71,8 +71,6 @@ class AuthorLivresManager extends Manager
         /** On exécute la requête */
         $livre->bindValue(':id', $idLivre, PDO::PARAM_STR);
         $livre->execute();
-        var_dump($idLivre);
-        die;
         return $livre;
     }
 
