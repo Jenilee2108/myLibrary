@@ -4,9 +4,6 @@ $(document).ready(function(){
 let allCheckboxes = document.querySelectorAll('input[type=checkbox]');
 // on récupère les éléments container
 let checked = {};
-// On récupère les auteurs et catégories selectionnée
-let checkedAuthor = getChecked('author');
-let chekedCategory = getChecked('category');
 // On récupère la valeur des acatégories et auteur livres 
 let selectAuteurs = document.querySelectorAll('article[data-auteur]');
 let selectCategories = document.querySelectorAll('article[data-category]');
