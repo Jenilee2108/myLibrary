@@ -142,6 +142,7 @@ class BackController
             $allComms = $infos->getMyComm($pseudo);
 
             header("Location: indexAdmin.php?action=tdb&pseudo=$pseudo");
+            exit;
         }
     }
     /* Page TDB*/

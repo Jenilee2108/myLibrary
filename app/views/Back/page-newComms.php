@@ -28,4 +28,4 @@ $titre = "Ajouter mon commentaire";
 
 <?php $content = ob_get_clean() ?>
 <!-- Fontion php pour injecter le template -->
-<?php require 'templates/template.php' ?>
+<?php require 'Templates/template.php' ?>
