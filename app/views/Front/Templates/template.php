@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <meta content="text/html" charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="une application pour avoir en poche les livres dont on dispose à la maison">
@@ -50,7 +50,7 @@
             <nav>
                 <ul>
                     <li><a href="CGU">Mentions Légales</a></li>
-                    <li>&#169 Tout Droit Réservé 2021</li>
+                    <li>&#169Tout Droit Réservé 2021</li>
                 </ul>
             </nav>
         </div>
