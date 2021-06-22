@@ -129,7 +129,10 @@ ul {
 li {
     padding: 10px;
 }
-
+ input, textarea {
+     font-family: 'caviar';
+     font-size: 2rem;
+ }
 .pagewidth {
     width: 100%;
     min-width: 350px;
@@ -307,11 +310,13 @@ li {
     /** Généralités **/
     input {
         height: 2rem;
+        font-size: smaller;
         font-family: 'caviar';
     
     }
     textarea {
         height: 5rem;
+        font-size: 1.5rem;
         font-family: 'caviar';
     
     }
