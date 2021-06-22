@@ -70,7 +70,7 @@ try {
       $pseudo = strip_tags($_POST['pseudo']);
       $pass = strip_tags($_POST['password']);
       /** On vérifie si tous les champs sont remplis **/
-      if (!empty($pseudo) || !empty($pass)) {
+      if (!empty($pseudo) && !empty($pass)) {
         $backController->meconnecter($pseudo, $pass);
       } else {
         throw new Exception('Renseignez tous les champs');
