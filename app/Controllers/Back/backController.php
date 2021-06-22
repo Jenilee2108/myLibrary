@@ -145,6 +145,8 @@ class BackController
             exit;
         }
     }
+
+
     /* Page TDB*/
     /** Pour récupérer les informations utilisateur **/
     public function getInfos($pseudo)
@@ -153,7 +155,7 @@ class BackController
         $mesInfos = $userManager->getInfos($pseudo);
         $mesInfos = $mesInfos->fetch();
         $pseudo = $mesInfos['pseudo'];
-        require "app/views/back/page-infos.php";
+        require "app/views/Back/page-infos.php";
     }
     /** Pour mettre à jour les informations utilisateur **/
     public function updateInfo($pseudo, $mail, $pass)
@@ -169,6 +171,8 @@ class BackController
         $user = $userManager->deleteUser($pseudo);
         header("Location: indexAdmin.php?action=inscription");
     }
+
+
 /** Pour la gestion des commentaires **/
     /** Pour supprimer son commentaire **/
     public function deleteComm($idComm, $pseudo)
@@ -185,6 +189,8 @@ class BackController
         $idComm;
         header("Location: indexAdmin.php?action=tdb&pseudo=$pseudo");
     }
+
+    
     /** Pour ajouter un commentaire **/
         /** Appel de la page de commentaires **/
     public function addComm($idLivre, $pseudo)
@@ -192,7 +198,8 @@ class BackController
         /** Appel des livres et des commentaires en BDD  **/
         $livreManager = new \Projet\Models\AuthorLivresManager();
         $livres = $livreManager->OneEcritpar($idLivre);
-        $livre = $livres->fetch();       
+        $livre = $livres->fetch();
+        var_dump($livre);       
         require "app/views/Back/page-newComms.php";
     }
         /** ajout du commentaire en BDD **/
