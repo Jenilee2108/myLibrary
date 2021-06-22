@@ -33,7 +33,9 @@ $titre = "Mon tableau de bord";
 <!-- on boucle sur chaque commentaire associé au pseudo -->
 <section class="container livreCommente">
     <!-- On affiche les données présentes en base de données -->
-    <?php foreach ($allComms as $comm) : ?>
+    <?php foreach ($allComms as $comm) : 
+        var_dump($pseudo);
+        ?>
         <div class="card-livre">
             <!-- titre du livre -->
             <h3 class='card-title'>

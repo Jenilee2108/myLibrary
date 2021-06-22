@@ -199,3 +199,17 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2021-06-16 23:31:46
+
+
+SELECT comms.`id`, `comms`.`content` AS content, note, date_ajout, CONCAT(authors.`firstname_author`,' ' ,authors.`name_author`) AS name_author, `livres`.`title` AS title, `users`.`pseudo`
+FROM  `comms` 
+INNER JOIN  `authorLivres`
+ON  `comms`.`idAuthorLivre` = `authorLivres`.id
+INNER JOIN `livres`
+ON `authorLivres`.`idlivre` = `livres`.id 
+INNER JOIN `authors`
+ON `authorLivres`.`idAuthor` = `authors`.id 
+INNER JOIN `users`
+ON  `comms`.`idUser` = `users`.id
+    WHERE `users`.`pseudo` = "Maman"
+GROUP BY title;
