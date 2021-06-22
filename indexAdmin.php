@@ -47,12 +47,12 @@ try {
       $password = strip_tags($_POST['password']);
       /**on vérifie que l'on a bien une adresse mail **/
       if (!filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL)) {
-        $_SESSION["error"]["msg"] = "L'adresse e-mail est incorrecte";
+        // $_SESSION["error"]["msg"] = "L'adresse e-mail est incorrecte";
         throw new Exception("merci de remplir avec une adresse e-mail");
       }
       /** on vérifie que le mot de passe est d'au moins 5 caractères **/
       if (strlen($password) < 5) {
-        $_SESSION["error"]["msg"] = "Le pseudo est trop court";
+        // $_SESSION["error"]["msg"] = "Le pseudo est trop court";
         throw new Exception("Le pseudo est trop court");
       }
       /* On cripte le mdp */
@@ -61,8 +61,9 @@ try {
       if (!empty($pseudo) && !empty($pass) && !empty($name_user)) {
         $backController->createUser($pseudo, $name_user, $mail, $pass);
       } else {
-        $_SESSION['error']['msg'] = "Merci de renseigner tous les champs";
-        require "app/views/Back/page-erreur";
+        // $_SESSION['error']['msg'] = "Merci de renseigner tous les champs";
+        // require "app/views/Back/page-erreur";
+        throw new Exception('Renseignez tous les champs');
         // throw new Exception('Renseignez tous les champs');
       }
     }
@@ -77,9 +78,9 @@ try {
       if (!empty($pseudo) || !empty($pass)) {
         $backController->meconnecter($pseudo, $pass);
       } else {
-        $_SESSION['error']['msg'] = "Merci de renseigner tous les champs";
-        require "app/views/Back/page-erreur";
-        // throw new Exception('Renseignez tous les champs');
+        // $_SESSION['error']['msg'] = "Merci de renseigner tous les champs";
+        // require "app/views/Back/page-erreur";
+        throw new Exception('Renseignez tous les champs');
       }
     }
 
@@ -143,14 +144,14 @@ try {
 }
 /**On affiche l'erreur en cas de probleme **/
 catch (Exception $e) {  
-  $_SESSION['error']['msg'] = "Oups page introuvable";
-  require "app/views/Back/page-erreur";
-  echo "Oups page introuvable";
-  die('Erreur :' . $e->getMessage());
+  $_SESSION['error']['msg'] = $e->getMessage();
+  require "app/views/Back/page-erreur.php";
+  // echo "Oups page introuvable";
+  // die('Erreur :' . $e->getMessage());
 }
 catch (Error $e) {
   $_SESSION['error']['msg'] = "Un problème est survenu". $e->getMessage()." veuillez réessaye plus tard";
   // die('Erreur :' . $e->getMessage());
   $erreur ='Un problème est survenu veuillez réessayer plus tard Erreurs :' . $e->getMessage();
-  require "app/views/Front/page-erreur";
+  require "app/views/Front/page-erreur.php";
 }
