@@ -114,14 +114,13 @@ class AuthorLivresManager extends Manager
     {
         $sql = "UPDATE " . $this->table . " 
         SET `idLivre` = :idLivre, `idAuthor` = :idAuthor, `tome` = :tome 
-        WHERE id = :id";
+        WHERE id = $id";
         /** On prépare la requête **/
         $update = $this->bdd->prepare($sql);
         /** On injecte les valeurs **/
         $update->bindValue(':idLivre', $idLivre, PDO::PARAM_INT);
         $update->bindValue(':idAuthor', $idAuthor, PDO::PARAM_INT);
         $update->bindValue(':tome', $tome, PDO::PARAM_STR);
-        $update->bindValue(':id', $id, PDO::PARAM_INT);
         /** On exécute la requête */
         $update->execute();
 

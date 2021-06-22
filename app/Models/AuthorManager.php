@@ -64,13 +64,12 @@ class AuthorManager extends Manager
     public function updateAuthor($id, $name_author, $firstname_author)
     {
         /** Requête de mise à jour d'un auteur **/
-        $sql = "UPDATE " . $this->table . " SET name_author = :name_author, firstname_author = :firstname_author WHERE id = :id";
+        $sql = "UPDATE " . $this->table . " SET name_author = :name_author, firstname_author = :firstname_author WHERE id = $id";
         /** On prépare la requête **/
         $req = $this->bdd->prepare($sql);
         /** On injecte les valeurs **/
         $req->bindValue(":name_author", $name_author, PDO::PARAM_STR);
         $req->bindValue(":firstname_author", $firstname_author, PDO::PARAM_STR);
-        $req->bindValue(":id", $id, PDO::PARAM_INT);
         /** On execute la requête**/
         $req->execute();
         return $req;

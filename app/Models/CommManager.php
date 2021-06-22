@@ -94,13 +94,12 @@ class CommManager extends Manager
     {
         $sql = "UPDATE ". $this->table ."
         SET `content` = :content, `note`= :note
-        WHERE id = :id";
+        WHERE id = $idComm";
         /**  On prépare la requête **/
         $Comm = $this->bdd->prepare($sql);
         /** On injecte les valeurs **/
         $Comm->bindValue(":note", $note, PDO::PARAM_INT);
         $Comm->bindValue(":content", $content, PDO::PARAM_STR);
-        $Comm->bindValue(":id", $idComm, PDO::PARAM_INT);
         /** On execute la requête **/
         $Comm->execute();
         return $Comm;

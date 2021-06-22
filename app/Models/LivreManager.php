@@ -47,14 +47,13 @@ class LivreManager extends Manager {
         return $livre;
     }
     public function updateLivre($id, $title, $category, $content) {
-        $sql = "UPDATE". $this->table."SET title = :title, category = :category, content = :content WHERE id = :id";
+        $sql = "UPDATE". $this->table."SET title = :title, category = :category, content = :content WHERE id = $is";
         /**  On prépare la requête **/
         $livre = $this->bdd->prepare($sql);
         /** On injecte les valeurs **/
         $livre->bindValue(":title",$title, PDO::PARAM_STR);
         $livre->bindValue(":category",$category, PDO::PARAM_STR);
         $livre->bindValue(":content",$content, PDO::PARAM_STR);
-        $livre->bindValue(":id",$id, PDO::PARAM_INT);
         /** On execute la requête **/
         $livre->execute();
         
