@@ -27,7 +27,7 @@
                     <li><a href="indexAdmin.php?action=inscription">M'inscrire</a></li>
                     <li><a href="indexAdmin.php?action=connexion">Me connecter</a></li>
                 <?php else : ?>
-                    <!-- Si il y a un utilisateur il peut aller à son tdb ou se déconnecter -->
+                    <!-- S'i 'il y a un utilisateur il peut aller à son tdb ou se déconnecter -->
                     <li><a href="indexAdmin.php?action=suggestion">Suggestion de livre</a></li>
                     <li><a href="indexAdmin.php?action=tdb&pseudo=<?= $pseudo ??  $_SESSION['user']['pseudo']; ?>">Retour au tableau de bord</a></li>
                     <li><a href="indexAdmin.php?action=deconnexion">Déconnexion</a></li>
