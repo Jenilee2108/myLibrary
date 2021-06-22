@@ -52,8 +52,8 @@ class AuthorLivresManager extends Manager
         ASC LIMIT 6
         ";
         /** On prépare la requête **/
-        $mesLivres = $this->bdd->query($sql);
-        return $mesLivres;
+        $livres = $this->bdd->query($sql);
+        return $livres;
     }
 
     /** Pour un livre écris par un auteur **/

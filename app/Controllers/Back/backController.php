@@ -51,7 +51,6 @@ class BackController
         /** Pour afficher les commentaires **/
         $infos = new \Projet\Models\CommManager();
         $allComms = $infos->getMyComm($pseudo);
-        var_dump($allComms);
         require "app/views/Back/page-tdb.php";        
     }
 
