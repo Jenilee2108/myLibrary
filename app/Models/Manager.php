@@ -12,6 +12,7 @@ class Manager extends PDO {
     // Le constructeur
     private function __construct() {
         //DSN de connexion
+
         $_dsn = "mysql:dbname=".$_ENV['DBNAME'].";host=".$_ENV['DBHOST'];
         try {
             parent::__construct($_dsn, $_ENV['DBUSER'], $_ENV['DBPASS']);

@@ -7,7 +7,7 @@ var_dump($_SESSION);
 
 try {
   /** Appel du backcontroller **/
-  $backController = new Projet\Controllers\Back\BackController();
+  $backController = new Projet\Controllers\Back\backController();
 
   if (isset($_GET['action'])) {
     /** Actions du Menu **/
@@ -139,10 +139,15 @@ try {
   }
 }
 /**On affiche l'erreur en cas de probleme **/
-catch (Exception $e) {
+catch (Exception $e) {  
+  $_SESSION['error']['msg'] = "Oups page introuvable";
+  require "app/views/Back/page-erreur";
+  echo "Oups page introuvable";
   die('Erreur :' . $e->getMessage());
 }
 catch (Error $e) {
-  $erreur ='Erreurs :' . $e->getMessage();
+  $_SESSION['error']['msg'] = "Un problème est survenu". $e->getMessage()." veuillez réessaye plus tard";
+  // die('Erreur :' . $e->getMessage());
+  $erreur ='Un problème est survenu veuillez réessayer plus tard Erreurs :' . $e->getMessage();
   require "app/views/Front/page-erreur";
 }
