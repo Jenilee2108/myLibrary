@@ -5,6 +5,7 @@ if (!isset($_SESSION["user"])) {
     header("Location: indexAdmin.php?action=connexion");
     exit;
 }
+var_dump($livre);
 $titre = "Ajouter mon commentaire";
 ?>
 

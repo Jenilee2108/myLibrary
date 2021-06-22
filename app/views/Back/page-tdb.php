@@ -1,6 +1,5 @@
 <?php
 ob_start();
-echo "salut";
 /** On vérifie s'il y a bien une session ouverte **/
 if (!isset($_SESSION)) {
     header("Location: indexAdmin.php?action=connexion");

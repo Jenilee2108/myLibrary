@@ -191,8 +191,8 @@ class BackController
     {
         /** Appel des livres et des commentaires en BDD  **/
         $livreManager = new \Projet\Models\AuthorLivresManager();
-        $livre = $livreManager->OneEcritpar($idLivre);
-        $livre = $livre->fetch();       
+        $livres = $livreManager->OneEcritpar($idLivre);
+        $livre = $livres->fetch();       
         require "app/views/Back/page-newComms.php";
     }
         /** ajout du commentaire en BDD **/
