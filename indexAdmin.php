@@ -61,7 +61,9 @@ try {
       if (!empty($pseudo) && !empty($pass) && !empty($name_user)) {
         $backController->createUser($pseudo, $name_user, $mail, $pass);
       } else {
-        throw new Exception('Renseignez tous les champs');
+        $_SESSION['error']['msg'] = "Merci de renseigner tous les champs";
+        require "app/views/Back/page-erreur";
+        // throw new Exception('Renseignez tous les champs');
       }
     }
 
@@ -75,7 +77,9 @@ try {
       if (!empty($pseudo) || !empty($pass)) {
         $backController->meconnecter($pseudo, $pass);
       } else {
-        throw new Exception('Renseignez tous les champs');
+        $_SESSION['error']['msg'] = "Merci de renseigner tous les champs";
+        require "app/views/Back/page-erreur";
+        // throw new Exception('Renseignez tous les champs');
       }
     }
 
