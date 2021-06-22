@@ -18,11 +18,14 @@ class AuthorLivresManager extends Manager
     /** Pour insérer une association auteur/livre **/
     public function ecrit_par($idAuthor, $idLivre, $tome)
     {
-        $sql = "INSERT INTO " . $this->table . ".(`idAuthor`,`idLivre`,`tome`) VALUES ('$idAuthor', '$idLivre', :tome)";
+        $sql = "INSERT INTO " . $this->table . ".(`idAuthor`,`idLivre`,`tome`) VALUES (:idAuthor, :idLivre, :tome)";
         /** On prépare la requête **/
         $req = $this->bdd->prepare($sql);
         /** On injecte les valeurs */
+        $req->bindValue(':idAuthor', $idAuthor, PDO::PARAM_INT);
+        $req->bindValue(':idLivre', $idLivre, PDO::PARAM_INT);
         $req->bindValue(':tome', $tome, PDO::PARAM_STR);
+        /** On execute la requête **/
         $req->execute();
         return $req;
     }
@@ -65,13 +68,14 @@ class AuthorLivresManager extends Manager
                 ON " . $this->table . ".`idLivre` = `livres`.id
             INNER JOIN `authors` 
                 ON " . $this->table . ".`idAuthor` = `authors`.id
-            WHERE  " . $this->table . ".id = '$idLivre'";
+            WHERE  " . $this->table . ".id = :id";
         /** On prépare la requête **/
         $livre = $this->bdd->prepare($sql);
+        /** On injecte les valeurs **/
+        $livre->bindValue(':id', $idLivre, PDO::PARAM_INT);
         /** On exécute la requête */
-        $livre->execute(array(
-            $idLivre
-        ));
+        $livre->execute();
+        
         return $livre;
     }
 
@@ -96,13 +100,13 @@ class AuthorLivresManager extends Manager
             ON " . $this->table . ".`idLivre` = `livres`.id
         INNER JOIN `authors` 
             ON " . $this->table . ".`idAuthor` = `authors`.id
-        WHERE EXISTS(SELECT id = '$idAuthor' FROM `authors`)";
+        WHERE EXISTS(SELECT authors.id = :id FROM `authors`)";
         /** On prépare la requête **/
         $infos = $this->bdd->prepare($sql);
+        /** On injecte les valeurs **/
+        $infos->bindValue(':id', $idAuthor, PDO::PARAM_INT);
         /** On exécute la requête */
-        $infos->execute(array(
-            $idAuthor
-        ));
+        $infos->execute();
         return $infos;
     }
 
@@ -110,25 +114,31 @@ class AuthorLivresManager extends Manager
     public function updateEcritPar($id, $idAuthor, $idLivre, $tome)
     {
         $sql = "UPDATE " . $this->table . " 
-        SET `idLivre` = '$idLivre', `idAuthor` = '$idAuthor', `tome` = :tome 
-        WHERE id = '$id'";
+        SET `idLivre` = :idLivre, `idAuthor` = :idAuthor, `tome` = :tome 
+        WHERE id = :id";
         /** On prépare la requête **/
         $update = $this->bdd->prepare($sql);
         /** On injecte les valeurs **/
+        $update->bindValue(':idLivre', $idLivre, PDO::PARAM_INT);
+        $update->bindValue(':idAuthor', $idAuthor, PDO::PARAM_INT);
         $update->bindValue(':tome', $tome, PDO::PARAM_STR);
+        $update->bindValue(':id', $id, PDO::PARAM_INT);
         /** On exécute la requête */
         $update->execute();
+
         return $update;
     }
 
     /** Pour supprimer une connexion livre/auteur **/
     public function deleteEcritPar($idLivre)
     {
-        $sql = "DELETE FROM " . $this->table . " WHERE id = '$idLivre'";
+        $sql = "DELETE FROM " . $this->table . " WHERE id = :id";
         /** On prépare la requête **/
         $delete = $this->bdd->prepare($sql);
-        /** On exécute la requête */
-        $delete->execute(array($idLivre));
+        /** On injecte les donneés */
+        $delete->bindValue(":id", $idLivre, PDO::PARAM_INT);
+        /** On execute la requête **/
+        $delete->execute();
     }
 
     /** Pour la barre de recherche **/
@@ -158,7 +168,8 @@ class AuthorLivresManager extends Manager
         /** On prépare la requête **/
         $search = $this->bdd->query($sql);
         /** On injecte les valeurs **/
-        $search->bindValue(":recherche",$recherche, PDO::PARAM_STR);
+        $search->bindValue(":recherche", $recherche, PDO::PARAM_STR);
+
         return $search;
     }
 }

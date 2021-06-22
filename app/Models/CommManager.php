@@ -24,12 +24,14 @@ class CommManager extends Manager
     public function creatComm($content, $note, $idUser, $idAuthorLivre)
     {
         $sql = "INSERT INTO " . $this->table . "(content, note, idUser, idAuthorLivre) 
-        VALUES (:content,:note,'$idUser','$idAuthorLivre')";
+        VALUES (:content,:note,:idUser,:idAuthorLivre)";
         //On prépare la requête
         $comm = $this->bdd->prepare($sql);
         //on injecte les données
         $comm->bindValue(":content", $content, PDO::PARAM_STR);
         $comm->bindValue(":note", $note, PDO::PARAM_INT);
+        $comm->bindValue(":idAuthorLivre", $idAuthorLivre, PDO::PARAM_INT);
+        $comm->bindValue(":idUser", $idUser, PDO::PARAM_INT);
         //On exécute la requête
         $comm->execute();
         return $comm;
@@ -44,13 +46,13 @@ class CommManager extends Manager
                 AND  `" . $this->table . "`.`idAuthorLivre` = `" . $this->livreAssocie . "`.id 
                 AND `" . $this->livreAssocie . "`.`idAuthor` = `authors`.id 
                 AND `" . $this->livreAssocie . "`.`idlivre` = `". $this->livres ."`.id
-                AND `". $this->livres ."`.id = $idLivre";
+                AND `". $this->livres ."`.id = :id";
         //On prépare la requête    
         $infos = $this->bdd->prepare($sql);
+        // On injecte les données
+        $infos->bindValue(":id", $idLivre, PDO::PARAM_INT);
         //On exécute la requête
-        $infos->execute(array(
-            $idLivre
-        ));
+        $infos->execute();
         return $infos;
     }
 
@@ -68,7 +70,7 @@ class CommManager extends Manager
         //On prépare la requête    
         $infos = $this->bdd->prepare($sql);
         //on injecte lse données
-        $infos->bindValue(":pseudo", $pseudo, PDO::PARAM_STR);
+        $infos->bindValue(":pseudo", $pseudo, PDO::PARAM_INT);
         //On exécute la requête
         $infos->execute();
         return $infos;
@@ -80,33 +82,39 @@ class CommManager extends Manager
             FROM " . $this->table . ", " . $this->livreAssocie . ", ". $this->livres ."
             WHERE " . $this->table . ".`idAuthorLivre` = " . $this->livreAssocie . ".`id`
             AND  " . $this->livreAssocie . ".`idLivre` = ". $this->livres .".id
-            AND " . $this->table . ".`id` = $idComm";
+            AND " . $this->table . ".`id` = :id";
         /**  On prépare la requête **/
         $Comm = $this->bdd->prepare($sql);
-        $Comm->execute(array($idComm));
+        $Comm->bindValue(":id", $idComm, PDO::PARAM_INT);
+        /** On execute la requête **/
+        $Comm->execute();
         return $Comm;
     }
     public function updateComm($idComm, $content, $note)
     {
         $sql = "UPDATE ". $this->table ."
         SET `content` = :content, `note`= :note
-        WHERE id = $idComm";
+        WHERE id = :id";
         /**  On prépare la requête **/
         $Comm = $this->bdd->prepare($sql);
         /** On injecte les valeurs **/
         $Comm->bindValue(":note", $note, PDO::PARAM_INT);
         $Comm->bindValue(":content", $content, PDO::PARAM_STR);
+        $Comm->bindValue(":id", $idComm, PDO::PARAM_INT);
         /** On execute la requête **/
         $Comm->execute();
         return $Comm;
     }
+
     /** Pour supprimer un commentaire **/
     public function deleteComm($idComm)
     {
-        $sql = "DELETE FROM " . $this->table . " WHERE id = $idComm";
+        $sql = "DELETE FROM " . $this->table . " WHERE id = :id";
         /** On prépare la requête **/
         $Comm = $this->bdd->prepare($sql);
-        /** On exécute la requête */
-        $Comm->execute(array($idComm));
+        /** On injecte les données **/
+        $Comm->bindValue(":id", $idComm, PDO::PARAM_INT);
+        /** On execute la requête **/
+        $Comm->execute();
     }
 }

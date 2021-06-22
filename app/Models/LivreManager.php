@@ -37,10 +37,13 @@ class LivreManager extends Manager {
     /** Pour récupérer un seul livre par id **/
     public function getLivre($id) {
         
-        $sql = "SELECT title, category, `content` FROM". $this->table."WHERE id=$id ";
+        $sql = "SELECT title, category, `content` FROM". $this->table."WHERE id = :id ";
         /**  On prépare la requête **/
         $livre = $this->bdd->prepare($sql);
-        $livre->execute(array($id));
+       /** On injecte les valeurs **/
+        $livre->bindValue(":id",$id, PDO::PARAM_INT);
+        /** On execute la requête **/
+        $livre->execute();
         return $livre;
     }
     public function updateLivre($id, $title, $category, $content) {
@@ -51,6 +54,7 @@ class LivreManager extends Manager {
         $livre->bindValue(":title",$title, PDO::PARAM_STR);
         $livre->bindValue(":category",$category, PDO::PARAM_STR);
         $livre->bindValue(":content",$content, PDO::PARAM_STR);
+        $livre->bindValue(":id",$id, PDO::PARAM_INT);
         /** On execute la requête **/
         $livre->execute();
         
