@@ -65,13 +65,12 @@ class AuthorLivresManager extends Manager
                 ON " . $this->table . ".`idLivre` = `livres`.id
             INNER JOIN `authors` 
                 ON " . $this->table . ".`idAuthor` = `authors`.id
-            WHERE  " . $this->table . ".id = '$idLivre'";
+            WHERE  " . $this->table . ".id = :id";
         /** On prépare la requête **/
         $livre = $this->bdd->prepare($sql);
         /** On exécute la requête */
-        $livre->execute(array(
-            $idLivre
-        ));
+        $livre->bindValue(':id', $idLivre, PDO::PARAM_STR);
+        $livre->execute();
         var_dump($idLivre);
         die;
         return $livre;
