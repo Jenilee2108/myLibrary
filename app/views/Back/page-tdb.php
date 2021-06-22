@@ -82,7 +82,7 @@ $titre = "Mon tableau de bord";
 <section class="derniers-livres">
     <!-- On boucle pour récupérer les 6 derniers livres -->
     <?php foreach ($allLivres as $livre) : ?>
-        <div class="card-livre container">
+        <div class="card-livre">
             <!-- Titre du livre -->
             <h3 class="card-title green">
                 <?= strip_tags($livre["title"]); ?>
