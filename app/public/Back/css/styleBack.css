@@ -318,6 +318,11 @@ li {
     .livreCommente, .derniers-livres {
         flex-direction: row;
         flex-wrap: wrap;
+        flex-basis: 100%;
+    }
+    .livreCommente>.card-livre, .derniers-livres>.card-livre {
+        width: 50%;
+
     }
     .synopsis-text {
         display: block;
@@ -350,7 +355,10 @@ li {
     }
     
     /**** Page Tableau de bord ****/ 
-
+    .livreCommente>.card-livre, .derniers-livres>.card-livre {
+        width: 33%;
+        
+    }
     .synopsis-text {
         display: flex;
     }

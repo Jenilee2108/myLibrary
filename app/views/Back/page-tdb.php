@@ -34,7 +34,7 @@ $titre = "Mon tableau de bord";
 <?php foreach ($allComms as $comm) : ?>
     <section class="container livreCommente">
         <!-- On affiche les données présentes en base de données -->
-        <div>
+        <div class="card-livre">
             <!-- titre du livre -->
             <h3 class='card-title'>
                 <span class="gold">
@@ -118,8 +118,8 @@ $titre = "Mon tableau de bord";
                     </div>
                 </div>
             </article>
+            <?php endforeach; ?>
         </div>
-    <?php endforeach; ?>
     </section>
 
 
