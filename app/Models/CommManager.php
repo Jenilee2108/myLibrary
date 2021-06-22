@@ -70,13 +70,12 @@ class CommManager extends Manager
             INNER JOIN `users`
             ON  `" . $this->table . "`.`idUser` = `users`.id
                 ORDER BY title
-            WHERE `users`.`pseudo` = :pseudo
-            ";
+            WHERE `users`.`pseudo` = :pseudo";
             
         //On prépare la requête    
         $infos = $this->bdd->prepare($sql);
         //on injecte lse données
-        $infos->bindValue(":pseudo", $pseudo, PDO::PARAM_INT);
+        $infos->bindValue(":pseudo", $pseudo, PDO::PARAM_STR);
         //On exécute la requête
         $infos->execute();
         return $infos;
