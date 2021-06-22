@@ -31,10 +31,10 @@ $titre = "Mon tableau de bord";
 <h2>Les <span class='gold bold'>livres</span> que vous avez commentez </h2>
 
 <!-- on boucle sur chaque commentaire associé au pseudo -->
-<?php foreach ($allComms as $comm) : ?>
-    <section class="container livreCommente">
-        <!-- On affiche les données présentes en base de données -->
-        <div class="card-livre">
+<section class="container livreCommente">
+    <!-- On affiche les données présentes en base de données -->
+    <div class="card-livre">
+            <?php foreach ($allComms as $comm) : ?>
             <!-- titre du livre -->
             <h3 class='card-title'>
                 <span class="gold">
@@ -70,19 +70,19 @@ $titre = "Mon tableau de bord";
                     </div>
                 </form><!-- fin du formulaire de commentaire -->
             </article><!-- Fin de la partie de commentaire -->
+            <?php endforeach; ?>
         </div>
     </section><!-- Fin de -->
-<?php endforeach; ?>
 
 
 
 <!-- Affichage des derniers livres ajoutés -->
 <h2 class="gold bold">Derniers <span class='green'>Livres</span> ajoutés</h2>
 <!-- Liste des derniers livres ajoutés en bdd -->
-<?php foreach ($allLivres as $livre) : ?>
-    <section class="derniers-livres">
-        <!-- On boucle pour récupérer les 6 derniers livres -->
-        <div class="card-livre container">
+<section class="derniers-livres">
+    <!-- On boucle pour récupérer les 6 derniers livres -->
+    <div class="card-livre container">
+            <?php foreach ($allLivres as $livre) : ?>
             <!-- Titre du livre -->
             <h3 class="card-title green">
                 <?= strip_tags($livre["title"]); ?>
