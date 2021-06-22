@@ -7,7 +7,7 @@ var_dump($_SESSION);
 
 try {
   /** Appel du backcontroller **/
-  $backController = new Projet\Controllers\Back\BackController();
+  $backController = new Projet\Controllers\Back\backController();
 
   if (isset($_GET['action'])) {
     /** Actions du Menu **/
