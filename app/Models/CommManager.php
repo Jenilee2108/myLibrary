@@ -69,8 +69,9 @@ class CommManager extends Manager
             ON `" . $this->livreAssocie . "`.`idAuthor` = `authors`.id 
             INNER JOIN `users`
             ON  `" . $this->table . "`.`idUser` = `users`.id
-                WHERE `users`.`pseudo` = :pseudo 
-            ORDER BY `" . $this->table . "`.`idAuthorLivre`";
+                WHERE `users`.`pseudo` = ':pseudo' 
+            ORDER BY title";
+            
         //On prépare la requête    
         $infos = $this->bdd->prepare($sql);
         //on injecte lse données

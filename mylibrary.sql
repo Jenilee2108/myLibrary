@@ -212,4 +212,4 @@ ON `authorLivres`.`idAuthor` = `authors`.id
 INNER JOIN `users`
 ON  `comms`.`idUser` = `users`.id
     WHERE `users`.`pseudo` = "Maman"
-GROUP BY title;
+ORDER BY title;

@@ -35,6 +35,7 @@ $titre = "Mon tableau de bord";
     <!-- On affiche les données présentes en base de données -->
     <?php foreach ($allComms as $comm) : 
         var_dump($pseudo);
+        var_dump($allComms);
         ?>
         <div class="card-livre">
             <!-- titre du livre -->
