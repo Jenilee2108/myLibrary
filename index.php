@@ -63,12 +63,8 @@ try {
 catch (Exception $e) {
     $_SESSION['error']['msg'] = "Oups page introuvable";
     require "app/views/Back/page-erreur";
-    echo "Oups page introuvable";
-    die('Erreur :' . $e->getMessage());
 }
 catch(Error $e) {
-    $_SESSION['error']['msg'] = "Un problème est survenu". $e->getMessage()." veuillez réessaye plus tard";
-    // die('Erreur :' . $e->getMessage());
-    $erreur ='Un problème est survenu veuillez réessayer plus tard Erreurs :' . $e->getMessage();
+    $erreur = "Un problème est survenu ". $e->getMessage()." veuillez réessaye plus tard";
     require "app/views/Front/page-erreur";
 }

@@ -47,12 +47,10 @@ try {
       $password = strip_tags($_POST['password']);
       /**on vérifie que l'on a bien une adresse mail **/
       if (!filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL)) {
-        // $_SESSION["error"]["msg"] = "L'adresse e-mail est incorrecte";
         throw new Exception("merci de remplir avec une adresse e-mail");
       }
       /** on vérifie que le mot de passe est d'au moins 5 caractères **/
       if (strlen($password) < 5) {
-        // $_SESSION["error"]["msg"] = "Le pseudo est trop court";
         throw new Exception("Le pseudo est trop court");
       }
       /* On cripte le mdp */
@@ -61,10 +59,7 @@ try {
       if (!empty($pseudo) && !empty($pass) && !empty($name_user)) {
         $backController->createUser($pseudo, $name_user, $mail, $pass);
       } else {
-        // $_SESSION['error']['msg'] = "Merci de renseigner tous les champs";
-        // require "app/views/Back/page-erreur";
         throw new Exception('Renseignez tous les champs');
-        // throw new Exception('Renseignez tous les champs');
       }
     }
 
@@ -78,8 +73,6 @@ try {
       if (!empty($pseudo) || !empty($pass)) {
         $backController->meconnecter($pseudo, $pass);
       } else {
-        // $_SESSION['error']['msg'] = "Merci de renseigner tous les champs";
-        // require "app/views/Back/page-erreur";
         throw new Exception('Renseignez tous les champs');
       }
     }
@@ -91,8 +84,7 @@ try {
       $backController->getInfos($pseudo);
     }
     /**Pour mettre à jour les informations utilisateurs */
-    else if ($_GET['action'] == 'updateInfo') {
-      
+    else if ($_GET['action'] == 'updateInfo') {      
       $mail = strip_tags($_POST['mail']);
       $password = strip_tags($_POST['password']);
       /** on vérifie que l'adresse email est au bon format **/
@@ -102,8 +94,7 @@ try {
       $backController->updateInfo($pseudo, $mail, $pass);
     }
     /** Pour supprimer un utilisateur **/
-    else if ($_GET['action'] == 'deleteUser') {
-      
+    else if ($_GET['action'] == 'deleteUser') {      
       $backController->deleteUser($pseudo);
     }
     /** Pour la gestion des commentaires **/
@@ -118,8 +109,12 @@ try {
       $idComm = strip_tags($_GET['idComm']);
       $content = strip_tags($_POST['content']);
       $note = strip_tags($_POST['note']);
+      if (!empty($content) || !empty($note)) {
+        $backController->updateComm($idComm, $content, $note, $pseudo);
+      } else {
+        throw new Exception('Renseignez tous les champs');
+      }
       
-      $backController->updateComm($idComm, $content, $note, $pseudo);
     }
     /** Ajouter un commentaire
      * 
@@ -133,8 +128,11 @@ try {
       $idLivre = $_GET['idLivre'];
       $content = strip_tags($_POST['content']);
       $note = strip_tags($_POST['note']);
-      
-      $backController->creatComm($pseudo, $content, $note, $idLivre);
+      if (!empty($content) || !empty($note)) {
+        $backController->creatComm($pseudo, $content, $note, $idLivre);
+      } else {
+        throw new Exception('Renseignez tous les champs');
+      }
     }
    
   } else {
