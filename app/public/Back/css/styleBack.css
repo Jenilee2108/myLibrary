@@ -320,18 +320,24 @@ li {
     }
     /** Page Téableau de bord - tdb **/
     .livreCommente, .derniers-livres {
+        display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         flex-basis: 100%;
+        align-items: first baseline;
     }
     .livreCommente>.card-livre, .derniers-livres>.card-livre {
-        width: 50%;
+        width: 45%;
         display: flex;
         flex-direction: column;
         align-content: flex-end;
         justify-content: center;
         margin: auto;
 
+    }
+    .contenu-card-livre.synopsis {
+        display: flex;
+        flex-direction: column;
     }
     .synopsis-text {
         display: block;
@@ -365,7 +371,7 @@ li {
     
     /**** Page Tableau de bord ****/ 
     .livreCommente>.card-livre, .derniers-livres>.card-livre {
-        width: 33%;
+        width: 30%;
     }
     .synopsis-text {
         display: flex;

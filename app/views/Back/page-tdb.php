@@ -107,7 +107,7 @@ $titre = "Mon tableau de bord";
                             <p class='noteLivre'>" . $livre['noteMoyenne'] . " pour " . $livre['votes'] . " votants </p>";
                         endif; ?>
                     </div>
-                    <div class="contenu-card-livre">
+                    <div class="contenu-card-livre synopsis">
                         <h6 class="title-label label-article">Synopsis: </h6>
                         <p class="synopsis-text" disable="true">
                             <?= strip_tags($livre["content"]); ?>
