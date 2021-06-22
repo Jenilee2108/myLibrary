@@ -9,7 +9,7 @@
     <meta name="keywords" content="Livres application">
     <title>My Library - <?= $titre ?? "Ma bibliothèque à portée de main" ?></title>
     <!-- Feuilles de style -->
-    <link rel="stylesheet" href="app/public/Front/css/style.css"/>
+    <link rel="stylesheet" href="app/public/Front/css/style.css" />
     <!-- Scripts -->
     <script src="app/public/Front/js/jquery-3.5.1.js" defer></script>
 
@@ -34,12 +34,12 @@
                     <ul id="menuAccueil">
                         <li><a href="index.php?action=library" class="green">My library</a></li>
                         <?php if (@is_null($_SESSION["user"]) || $pseudo == null) : ?>
-                        <li id="monCompte"><a href="index.php?action=moncompte" class="green">Mon Compte</a></li>
+                            <li id="monCompte"><a href="index.php?action=moncompte" class="green">Mon Compte</a></li>
                         <?php else : ?>
+                            <li><a href="indexAdmin.php?action=tdb&pseudo=<?= $pseudo ??  $_SESSION['user']['pseudo']; ?>">Retour au tableau de bord</a></li>
+                            <li><a href="indexAdmin.php?action=deconnexion">Déconnexion</a></li>
+                        <?php endif; ?>
                         <li id="meContacter"><a href="index.php?action=contact" class="green">Contact</a></li>
-                        <li><a href="indexAdmin.php?action=tdb&pseudo=<?= $pseudo ??  $_SESSION['user']['pseudo']; ?>">Retour au tableau de bord</a></li>
-                    <li><a href="indexAdmin.php?action=deconnexion">Déconnexion</a></li>
-                <?php endif; ?>
                     </ul>
                 </nav>
             </div>
