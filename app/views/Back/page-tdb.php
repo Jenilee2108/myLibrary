@@ -7,7 +7,7 @@ if (!isset($_SESSION)) {
 }
 /** On appelle les données récupérées pour les utiliser **/
 $allLivres = $allLivres->fetchAll();
-$allComms = $allComms->fetchAll();
+// $allComms = $allComms->fetchAll();
 
 /** Fonction pour injecter le header **/
 $titre = "Mon tableau de bord";
