@@ -33,7 +33,7 @@
                 <nav class="navheader center">
                     <ul id="menuAccueil">
                         <li><a href="index.php?action=library" class="green">My library</a></li>
-                        <?php if (@is_null($_SESSION["user"]) || $pseudo == null) : ?>
+                        <?php if ($pseudo == null) : ?>
                             <li id="monCompte"><a href="index.php?action=moncompte" class="green">Mon Compte</a></li>
                         <?php else : ?>
                             <li><a href="indexAdmin.php?action=tdb&pseudo=<?= $pseudo ??  $_SESSION['user']['pseudo']; ?>">Retour au tableau de bord</a></li>
