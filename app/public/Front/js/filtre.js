@@ -27,7 +27,7 @@ function toggleCheckbox(e) {
     
     categories.forEach(category => {
     let showArticles = document.querySelectorAll("article[data-category="+category+"]");
-
+        console.log(showArticles);
       showArticles.forEach(article => {
         article.classList.remove('hide');
       });  
