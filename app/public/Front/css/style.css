@@ -143,7 +143,7 @@ p {
 	cursor: pointer;
 	outline: inherit;
 }
-.labelSearch button {
+.labelSearch {
     display : flex;
     /* width : max-content;*/
     justify-content : center;
@@ -151,7 +151,7 @@ p {
     margin : 0 auto;
     cursor : pointer;
     color : #fff;
-    background : var(--green);
+    background-color : var(--green);
     border-radius : 3px 3px 0px 0px;
     -webkit-border-radius : 3px 3px 0px 0px;
     -moz-border-radius : 3px 3px 0px 0px;
@@ -263,6 +263,9 @@ nav>ol.center {
 /** Page Library **/
 .h2 {
     margin-top : 5px;
+}
+.hide {
+    display: none;
 }
 .filtre-library {
     display: flex;
