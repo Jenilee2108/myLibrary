@@ -13,16 +13,16 @@ $titre = "Contactez-nous";
             <table class="card container-livre card-livre center card-content">    
                 <tr class="bg-gold green">
                     <td class="label-formulaire green label-article">
-                        <label for="mail">Votre e-mail :</label>
+                        <label for="mailContact">Votre e-mail :</label>
                     </td>
                     <td class="input-formulaire">
-                        <input type="email" id="mailContact" name="user_mail" placeholder="Entrez votre adresse e-mail" nom="Entrez votre adresse e-mail">
+                        <input type="email" id="mailContact" name="user_mail" placeholder="Entrez votre adresse e-mail" title="Entrez votre adresse e-mail">
                     </td>
                 </tr><!-- Fin de la ligne de mail -->
 
                 <tr class="bg-gold green">
                     <td class="label-formulaire green label-article">
-                        <label for="nom">Votre nom: </label>
+                        <label for="nomContact">Votre nom: </label>
                     </td>
                     <td class="input-formulaire">
                         <input type="text" id="nomContact" name="nom" class="categorieLivre" placeholder="Entrez votre nom" title="Entrez votre nom">
@@ -31,10 +31,10 @@ $titre = "Contactez-nous";
 
                 <tr class="bg-gold green">
                     <td class="label-formulaire green label-article">
-                        <label for="demande">Votre demande: </label>
+                        <label for="demandeContact">Votre demande: </label>
                     </td>
                     <td class="input-formulaire">
-                        <textarea type="text" id="demandeContact" name="demande" class="demande" placeholder="Entrez votre message" title="Entrez votre message"></textarea>
+                        <textarea id="demandeContact" name="demande" class="demande" placeholder="Entrez votre message" title="Entrez votre message"></textarea>
                     </td>
                 </tr>
                 <tr class="formulaire center">

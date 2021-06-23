@@ -14,14 +14,14 @@ $titre = "Les Livres de MyLibrary"; ?>
                 <h3>Catégories</h3>
                 <div id="filtreCategory">
                     <?php foreach ($categories as $category) : ?>
-                        <input type="checkbox" name="category" class="filtre filtres" data-category="<?= $category['category']; ?>" value="<?= $category['category']; ?>">
+                        <input type="checkbox" id="searchCategory" name="category" class="filtre filtres" data-category="<?= $category['category']; ?>" value="<?= $category['category']; ?>">
                         <label for="searchCategory"><?= $category['category']; ?></label>
                     <?php endforeach; ?>
                 </div>
                 <h3>Auteurs</h3>
                 <div id="filtreAuthor">
                     <?php foreach ($authors as $auteur) : ?>
-                        <input type="checkbox" name="author" class="filtre filtres" data-auteur="<?= $auteur['name_author']; ?>" value="<?= $auteur['name_author']; ?>">
+                        <input type="checkbox" id="searchAuthor" name="author" class="filtre filtres" data-auteur="<?= $auteur['name_author']; ?>" value="<?= $auteur['name_author']; ?>">
                         <label for="searchAuthor"><?= $auteur['name_author']; ?></label>
                     <?php endforeach; ?>
                 </div>
