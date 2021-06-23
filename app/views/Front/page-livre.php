@@ -26,7 +26,7 @@ $titre = $livre['title'] ?? "Livre"; ?>
                 <div class="synopsis-livre">
                     <?php if (!is_null($livre['content'])) :
                         echo '<h4 class="gold label-article"> Synopsis: </h4>
-                        <p class="lightGray">' . $livre['content'] . '</p>';
+                        <p class="lightGray">' . utf8_encode($livre['content']) . '</p>';
                     endif; ?>
                 </div>
             </section>

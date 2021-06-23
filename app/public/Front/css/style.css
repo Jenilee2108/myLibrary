@@ -40,7 +40,7 @@ fieldset {
 }
 /* Généralités */
 html {
-    font-family : 'CaviarItallic', 'Roboto', 'Times', sans-serif;
+    font-family : 'Caviar', 'Roboto', 'Times', sans-serif;
 
 }
 body {
@@ -135,7 +135,7 @@ p {
     flex-direction : column;
 }
 .labelSearch button {
-    background: none;
+    background-color: none;
 	color: inherit;
 	border: none;
 	padding: 0;
