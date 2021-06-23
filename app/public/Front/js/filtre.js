@@ -18,7 +18,7 @@ function toggleCheckbox(e) {
   //on récupère les catégories selectionnées
   let categories = getChecked(e.target.name);
   // On récupère les articles
-  let allArticles = document.querySelector("article"); 
+  let allArticles = document.querySelector("#library>article"); 
   console.log(allArticles);
   allArticles.forEach(article => article.classList.remove("hide"));
   
