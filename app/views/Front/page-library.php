@@ -3,9 +3,7 @@ $titre = "Les Livres de MyLibrary"; ?>
 
 <!-- Mise en place de la zone de filtre -->
 <section id="filtre-library" class="container center pagewidth">
-    <h1 class="h2 green"><span class="gold">Nos</span> livres en Library</h1>
-    <!-- Mise en place d'un formulaire pour choisir le type de livres que l'on souhaite -->
-    <form class="filtre-library container" action="" method="post">
+    <h1 class="h2 green"><span class="gold">Nos</span> livres en Library</h1>  
         <!-- Champs du filtre  -->
         <fieldset class="filtre">
             <legend>
@@ -16,21 +14,20 @@ $titre = "Les Livres de MyLibrary"; ?>
                 <h3>Catégories</h3>
                 <div id="filtreCategory">
                     <?php foreach ($categories as $category) : ?>
-                        <input type="checkbox" id="searchCategory" name="category" class="filtre filtres" data-category="<?= $category['category']; ?>" value="<?= $category['category']; ?>">
+                        <input type="checkbox" name="category" class="filtre filtres" data-category="<?= $category['category']; ?>" value="<?= $category['category']; ?>">
                         <label for="searchCategory"><?= $category['category']; ?></label>
                     <?php endforeach; ?>
                 </div>
                 <h3>Auteurs</h3>
                 <div id="filtreAuthor">
                     <?php foreach ($authors as $auteur) : ?>
-                        <input type="checkbox" id="searchAuthor" name="author" class="filtre filtres" data-auteur="<?= $auteur['name_author']; ?>" value="<?= $auteur['name_author']; ?>">
+                        <input type="checkbox" name="author" class="filtre filtres" data-auteur="<?= $auteur['name_author']; ?>" value="<?= $auteur['name_author']; ?>">
                         <label for="searchAuthor"><?= $auteur['name_author']; ?></label>
                     <?php endforeach; ?>
                 </div>
             </section>
         </fieldset>
-    </form>
-</section>
+    </section>
 
 <!-- Mise en place de la bibliothèque générale -->
 <section id="library" class="container pagewidth allLibrary">
@@ -51,7 +48,7 @@ $titre = "Les Livres de MyLibrary"; ?>
                 <?php endif; ?>
             </h2>
             <div class="card-corps">
-                <div id="mesLivres" class="card-content">
+                <div class="card-content">
                     <div class="contenu-card-livre">
                         <h6 class="gold label-article">Auteur: </h6>
                         <p class="auteurLivre"><?= strip_tags($livre["name_author"]); ?></p>
@@ -68,7 +65,7 @@ $titre = "Les Livres de MyLibrary"; ?>
                     </div>
                     <div class="contenu-card-livre">
                         <h6 class="gold label-article ">Synopsis: </h6>
-                        <p class="synopsis-text" disable="true">
+                        <p class="synopsis-text">
                             <?= strip_tags($livre["content"]); ?>
                         </p>
                     </div>
