@@ -9,14 +9,30 @@ let selectAuteurs = document.querySelectorAll('article[data-auteur]');
 let selectCategories = document.querySelectorAll('article[data-category]');
 // On récupère chaque article
 let article = document.querySelector('article[class=livreTrie]');
+
 Array.prototype.forEach.call(allCheckboxes, function (el) {
     el.addEventListener('change', toggleCheckbox);
 });
 
 function toggleCheckbox(e) {
-    getChecked(e.target.name);
-    console.log(e.target.name);
-    setVisibility();
+  //on récupère les catégories selectionnées
+  let categories = getChecked(e.target.name);
+  // On récupère les articles
+  let allArticles = document.querySelector("article");
+  
+  allArticles.forEach(article => article.classList.remove("hide"));
+  
+  if (categories.length > 0) {
+    allArticles.forEach(article => article.classList.add("hide"));
+    
+    categories.forEach(category => {
+    let showArticles =document.querySelectorAll("article[data-category="+category+"]");
+
+      showArticles.forEach(article => {
+        article.classList.remove('hide');
+      });  
+    });
+  }
 }
 
 function getChecked(name) {
@@ -26,14 +42,4 @@ function getChecked(name) {
     console.log(checked[name]);
     return checked[name];
 }
-document.getElementsByClassName('filters').addEventListener('click', function(event) {
-
-function filter() {
-  if(checkedAuthor !== selectAuteurs && chekedCategory !== selectCategories) {
-   article.attr("hidden","true")
-  } else {
-    article.attr("hidden","true")  
-  }
-}
-})
 });
