@@ -1,0 +1,443 @@
+/* Mise en place des polices */
+@font-face {
+    font-family: Roboto;
+    src: url(../../Fonts/Roboto-Regular.ttf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Caviar;
+    src: url(../../Fonts/CaviarDreams_Italic.ttf);
+    font-weight: normal;
+}
+
+/* Reset */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+*,
+* :before,
+* :after {
+    box-sizing: inherit;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+/*Variables css */
+:root {
+    --gold: #ccac00;
+    --titre: rgb(204, 172, 0);
+    --green: #1a472a;
+    --police: rgb(26, 71, 42);
+    --paragraphe: rgb(170, 170, 170) ;
+}
+/*  Mes couleurs */
+.gold {
+    color: var(--gold);
+    font-weight: bolder;
+}
+
+.green {
+    color: var(--green);
+}
+
+.lightGray {
+    color: #dbdbdb;
+}
+
+.bg-green {
+    background-color: var(--green);
+}
+
+.bg-gold {
+    background-color: var(--gold);
+}
+
+/* Généralités */
+html {
+    font-size: 16px;
+    font-family: 'Roboto', 'Times', sans-serif;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+    font-family: 'Caviar';
+    font-weight: normal;
+  
+}
+
+p {
+    font-size: 1rem;
+    font-family: 'Caviar';
+    font-weight: normal;
+    color: var(--paragraphe);
+    word-wrap: break-word;
+}
+
+body {
+    height: 100%;
+    max-width: 1280px;
+    min-height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1,
+h2,
+h3 {
+    margin: 20px auto;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--green);
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    padding: 10px;
+}
+ input, textarea {
+     font-family: 'caviar';
+     font-size: 2rem;
+ }
+.pagewidth {
+    width: 100%;
+    min-width: 350px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5px 10px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 95%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 30px auto;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: flex-start;
+}
+
+.subBtn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50px;
+    margin-top: 10px;
+    color: var(--titre);
+}
+
+.subBtn>a.btn:hover,
+.subBtn>.btn:hover,
+.subBtn>a.btn.on,
+.subBtn>.btn.on {
+    color: var(--gold);
+    border-bottom: 3px solid var(--gold);
+}
+.title-label {
+    font-size : 2.5rem;
+    color: var(--titre);
+    margin-bottom: 5px;
+}
+
+/* Mise en place de la template */
+.container body{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    flex-wrap: nowrap;
+    align-content: center;
+}
+
+.rowMenu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+}
+/* Pour le logo */
+.logo {
+    width: 75%;
+    margin: 10px;
+}
+/* Pour le menu Accueil */
+.navheader>ul li {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.navheader>ul li a:hover,
+.navheader>ul li a.on{
+    color: var(--gold);
+    border-bottom: 3px solid var(--gold);
+}
+
+/**** Page tableau de bord ****/
+.gestion_info {
+    justify-items: center;
+    align-items: center;
+}
+
+.gestion_info > p {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+.subBtn {
+    justify-content: space-between;
+    align-content: center;
+    align-items: end;
+}
+
+.btn-tdb > a:hover,
+.btn-tdb > a.on {
+    color: var(--gold);
+    border-bottom: 3px solid var(--gold);
+    font-size: 2em;
+}
+
+#mesComm.card-corps {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+    padding: 15px;
+    background-color: var(--green);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    align-content: center;
+    justify-content: flex-start;
+}
+.card-title { 
+    font-size: 1.75rem;
+}
+.synopsis-text {
+    display: none;
+}
+
+/**** Page-infos ****/
+.card-corps {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--green);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+/** Page ajouter mon commentaire */
+#newLivre.livre {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#newLivre>.livre {
+    display: flex;
+    align-content: space-between;
+    margin-top: 20px;
+}
+
+
+/* pour le format tablette  */
+
+@media screen and (min-width : 768px) {
+    .pagewidth {
+        width: 100%;
+        margin: auto;
+        max-width: 1024px;
+        padding: 0 auto;
+        display: flex;
+        flex-grow: 1170px;
+    }
+
+   /*** Mise en place de la template ***/
+    .navheader {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .navheader,
+    .logo {
+        width: 45%;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    /** Généralités **/
+    input {
+        height: 2rem;
+        font-size: 1.5rem;
+        font-family: 'caviar';
+    
+    }
+    textarea {
+        height: 5rem;
+        font-size: 1.5rem;
+        font-family: 'caviar';
+    
+    }
+    h3.card-title,.title-label {
+        font-size: 1.7rem;
+    }
+    /** Page Téableau de bord - tdb **/
+    .livreCommente, .derniers-livres {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex-basis: 100%;
+        align-items: first baseline;
+    }
+    .livreCommente>.card-livre, .derniers-livres>.card-livre {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-content: flex-end;
+        justify-content: center;
+        margin: auto;
+
+    }
+    .contenu-card-livre.synopsis {
+        display: flex;
+        flex-direction: column;
+    }
+    .synopsis-text {
+        display: block;
+    }
+    
+    .contenu-card-livre {
+        display: flex;
+        flex-direction: row;
+        margin-top: 5px;
+    }
+
+    .contenu-card-livre>h6 {
+        text-transform: capitalize;
+        font-weight: bold;
+    }
+
+}
+
+/*   pour le format tablette paysage ou ordinateur  */
+@media screen and (min-width : 1024px) {
+    .pagewidth {
+        max-width: 970px;
+    }
+    .navheader {
+        margin: 0;
+        justify-content: flex-end;
+    }
+    .logo {
+        justify-content: flex-start;
+    }
+    
+    /**** Page Tableau de bord ****/ 
+    .livreCommente>.card-livre, .derniers-livres>.card-livre {
+        width: 30%;
+    }
+    .synopsis-text {
+        display: flex;
+    }
+  
+}
+
+@media screen and (min-width : 1200px) {
+    .pagewidth {
+        max-width: 1100px;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    p {
+        font-size: 2rem;
+    }
+
+    input {
+        height: 2.5rem;
+    }
+    textarea {
+        height: 5.5rem;
+    }
+    h3.card-title {
+        font-size: 1.5rem;
+    }  
+}
+
+
+
+/* Pour les impressions */
+
+@media print and (min-width : 300px) {
+    header {
+        display: none;
+    }
+
+    #footpage {
+        display: none;
+    }
+
+    body {
+        font-size: 120%;
+        color: black;
+        background-color: none;
+    }
+
+    img a {
+        display: none;
+    }
+
+    nav {
+        display: none;
+    }
+
+}
+ 

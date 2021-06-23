@@ -1,50 +1,138 @@
 <?php
-    namespace Projet\Models;
 
-class UserManager extends Manager{
+namespace Projet\Models;
+use PDO;
 
-    public function verify_admin($pseudo){
-        $bdd =$this->dbConnect();
-
-        $name = $bdd->prepare("SELECT * FROM `users` WHERE pseudo=?");
-        $name->execute(array($pseudo));
-            return $name;
+class UserManager extends Manager
+{
+        //table de la base de données
+        /**
+         * nom de la table utilisé
+         *
+         * @var string
+         */
+        protected string $table;
+        //instance de la bdd
+        private $bdd;
+        
+    function __construct()
+    {
+        $this->table = "users";
+        $this->bdd = Manager::getInstance();
     }
-    public function creatAdmin($firstname,$pseudo,$mail,$pass){
-        $bdd=$this->dbConnect();
-        $user=$bdd->prepare("INSERT INTO `users`(`firstname`,`pseudo`,`mail`,`password`) VALUES (?,?,?,?)");
-        $user->execute([$firstname,$pseudo,$mail, $pass]);
-            return $user;
+    /** On vérifie que le pseudo est unique **/
+    public function verify_user($pseudo)
+    {
+        /** Requete de comparaison des pseudonyme **/
+        $sql = "SELECT `pseudo` FROM ". $this->table." WHERE pseudo= :pseudo";
+        /** On prépare la requête */
+        $name = $this->bdd->prepare($sql);
+        /** On injecte les valeurs */
+        $name->bindValue(":pseudo", $pseudo, PDO::PARAM_STR);
+        /** On exécute la requête */
+        $name->execute();
+        return $name;
     }
-    public function getInfos(){
-        $bdd = $this->dbconnect();        
-        $req=$bdd->query("SELECT * FROM `users`");
-            return $req;
+    /** Pour créer un utilisateur **/
+    public function createUser($pseudo, $name_user, $mail, $pass)
+    {
+        /** On appelle la BDD **/
+        // $this->bdd = Manager::getInstance();
+        /** Requete pour ajouter un utilisateurs en BDD **/
+        $sql = "INSERT INTO ". $this->table."(`pseudo`, `name_user`,`mail`,`password`) VALUES (:pseudo, :name_user, :mail, :pass)";
+        /** On prepare la requête **/
+        $user = $this->bdd->prepare($sql);
+        /** On injecte les valeurs **/
+        $user->bindValue(":pseudo", $pseudo, PDO::PARAM_STR);
+        $user->bindValue(":name_user", $name_user, PDO::PARAM_STR);
+        $user->bindValue(":mail", $mail, PDO::PARAM_STR);
+        $user->bindValue(":pass", $pass, PDO::PARAM_STR);
+        /** On execute la requête**/
+        $user->execute();
+        return $user;
     }
 
+    /** Pour récupérer le mot de passe associé à un pseudonyme **/
+    public function recupMdp($pseudo)
+    {
+        /** On appelle la BDD **/
+        // $this->bdd = Manager::getInstance();
+        /** requête pour récupérer le mdp associé **/
+        $sql = "SELECT `pseudo`,`mail`,`name_user`, `password`
+        FROM `". $this->table."` 
+        WHERE pseudo = :pseudo";
+        /** On prepare la requête **/
+        $req = $this->bdd->prepare($sql);
+        /** On injecte les valeurs **/
+            $req->bindValue(":pseudo", $pseudo, PDO::PARAM_STR);
+        /** On exécute la requête */
+        $req->execute();        
+        return $req;
+    }
+    public function getId($pseudo)
+    {
+        /** On appelle la BDD **/
+        // $this->bdd = Manager::getInstance();
+        /** requête pour récupérer le mdp associé **/
+        $sql = "SELECT `id`
+        FROM ". $this->table ." 
+        WHERE pseudo = :pseudo";
+        /** On prepare la requête **/
+        $user = $this->bdd->prepare($sql);
+        /** On injecte les valeurs **/
+            $user->bindValue(":pseudo", $pseudo, PDO::PARAM_STR);
+        /** On exécute la requête */
+        $user->execute();        
+        return $user;
+    }
+
+
+    /** Pour Mettre à jour un utilisateur **/
+    public function getInfos($pseudo)
+    {
+        /** On appelle la BDD **/
+        // $this->bdd = Manager::getInstance();
+        /** requête pour avoir les informations d'un utilisateur **/
+        $sql = "SELECT `mail`,`password`,`pseudo` FROM ". $this->table."  WHERE pseudo = :pseudo";
+        /** On prepare la requête **/
+        $user = $this->bdd->prepare($sql);
+        /** On injecte les valeurs **/
+        $user->bindValue(":pseudo", $pseudo, PDO::PARAM_STR);
+        /** On exécute la requête */
+        $user->execute();
+        return $user;
+    }
+    public function updateInfo($pseudo,$mail,$pass)
+    {
+        /** On appelle la BDD **/
+        // $this->bdd = Manager::getInstance();
+        /** requête pour mettre a jour les informations d'un utilisateur */
+        $sql = "UPDATE ". $this->table." SET `mail` = :mail, `password` = :pass  WHERE `pseudo` = :pseudo";
+        /** On prepare la requête **/
+        $user = $this->bdd->prepare($sql);
+        /** On injecte les valeurs **/
+        $user->bindValue(":pseudo", $pseudo, PDO::PARAM_STR);
+        $user->bindValue(":mail", $mail, PDO::PARAM_STR);
+        $user->bindValue(":pass", $pass, PDO::PARAM_STR);
+        /** On execute la requête**/
+        $user->execute();
+        return $user;
+    }
     
-    // public function editInfo($id){
-    //     $bdd = $this->dbconnect();
-    //     $req=$bdd->prepare("SELECT * FROM `users` WHERE id=?");
-    //     $req->execute([$id]);
-    //         return $req;
-    // }
-    // public function updateInfo($id,$mail){
-    //     $bdd-$this.dbConnect();
-
-    //     $req=$bdd->prepare("UPDATE `users` SET mail= :mail WHERE id=:id");
-    //     $req->exceute([
-        //         'id'->$id,
-        //         'mail'->$mail
-        //     ]);        
-        // }
-    // public function deleteInfo($id){
-    //     $bdd = $this->dbconnect();
-    //     $req=$bdd->prepare("DELETE FROM `users` WHERE id=?");
-    //     $req->execute([$id]);
-    //         return $req;
-    // }
-    
-
+    /** Pour supprimer un utilisateur **/
+    public function deleteUser($pseudo)
+    {
+        /** On appelle la BDD **/
+        // $this->bdd = Manager::getInstance();
+        /**requête pour supprimer un utilisateur **/
+        $sql = "DELETE FROM ". $this->table." WHERE pseudo = :pseudo";
+        /** On prepare la requête **/
+        $user = $this->bdd->prepare($sql);
+        /** On injecte les valeurs **/
+        $user->bindValue(":pseudo", $pseudo, PDO::PARAM_STR);
+        /** On exécute la requête */
+        $user->execute();
+        return $user;
+    }
 
 }

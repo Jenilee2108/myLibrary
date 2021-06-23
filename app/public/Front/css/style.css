@@ -1,237 +1,506 @@
 /* Mise en place des polices */
 @font-face {
-	font-family: antipasto;
-	src: url(./Antipasto.ttf);
-	font-weight: normal;
+    font-family : CaviarItallic;
+    src : url(../../Fonts/CaviarDreams_Italic.ttf);
+    font-style: italic;
+}
+@font-face {
+    font-family : Caviar;
+    src : url(../../Fonts/CaviarDreams.ttf);
+    font-weight : normal;
+}
+@font-face {
+	font-family : Roboto;
+	src : url(../../Fonts/Roboto-Regular.ttf);
+	font-weight : normal;
 }
 
-@font-face {
-	font-family: caviar;
-	src: url(./CaviarDreamsItalic.ttf);
-	font-weight: normal;
-}
 
 /* Reset */
-html {
-    box-sizing: border-box;
-    font-size: 16px;
+* {
+    padding : 0;
+    margin : 0;
 }
-*, *:before, *:after { 
-    box-sizing: inherit;
-}
-body, h1, h2, h3, h4, h5, h6, p, ol, ul {
-	margin: 0;
-	padding: 0;
-	font-weight: normal;
-}
-img { 
-    max-width: 100%; 
-    height: auto;
-}
-h1, h2, h3 {
- text-align: center;
-}
-a {
-    text-decoration: none;
+*, * :before, * :after { 
+    box-sizing : inherit;
 }
 ul {
-    display: flex;
+    list-style-type : none;
+}
+a {
+    text-decoration : none;
+}
+fieldset {
+    border : none;
+}
+/*Variables css */
+:root {
+    --gold : #ccac00;
+    --green : #1a472a;
+}
+/* Généralités */
+html {
+    font-family : 'Caviar', 'Roboto', 'Times', sans-serif;
+
+}
+body {
+    font-size : 14px;
+    min-width : 350px;
+}
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+	margin : 0;
+	padding : 0;
+	font-weight : normal;
+}
+img { 
+    max-width : 100%;
+    height : auto;
+}
+h1, h2, h3 {
+    margin : 20px auto;
+    text-align : center;
+    text-transform : uppercase;
+}
+ul {
+    display : flex;
 }
 li {
-    list-style: none;
-    padding:10px;
+    padding : 10px;
 }
-.flex {
-    display:flex;
+p {
+    font-family: 'CaviarItallic';
+    font-weight: normal;
+    color: rgb(170, 170, 170) ;
+    word-wrap: break-word;
+
 }
-.centrer {
-    justify-content: center;
-    margin: 0 auto;
+.pagewidth {
+    display: flex;
+    width : 100%;
+    min-width : 350px;
+    max-width : 1170px;
+    margin : 0 auto;
+    padding : 5px 0;
 }
-.align_centrer
-/*Page Tempate la page accueil*/
-.card{
-    border: 1px solid;
-    width: auto;
-    text-align: justify;
-    padding: 15px;
-    box-shadow: 0px 5px 20px #999
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.row {
-    /* Ajouter box-sizing */
-    box-sizing : border-box;
-    border-radius:5px;
-    background-color:#f2f2f2;
-    padding:20px;
+.container {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    /* redéfinition 400 + 2*20 */
-    margin:0 auto;
-  }
-
-.btnAdmin {
-    display: flex;
-    justify-content: space-evenly;
+    box-sizing: border-box;   
+    padding: 10px;
+    margin: 30px auto;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: center;
 }
-
-/* .card{
-    border: 1px solid;
-    width: auto;
-    text-align: justify;
-    padding: 15px;
-    box-shadow: 0px 5px 20px #999
-} */
-
-.card_gestion{
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 50px;
+.center {
+    display : flex;
+    justify-content : center;
+    align-content : center;
+    align-items : center;
+    width: 100%;
+    margin : 0 auto;
 }
-.article{
-    width: 20%;
-    border: 1px solid;
-    min-height: 451px;
-    display: flex;
-    flex-direction: column;
+.row {
+    flex-direction : row;
 }
+/*  Mes couleurs */
+.gold {
+    color : var(--gold);
+}
+.green {
+    color : var(--green);
+}
+.lightGray {
+    color : #dbdbdb;
+}
+.bg-green {
+    background-color : var(--green);
+}
+.bg-gold {
+    background-color : var(--gold);
+    font-weight : bolder;
+}
+/* Mise en place de la template */
+.menuheader {
+    justify-content : space-around;
+}
+    /* Pour le logo */
+.logo, .recherche, .navheader {
+    width : 75%;
+    margin : 10px;
+}
+    /* Barre de recherche */
+.recherche {
+    flex-direction : column;
+}
+.labelSearch button {
+    background-color: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+.labelSearch {
+    display : flex;
+    /* width : max-content;*/
+    justify-content : center;
+    padding : 0.2em 1em;
+    margin : 0 auto;
+    cursor : pointer;
+    color : #fff;
+    background-color : var(--green);
+    border-radius : 3px 3px 0px 0px;
+    -webkit-border-radius : 3px 3px 0px 0px;
+    -moz-border-radius : 3px 3px 0px 0px;
+    -ms-border-radius : 3px 3px 0px 0px;
+    -o-border-radius : 3px 3px 0px 0px;
+}
+input.searchBar {
+    width : 100%;
+    background-color : #e5d57f;
+    box-shadow : inset 0 0 0.5em #1a1a1a;
+    border : 2px solid var(--green);
+    border-radius : 25px;
+    -webkit-border-radius : 25px;
+    -moz-border-radius : 25px;
+    -ms-border-radius : 25px;
+    -o-border-radius : 25px;
+}
+    /* Pour le menu Accueil */
 
-.all-articles{
-    display: flex;
+.navheader>ul li {
+    display : inline-flex;
+    justify-content : space-between;
+}
+.navheader>ul li a:hover,
+.navheader>ul li a.on{
+    color: var(--gold);
+    border-bottom: 3px solid var(--gold);
+}
+ol.center {
     flex-wrap: wrap;
+    align-content: space-evenly;
     justify-content: space-evenly;
 }
-
-.article p{
+    /* Footer */
+.footer {
+    margin-bottom : 0;
+}
+.banniere {
+    border: solid 2px var(--gold);
+    background-color: rgba(42, 98, 61, 0.7);
+    position: fixed;
+    bottom: 0%;
+    left: 0%;
+    width: 100%;
+    z-index: 3;
+    color: #dbdbdb;
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+}
+.text-banniere p {
+    font-size: large;
+}
+.button-banniere a {
+    border: solid 1px var(--gold);
     padding: 10px;
+    background-color: #ccac00;
+    color:rgb(42, 98, 61);
+}
+/* Page-CGU */
+p.page-cgu {
+    margin : auto;
+    text-align : start;
 }
 
-.form_article{
+/* Page-Accueil */
+.bloc-accueil {
+    justify-content : center;
+    margin : 0px auto;
+}
+#quoi.card {
+    display : flex;
+    flex-wrap : wrap;
+}
+.img-accueil {
+    width : auto;
+    height : auto;
+}
+.card-corps {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--green);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
-.content{
-    width: 50%;
+#quoi.card-title, #fonctionnement.card {
+    display : flex;
+    width : 100%;
+    justify-content : center;
+}
+p .card-corps {
+    width : 45%;
+    align-items : flex-end;
+}
+p.text-accueil {
+    color : #fff;
+}
+nav>ol.center {
+    flex-wrap : wrap;
 }
 
-.btn-secondary{
-    width: 10%;
-    padding: 10px;
-}
 
-.text_content{
-    text-align: center;
-    margin-top: 50px;
+/** Page Library **/
+.h2 {
+    margin-top : 5px;
 }
-
-.article_title{
+.livreTrie.hide {
+    display: none;
+}
+.filtre-library {
+    display: flex;
+    justify-content: center;
+    background-color : var(--gold);
+    color : var(--green);
+    font-weight : bold;
+}
+.filtre {
+    background-color : var(--gold);
+    color : var(--green);
+    border-top : 1px solid var(--green);
+    font-weight : bold;
+    padding-left : 10px;
+    padding-right : 10px;
+}
+h2.filtre {
+    border-top : none;
+}
+#onglets {
     display: flex;
     flex-direction: column;
-    width: 20%;
-    text-align: center;
-    margin: auto;
+    flex-wrap: nowrap;
+    align-items: center;
 }
-.subBtn{
-    text-align: center;
-    margin-top: 25px;
-}
-
-.infos_admin{
+#onglets>article.groupe {
+    border-bottom: 2px solid rgb(42, 98, 61);
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-top: 25px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
 }
-
-.submit-btnValider{
-    margin-top: 25px;
-}
-
-.input_infos{
-    width: 20%;
-    margin: auto;
-}
-
-.btn_infos,
-.newNameAdmin h3{
-    text-align: center;
-}
-
-.createPresta{
-    margin-top: 55px;
-    text-align: center;
-}
-
-.createPresta a,
-.btn_edit,
-.btn_delet{
-    border: 1px solid;
-    padding: 10px;
-    text-decoration: none;
-    margin: auto;
-}
-.btn_edit:hover,
-.createPresta a:hover{
-    background: black;
-    color: #fff;
+.allLibrary {
+    display : grid;
+    flex-wrap : wrap;
+    justify-content : initial;
     
 }
-
-.btn_delet:hover{
-    background: red;
-    color: #fff;
+.card-livre {
+    display : grid;
+    grid-template-columns : repeat(3, auto);
+    grid-auto-columns : minmax(auto, auto);
+    grid-auto-rows : minmax(auto, auto);
+    margin-top: 20px;
+    /* Pour aligner les livres qui sont aussi en .container {display :flex} */
+    align-content: flex-start;
+}
+.card-corps {
+    grid-column : 1 / 3;
+    grid-row : 2 / 3;
+    align-items: flex-end;
+}
+.card-title {
+    grid-column : 2 / 3;
+    grid-row : 1;
+   justify-content : flex-end;
+}
+.card-title {
+    text-decoration : none;
+    font-weight : bold;
+    color : var(--green);
+}
+.card-img {
+    z-index : 2;
+    grid-column : 1;
+    grid-row : 1 / 3;
+    align-self : start;
+    padding : 0 10px;
+    filter : drop-shadow(0 0 0.75rem #ccac00);
+    -webkit-filter : drop-shadow(0 0 0.75rem #ccac00);
+}
+.card-content {
+    display : flex;
+    flex-direction : column;
+    text-align : end;
+}
+.synopsis-text {
+    font-family: Roboto;
+    display : none;
+    color : #dbdbdb;
+}
+.contenu-card-livre {
+    display : flex;
+    flex-direction : column;
+    color : #dbdbdb;
+    margin : 0.3rem;
+}
+.label-article, .contenu-card-livre>h6 {
+    text-transform : capitalize;
+    font-size : medium;
+    font-weight : bold;
+    text-align : end;
 }
 
-.btn_gestion{
-    text-align: center;
-    margin: auto;
+/** Page Livre **/
+.livreSolo {
+    display : flex;
+    flex-wrap : wrap;
+    justify-content : center;
+    max-width : 100%;
+    margin : 0 auto;
+}
+#livreSolo.content-livre {
+    display : flex;
+    width : auto;
 }
 
-.card_mail p{
-    margin-top: -31px;
+/* Page d'inscription */
+#inscription.card, #connexion.card {
+    display : grid;
+    grid-template-columns : repeat(3, 20fr);
+    grid-template-rows : repeat(3, auto);
+    grid-auto-columns : minmax(auto, auto);
+    grid-auto-rows : minmax(auto, auto);
+}
+#inscription>.card-title,
+#connexion>.card-title {
+    grid-column: 1 / 3;
+    grid-row: 1;
+
+}
+#inscription>.card-corps,
+#connexion>.card-corps {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
 }
 
-.formImg{
-    text-align: center;
-}
-
-.newImg{
-    margin-top: 50px
+/* Page de contact */
+.input-formulaire input{
+    width : 100%;
 }
 
 
+/* pour le format tablette  */
+
+@media screen and (min-width : 768px) {
+    /*Mise en place de la template  */
+    .menuheader {
+        display : flex;
+        flex-direction : row;
+        justify-content : space-between;
+    }
+    .navheader, .logo, .recherche {
+        width : 33%;
+    }
+    .navheader {
+        justify-content : flex-end;
+    }   
+
+    /* Page Library */
+    .allLibrary {
+        grid-template-columns : repeat(2, auto);
+    }
+    .synopsis-text {
+        display : none;
+    }
+
+
+}
+/*   pour le format tablette paysage ou ordinateur   */
+@media screen  and (min-width : 1024px) {
+    .menuheader {
+        margin : 0;
+    }
+    .pagewidth {
+        max-width : 975px;
+    }
+    .bloc-accueil {
+        flex-wrap : wrap;
+        flex-direction : row;
+    }
+ /* Page d'accueil */
+    #quoi.card {
+        display : grid;
+        grid-template-columns : repeat(3, auto);
+        grid-auto-columns : minmax(auto, auto);
+        grid-auto-rows : minmax(auto, auto);
+    }
+    #quoi>.card-img {
+        grid-column: 1;
+        grid-row: 2;
+        width : auto;
+    }
+    #quoi>.card-title{
+        grid-column: 1 / 3;
+        grid-row: 1;
+
+    }
+    #quoi>.card-corps {
+        grid-column: 2 / 3;
+        grid-row: 2;
+    }
+
+    /* Page Library */
+    .allLibrary {
+        grid-template-columns : repeat(3, auto);
+    }
+    .synopsis-text {
+        display : flex;
+    }
+    /* Page inscription */
+    #pageInscription.container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+@media screen and (min-width : 1200px) {
+    .pagewidth {
+        max-width : 1170px;
+    }
+}
+
+
+
+/* Pour les impressions */
+
+@media print and (min-width : 300px) {
+    header {
+        display : none;
+    }
+    #quoi figure, #filtre-library form {
+        display : none;
+    }
+    #footpage {
+        display : none;
+    }
+    body {
+        font-size : 120%;
+        color : black;
+    }
+    img a {
+        display : none;
+    }
+    nav {
+        display : none;
+    }
+
+}
