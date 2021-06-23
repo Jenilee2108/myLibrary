@@ -24,6 +24,7 @@ function getChecked(name) {
         return el.value;
     });
     console.log(checked[name]);
+    return checked[name];
 }
 document.getElementsByClassName('filters').addEventListener('click', function(event) {
 

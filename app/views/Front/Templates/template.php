@@ -57,7 +57,8 @@
         <!-- Script du filtre -->
         <script type="text/javascript" src="app/public/Front/js/onglet.js" defer></script>
         <!-- Scripts de la barre de recherche -->
-        <!-- <script type="text/javascript" src="app/public/Front/js/filtre.js" defer></script> -->
+        <script type="text/javascript" src="app/public/Front/js/filtre.js" defer></script>
+        
 
 
 
