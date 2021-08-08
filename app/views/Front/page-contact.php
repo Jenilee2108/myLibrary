@@ -6,18 +6,18 @@ ob_start();
 $titre = "Contactez-nous";
 ?>
 <section class="container">
-    <h1 class='center green'>Contacter <span class="gold bold"> My </span>library</h1>
+    <h1 class='center green'>Contacter <span class="gold bold"> My </span> library</h1>
     <article class="card container-livre card-livre center card-corps">
         <!-- Formulaire de contact -->
         <div class="card-corps">
             <table class="card container-livre card-livre center card-content">    
                 <tr class="bg-gold green">
                     <td class="label-formulaire green label-article">
-                        <label for="mailContact">Votre e-mail :</label>
-                    </td>
-                    <td class="input-formulaire">
+                        <label for="mailContact">Votre e-mail :
+                    <!--</td>
+                    <td class="input-formulaire">-->
                         <input type="email" id="mailContact" name="user_mail" placeholder="Entrez votre adresse e-mail" title="Entrez votre adresse e-mail">
-                    </td>
+                    </label></td>
                 </tr><!-- Fin de la ligne de mail -->
 
                 <tr class="bg-gold green">
