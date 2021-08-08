@@ -23,8 +23,8 @@ $titre = "Contactez-nous";
                 <tr class="bg-gold green">
                     <td class="label-formulaire green label-article">
                         <label for="nomContact">Votre nom: </label>
-                    </td>
-                    <td class="input-formulaire">
+                    <!--</td>
+                    <td class="input-formulaire">-->
                         <input type="text" id="nomContact" name="nom" class="categorieLivre" placeholder="Entrez votre nom" title="Entrez votre nom">
                     </td>
                 </tr><!-- Fin de la ligne de nom -->
@@ -32,13 +32,13 @@ $titre = "Contactez-nous";
                 <tr class="bg-gold green">
                     <td class="label-formulaire green label-article">
                         <label for="demandeContact">Votre demande: </label>
-                    </td>
-                    <td class="input-formulaire">
+                   <!--</td>
+                    <td class="input-formulaire">-->
                         <textarea id="demandeContact" name="demande" class="demande" placeholder="Entrez votre message" title="Entrez votre message"></textarea>
                     </td>
                 </tr>
                 <tr class="formulaire center">
-                    <td></td>
+                    <!-- <td></td>-->
                     <td class="input center">
                         <button class="btn center" id="suggerer">Envoyer</button>
                     </td>
