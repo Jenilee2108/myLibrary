@@ -58,28 +58,8 @@
         <script type="text/javascript" src="app/public/Front/js/onglet.js" defer></script>
         <!-- Scripts de la barre de recherche -->
         <script type="text/javascript" src="app/public/Front/js/filtre.js" defer></script>
-        
-
-
-
     </footer>
-    <!-- Pour la gestion des cookies -->
-    <!--  -->
-    <?php
-    if (!isset($_COOKIE['accepte-cookie'])) :
-    ?>
-        <div class="banniere">
-            <div class="text-banniere">
-                <p>Ce site utilise des cookies pour une meilleure expérience</p>
-            </div>
-            <div class="button-banniere">
-                <a href="?accepte-cookie">Ok, j'accpte</a>
-                <a href="?refuse-cookie">Je refuse</a>
-            </div>
-        </div>
-    <?php
-    endif;
-    ?>
+
 
 </body>
 

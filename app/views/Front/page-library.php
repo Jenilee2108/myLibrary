@@ -50,21 +50,21 @@ $titre = "Les Livres de MyLibrary"; ?>
             <div class="card-corps">
                 <div class="card-content">
                     <div class="contenu-card-livre">
-                        <h6 class="gold label-article">Auteur: </h6>
+                        <h4 class="gold label-article">Auteur: </h4>
                         <p class="auteurLivre"><?= strip_tags($livre["name_author"]); ?></p>
                     </div>
                     <div class="contenu-card-livre">
-                        <h6 class="gold label-article">Catégorie: </h6>
+                        <h4 class="gold label-article">Catégorie: </h4>
                         <p class="categorieLivre"><?= strip_tags($livre["category"]); ?></p>
                     </div>
                     <div class="contenu-card-livre">
                         <?php if (!is_null($livre['noteMoyenne'])) :
-                            echo "<h6 class='gold label-article'>Note Moyenne: </h6>
+                            echo "<h4 class='gold label-article'>Note Moyenne: </h4>
                             <p class='noteLivre'>" . $livre['noteMoyenne'] . "</p>";
                         endif; ?>
                     </div>
                     <div class="contenu-card-livre">
-                        <h6 class="gold label-article ">Synopsis: </h6>
+                        <h4 class="gold label-article ">Synopsis: </h4>
                         <p class="synopsis-text">
                             <?= strip_tags($livre["content"]); ?>
                         </p>

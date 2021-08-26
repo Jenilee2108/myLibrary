@@ -27,21 +27,21 @@ $titre = "Résultat de votre recherche"; ?>
             <div class="card-corps">
                 <div class="card-content">
                     <div class="contenu-card-livre">
-                        <h6 class="gold label-article">Auteur: </h6>
+                        <h3 class="gold label-article">Auteur: </h3>
                         <p class="auteurLivre"><?= strip_tags($search["name_author"]); ?></p>
                     </div>
                     <div class="contenu-card-livre">
-                        <h6 class="gold label-article">Catégorie: </h6>
+                        <h3 class="gold label-article">Catégorie: </h3>
                         <p class="categorieLivre"><?= strip_tags($search["category"]); ?></p>
                     </div>
                     <div class="contenu-card-livre">
                         <?php if (!is_null($search['noteMoyenne'])) :
-                            echo "<h6 class='gold label-article'>Note Moyenne: </h6>
+                            echo "<h3 class='gold label-article'>Note Moyenne: </h3>
                             <p class='noteLivre'>" . $search['noteMoyenne'] . "</p>";
                         endif; ?>
                     </div>
                     <div class="contenu-card-livre">
-                        <h6 class="gold label-article ">Synopsis: </h6>
+                        <h3 class="gold label-article ">Synopsis: </h3>
                         <p class="synopsis-text" disable="true">
                             <?= strip_tags($search["content"]); ?>
                         </p>

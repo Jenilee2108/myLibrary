@@ -47,9 +47,9 @@ $titre = "Mon tableau de bord";
             </h3>
             <!-- Données relatives au commentaire -->
             <article id="mesComm" class="card-corps">
-                <h4>
+                <h3>
                     ajouté par: <?= htmlspecialchars($comm['pseudo']); ?> le <?= htmlspecialchars(date("d-m-Y à H:i", strtotime($comm['date_ajout']))); ?>
-                </h4>
+                </h3>
                 <!-- Note et Contenu du commentaire -->
                 <?= "<p> Votre note est de : " . htmlspecialchars($comm['note']) . "/20</p>";
                 if (!empty($comm['content'])) :
@@ -96,21 +96,21 @@ $titre = "Mon tableau de bord";
             <article class="card-corps">
                 <div class="card-content">
                     <div class="contenu-card-livre">
-                        <h6 class="title-label label-article">Auteur: </h6>
+                        <h4 class="title-label label-article">Auteur: </h4>
                         <p class="auteurLivre"><?= strip_tags($livre["name_author"]); ?></p>
                     </div>
                     <div class="contenu-card-livre">
-                        <h6 class="title-label label-article">Catégorie: </h6>
+                        <h4 class="title-label label-article">Catégorie: </h4>
                         <p class="categorieLivre"><?= strip_tags($livre["category"]); ?></p>
                     </div>
                     <div class="contenu-card-livre">
                         <?php if (!is_null($livre['noteMoyenne'])) :
-                            echo "<h6 class='title-label label-article'>Note Moyenne: </h6>
+                            echo "<h4 class='title-label label-article'>Note Moyenne: </h4>
                             <p class='noteLivre'>" . $livre['noteMoyenne'] . " pour " . $livre['votes'] . " votants </p>";
                         endif; ?>
                     </div>
                     <div class="contenu-card-livre synopsis">
-                        <h6 class="title-label label-article">Synopsis: </h6>
+                        <h4 class="title-label label-article">Synopsis: </h4>
                         <p class="synopsis-text" disable="true">
                             <?= strip_tags($livre["content"]); ?>
                         </p>
