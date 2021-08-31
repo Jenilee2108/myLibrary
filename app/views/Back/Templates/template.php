@@ -7,7 +7,12 @@
     <meta name="description" content="une application pour avoir en poche les livres dont on dispose à la maison et en garder un commentaire">
     <meta name="keywords" content="application livre commentaire auteur memo notes">
     <title>My Library - <?= $titre ?? "Mon tableau de bord" ?></title>
+    <!-- Feuille de style -->
     <link rel="stylesheet" href="app/public/Back/css/styleBack.css"/>
+    <!-- Scripts -->
+    <script src="app/public/Back/js/jquery-3.5.1.js" defer></script>
+        <!-- pour l'envoi de la suggestion en messagerie -->
+    <script type="text/javascript" src="app/public/Back/js/mesagerie.js" defer></script>
 </head>
 
 <body class="pagewidth container">

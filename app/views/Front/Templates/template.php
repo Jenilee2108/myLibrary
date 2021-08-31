@@ -12,6 +12,12 @@
     <link rel="stylesheet" href="app/public/Front/css/style.css" />
     <!-- Scripts -->
     <script src="app/public/Front/js/jquery-3.5.1.js" defer></script>
+        <!-- Script du filtre -->
+    <script type="text/javascript" src="app/public/Front/js/onglet.js" defer></script>
+        <!-- Scripts de la barre de recherche -->
+    <script type="text/javascript" src="app/public/Front/js/filtre.js" defer></script>
+        <!-- pour l'envoi du message en messagerie -->
+    <script type="text/javascript" src="app/public/Front/js/contact.js" defer></script>
 
 </head>
 
@@ -54,13 +60,7 @@
                 </ul>
             </nav>
         </div>
-        <!-- Script du filtre -->
-        <script type="text/javascript" src="app/public/Front/js/onglet.js" defer></script>
-        <!-- Scripts de la barre de recherche -->
-        <script type="text/javascript" src="app/public/Front/js/filtre.js" defer></script>
     </footer>
-
-
 </body>
 
 </html>
