@@ -24,7 +24,7 @@ $titre = "Suggérez un livre"; ?>
         <input type="text" id="category" name="category" class="categorieLivre" placeholder="Catégorie">
 
         <label for="content" class="title-label label-article">Synopsis: </label>
-        <textarea type="text" id="synopsis" name="content" class="lightGray" placeholder="Résumé"></textarea>
+        <textarea type="text" id="synopsis content" name="content" class="lightGray" placeholder="Résumé"></textarea>
     </div>
     <div class="subBtn">
         <button class="btn" id="suggerer">Envoyer</button>

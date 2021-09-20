@@ -1,3 +1,4 @@
+$(document).ready(function(){
 document.getElementById("suggerer").addEventListener("click", () => {
     // on récupère les données
     let email = document.getElementById("mailContact").value;
@@ -30,4 +31,5 @@ document.getElementById("suggerer").addEventListener("click", () => {
         .catch(function(error) {
             console.log("Probleme avec l'opération de fetch" + error.message);
         });
+})
 });

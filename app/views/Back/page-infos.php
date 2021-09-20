@@ -14,10 +14,10 @@ $titre = "Mes informations";
     <!-- Formulaire de mise à jour des infos utilisateur -->
     <form action="indexAdmin.php?action=updateInfo" method="POST" class="article_commente container">
         <label for="mail" class="title-label" >E-mail : </label>
-        <input type="email" name="mail" value="<?= htmlspecialchars($mesInfos['mail']) ?>">
+        <input type="email" id="mail" name="mail" value="<?= htmlspecialchars($mesInfos['mail']) ?>">
 
         <label for="password" class="title-label" >Password : </label>
-        <input type="password" name="password" value="">
+        <input type="password" id="password" name="password" value="">
 
         <div class="subBtn">
             <button type="submit" class="btn title-label">Mettre a jour</button>

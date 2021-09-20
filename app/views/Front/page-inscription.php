@@ -14,7 +14,7 @@ $titre = "inscritpion";
                             <label for="pseudo">Pseudo : </label>
                         </td>
                         <td class="input-formulaire">
-                            <input type="text" name="pseudo" title="Votre pseudo" plalecholder="Votre pseudo">
+                            <input type="text" id="pseudo" name="pseudo" title="Votre pseudo" plalecholder="Votre pseudo">
                         </td>
                     </tr><!-- Fin de ligne pseudo-->
                     <tr class="bg-gold green">
@@ -22,7 +22,7 @@ $titre = "inscritpion";
                             <label for="password">Mot de passe : </label>
                         </td>
                         <td class="input-formulaire">
-                            <input type="password" name="password" title="Votre mot de passe" plalecholder="Votre mot de passe">
+                            <input type="password"  id="password" name="password" title="Votre mot de passe" plalecholder="Votre mot de passe">
                         </td>
                     </tr><!-- Fin de ligne password-->
                     <tr class="formulaire center">

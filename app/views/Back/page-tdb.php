@@ -61,10 +61,10 @@ $titre = "Mon tableau de bord";
                 <form action="indexAdmin.php?action=updateComm&idComm=<?= $comm['id']; ?>" method="POST" class="article_commente container">
                     <!-- Zone de texte -->
                     <label for="content" class="title-label">Modifiez votre commentaire: </label>
-                    <textarea class="content" name="content" cols="30" rows="10"></textarea>
+                    <textarea id="content" class="content" name="content" cols="30" rows="10"></textarea>
                     <!-- Note attribuée -->
                     <label for="note" class="title-label"> Modifiez votre note : /20 </label>
-                    <input type="number" min="0" max="20" step="1" name="note">
+                    <input type="number" id="note" min="0" max="20" step="1" name="note">
                     <!-- bouton d'action -->
                     <div class="subBtn">
                         <button type="submit" class="btn title-label">Modifier</button>
